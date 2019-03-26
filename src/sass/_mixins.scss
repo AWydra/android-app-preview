@@ -1,0 +1,19 @@
+@mixin flex($justifyContent: center, $alignItems: center, $direction: row) {
+  display: flex;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+  flex-direction: $direction;
+}
+
+@mixin pseudo($display: block, $pos: static, $content: '') {
+  content: $content;
+  display: $display;
+  position: $pos;
+  box-sizing: border-box;
+}
+
+@mixin mq($arg) {
+  @media screen and (max-width: nth($arg, 1)) {
+    @content;
+  }
+}
