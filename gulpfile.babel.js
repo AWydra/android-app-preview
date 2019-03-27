@@ -74,6 +74,11 @@ gulp.task(
         .src(config.paths.src.img)
         .pipe(gulp.dest(config.paths.dist.img));
     },
+    function moveJQuery() {
+      return gulp
+        .src('src/js/otterPlayer.js')
+        .pipe(gulp.dest(config.paths.dist.js));
+    },
     refresh
   )
 );
@@ -85,7 +90,7 @@ gulp.task("clean", () => {
 gulp.task("build", gulp.series(["clean", "sass", "js", "static"]));
 
 function server() {
-  connect.server({}, function() {
+  connect.server({}, function () {
     sync.init({
       injectChanges: true,
       proxy: "127.0.0.1/android-app-preview/dist"
