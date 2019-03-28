@@ -18,16 +18,16 @@ $(document).ready(function () {
     $("#radio-station-name").text(title);
 
     $(".player-button").click(function () {
-      $(".content__buttons-play").toggleClass("hidden");
-      $(".content__buttons-pause").toggleClass("hidden");
+      $(".radio__buttons-play").toggleClass("hidden");
+      $(".radio__buttons-pause").toggleClass("hidden");
     });
 
-    $(".content__buttons-play").click(function () {
+    $(".radio__buttons-play").click(function () {
       otter.load();
       otter.play();
     });
 
-    $(".content__buttons-pause").click(function () {
+    $(".radio__buttons-pause").click(function () {
       otter.pause();
     });
 
@@ -73,9 +73,9 @@ $(document).ready(function () {
                           .text();
                         imageurl =
                           imageurl.search("nocover.png") > 0 ?
-                          "../img/bg.png" :
+                          "img/bg.png" :
                           imageurl;
-                        $(".content").css("background-image", 'url(' + imageurl + ')');
+                        $(".radio").css("background-image", 'url(' + imageurl + ')');
                         $("#artist").text(artist);
                         $("#artist").attr("title", artist);
                         $("#title").text(title);
