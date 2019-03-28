@@ -2,11 +2,12 @@ import gulp from "gulp";
 import babel from "gulp-babel";
 import sass from "gulp-sass";
 import uglify from "gulp-uglify";
+import concat from 'gulp-concat';
 import autoprefixer from "gulp-autoprefixer";
 import clean from "gulp-clean-css";
 import browserSync from "browser-sync";
 import del from "del";
-var connect = require("gulp-connect-php");
+import connect from "gulp-connect-php";
 
 const sync = browserSync.create();
 const reload = sync.reload;
@@ -16,7 +17,7 @@ const config = {
       php: "./src/**/*.php",
       img: "./src/img/**/*.*",
       sass: ["src/sass/style.scss"],
-      js: ["src/js/main.js"]
+      js: ["src/js/**/*.js"]
     },
     dist: {
       main: "./dist",
@@ -56,6 +57,7 @@ gulp.task(
           presets: ["env"]
         })
       )
+      .pipe(concat('main.js'))
       .pipe(uglify())
       .pipe(gulp.dest(config.paths.dist.js));
   }, refresh)
@@ -73,11 +75,6 @@ gulp.task(
       return gulp
         .src(config.paths.src.img)
         .pipe(gulp.dest(config.paths.dist.img));
-    },
-    function moveJQuery() {
-      return gulp
-        .src('src/js/otterPlayer.js')
-        .pipe(gulp.dest(config.paths.dist.js));
     },
     refresh
   )
