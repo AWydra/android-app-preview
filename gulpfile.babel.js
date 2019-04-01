@@ -17,7 +17,9 @@ const config = {
       php: "./src/**/*.php",
       img: "./src/img/**/*.*",
       sass: ["src/sass/style.scss"],
-      js: ["src/js/**/*.js"]
+      app: ["src/js/plugins/*.js", "src/js/app/*.js"],
+      creator: ["src/js/creator/*.js"],
+      html: "src/*.html"
     },
     dist: {
       main: "./dist",
@@ -51,7 +53,7 @@ gulp.task(
   "js",
   gulp.series(function js() {
     return gulp
-      .src(config.paths.src.js)
+      .src(config.paths.src.app)
       .pipe(
         babel({
           presets: ["env"]
@@ -64,11 +66,32 @@ gulp.task(
 );
 
 gulp.task(
+  "creator",
+  gulp.series(function js() {
+    return gulp
+      .src(config.paths.src.creator)
+      .pipe(
+        babel({
+          presets: ["env"]
+        })
+      )
+      .pipe(concat('creator.js'))
+      .pipe(uglify())
+      .pipe(gulp.dest(config.paths.dist.js));
+  }, refresh)
+);
+
+gulp.task(
   "static",
   gulp.series(
     function movePHP() {
       return gulp
         .src(config.paths.src.php)
+        .pipe(gulp.dest(config.paths.dist.main));
+    },
+    function moveHTML() {
+      return gulp
+        .src(config.paths.src.html)
         .pipe(gulp.dest(config.paths.dist.main));
     },
     function moveImages() {
@@ -84,7 +107,7 @@ gulp.task("clean", () => {
   return del([config.paths.dist.main]);
 });
 
-gulp.task("build", gulp.series(["clean", "sass", "js", "static"]));
+gulp.task("build", gulp.series(["clean", "sass", "js", "static", "creator"]));
 
 function server() {
   connect.server({}, function () {
@@ -101,8 +124,9 @@ gulp.task(
   "watch",
   gulp.series(["default"], function watch() {
     gulp.watch("src/sass/**/*.scss", gulp.series(["sass"]));
-    gulp.watch("src/js/**/*.js", gulp.series(["js"]));
-    gulp.watch("src/*.php", gulp.series(["static"]));
+    gulp.watch("src/js/app/*.js", gulp.series(["js"]));
+    gulp.watch("src/js/creator/*.js", gulp.series(["creator"]));
+    gulp.watch(["src/*.php", "src/*.html"], gulp.series(["static"]));
     return server();
   })
 );
