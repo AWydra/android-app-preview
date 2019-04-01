@@ -5,11 +5,11 @@
   @include flex();
 
   &__hamburger {
-    width: 20px;
-    height: 18px;
-    padding: 0;
+    width: 30px;
+    height: 28px;
+    padding: 5px;
     position: absolute;
-    left: 15px;
+    left: 10px;
     background-color: transparent;
     border: none;
     cursor: pointer;

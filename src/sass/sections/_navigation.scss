@@ -4,12 +4,17 @@
   padding: 0 10px;
   position: absolute;
   top: 0;
-  left: 0;
+  left: -75%;
   background-color: white;
   overflow-x: hidden;
   overflow-y: overlay;
-
+  transition: all .3s ease-in-out;
+  z-index: 1;
   @include flex(flex-start, center, column);
+
+  &__active {
+    left: 0;
+  }
 
   &__img {
     width: 105px;
@@ -70,6 +75,9 @@
     border: none;
     border-radius: 3px;
     outline: none;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
     @include flex(flex-start);
 
     &:hover,
@@ -89,43 +97,5 @@
     width: 24px;
     height: 24px;
     margin-right: 20px;
-    //background-color: green;
-
-    // ICONS
-    // &--signal {
-    //   mask: url(../img/signal.svg) no-repeat center;
-    // }
-
-    // &--microphone {
-    //   mask: url(../img/microphone.svg) no-repeat center;
-    // }
-
-    // &--tv {
-    //   mask: url(../img/icon.svg) no-repeat center;
-    // }
-
-    // &--fb {
-    //   mask: url(../img/icon.svg) no-repeat center;
-    // }
-
-    // &--twitter {
-    //   mask: url(../img/icon.svg) no-repeat center;
-    // }
-
-    // &--instagram {
-    //   mask: url(../img/icon.svg) no-repeat center;
-    // }
-
-    // &--web {
-    //   mask: url(../img/icon.svg) no-repeat center;
-    // }
-
-    // &--wordpress {
-    //   mask: url(../img/icon.svg) no-repeat center;
-    // }
-
-    // &--settings {
-    //   mask: url(../img/icon.svg) no-repeat center;
-    // }
   }
 }
