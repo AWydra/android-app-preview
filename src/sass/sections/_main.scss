@@ -3,13 +3,14 @@
 }
 
 .radio {
-  background-image: url('../img/bg.png');
+  background-image: url("../img/bg.png");
   background-position: center;
   background-size: cover;
   @include flex(flex-end, center, column);
 
   &__artist {
     width: 100%;
+    margin-bottom: 20px;
     color: white;
     text-align: center;
 
@@ -28,6 +29,8 @@
 
   &__buttons {
     margin-bottom: 20px;
+    cursor: pointer;
+    z-index: 2;
 
     &-play,
     &-pause {

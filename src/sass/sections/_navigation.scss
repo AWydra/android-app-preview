@@ -8,8 +8,8 @@
   background-color: white;
   overflow-x: hidden;
   overflow-y: overlay;
-  transition: all .3s ease-in-out;
-  z-index: 1;
+  transition: all 0.3s ease-in-out;
+  z-index: 3;
   @include flex(flex-start, center, column);
 
   &__active {
@@ -46,7 +46,6 @@
 
   &__category {
     &:first-child {
-
       hr,
       h2 {
         display: none;
@@ -62,7 +61,7 @@
     h2 {
       margin: 15px 0;
       color: #555;
-      font-size: .9rem;
+      font-size: 0.9rem;
       font-weight: 500;
     }
   }
