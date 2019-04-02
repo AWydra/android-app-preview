@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   const otter = new Audio();
   let connectInterval;
 
@@ -8,7 +8,7 @@ $(document).ready(function () {
       clearInterval(connectInterval);
     }
     connect(xml);
-    connectInterval = setInterval(function () {
+    connectInterval = setInterval(function() {
       connect(xml);
     }, 20000);
 
@@ -17,23 +17,23 @@ $(document).ready(function () {
 
     $("#radio-station-name").text(title);
 
-    $(".player-button").click(function () {
+    $(".player-button").click(function() {
       $(".radio__buttons-play").toggleClass("hidden");
       $(".radio__buttons-pause").toggleClass("hidden");
     });
 
-    $(".radio__buttons-play").click(function () {
+    $(".radio__buttons-play").click(function() {
       otter.load();
       otter.play();
     });
 
-    $(".radio__buttons-pause").click(function () {
+    $(".radio__buttons-pause").click(function() {
       otter.pause();
     });
 
-    $(otter).on("waiting", function () {});
+    $(otter).on("waiting", function() {});
 
-    $(otter).on("playing", function () {});
+    $(otter).on("playing", function() {});
   }
 
   const connect = link => {
@@ -42,23 +42,23 @@ $(document).ready(function () {
       url: link,
       cache: false,
       dataType: "xml",
-      success: function (xml) {
+      success: function(xml) {
         $(xml)
           .find("response")
-          .each(function () {
+          .each(function() {
             $(this)
               .find("data")
-              .each(function () {
+              .each(function() {
                 $(this)
                   .find("item")
-                  .each(function () {
+                  .each(function() {
                     let listeners = $(this)
                       .find("listeners")
                       .text();
                     $("#listeners-count").text(`Listeners: ${listeners}`);
                     $(this)
                       .find("track")
-                      .each(function () {
+                      .each(function() {
                         let artist = $(this)
                           .find("artist")
                           .text();
@@ -69,13 +69,16 @@ $(document).ready(function () {
                         let imageurl =
                           "https://fastcast4u.com/radio-directory/proxy.php?proxy=" +
                           $(this)
-                          .find("imageurl")
-                          .text();
+                            .find("imageurl")
+                            .text();
                         imageurl =
-                          imageurl.search("nocover.png") > 0 ?
-                          "img/bg.png" :
-                          imageurl;
-                        $(".radio").css("background-image", 'url(' + imageurl + ')');
+                          imageurl.search("nocover.png") > 0
+                            ? "img/bg.png"
+                            : imageurl;
+                        $(".radio").css(
+                          "background-image",
+                          "url(" + imageurl + ")"
+                        );
                         $("#artist").text(artist);
                         $("#artist").attr("title", artist);
                         $("#title").text(title);
@@ -88,5 +91,8 @@ $(document).ready(function () {
     });
   };
 
-  otterPlayer('https://eu6.fastcast4u.com/proxy/wydra?mp=/;', 'https://eu6.fastcast4u.com:2199/rpc/wydra/streaminfo.get?x=1');
+  otterPlayer(
+    "https://eu6.fastcast4u.com/proxy/wydra?mp=/;",
+    "https://eu6.fastcast4u.com:2199/rpc/wydra/streaminfo.get?x=1"
+  );
 });
