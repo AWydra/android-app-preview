@@ -1,21 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <?php
         include('head.php');
     ?>
     <title>FastCast4u | ANDROID APP PREVIEW</title>
+    <link
+      rel="stylesheet"
+      href="//marvelapp.github.io/devices.css/assets/devices.min.css"
+    />
 
     <style>
-        .acctitle {
-            font-size: 2rem;
-            line-height: 1;
-        }
-    </style>
-</head>
+      .acctitle {
+        font-size: 2rem;
+        line-height: 1;
+      }
 
-<body>
+      .marvel-device.note8 {
+        width: 340px;
+        height: 669px;
+      }
+
+      .marvel-device.note8 .camera {
+        left: 45px;
+      }
+
+      .marvel-device.note8 .sensors {
+        left: 90px;
+      }
+
+      .marvel-device.note8 .more-sensors {
+        left: 245px;
+      }
+
+      .screen iframe {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
     <?php
         include('menu.php');
     ?>
@@ -23,96 +48,117 @@
     <!-- Document Wrapper
 ============================================= -->
     <div id="wrapper" class="clearfix w-100">
-        <header class="heading-block center col-12 pt-5" style="margin: 0 auto;">
-            <h1>ANDROID APP PREVIEW</h1>
-            <span class="divcenter mt-3">Easily create sub-accounts for individual stations in Centova Cast
-                admin panel. You set the limits!</span>
-        </header>
-        <main class="container">
-            <div class="accordion accordion-border clearfix">
-                <div class="acctitle py-4">I have radio</div>
-                <div class="acc_content px-3 clearfix">
-                    <form action="#" method="get" class="row">
-                        <div class="form-group col-12 col-sm-3">
-                            <label for="client-server">Server</label>
-                            <select class="form-control" id="client-server">
-                                <option disabled>EUROPE</option>
-                                <option>EU1</option>
-                                <option>EU2</option>
-                                <option>EU3</option>
-                                <option>EU4</option>
-                                <option>EU5</option>
-                                <option>EU6</option>
-                                <option>EU7</option>
-                                <option>EU8</option>
-                                <option>EU9</option>
-                                <option>EU11</option>
-                                <option disabled></option>
-                                <option disabled>UNITED STATES of AMERICA</option>
-                                <option>USA1</option>
-                                <option>USA2</option>
-                                <option>USA3</option>
-                                <option>USA4</option>
-                                <option>USA5</option>
-                                <option>USA6</option>
-                                <option>USA7</option>
-                                <option>USA8</option>
-                                <option>USA9</option>
-                                <option>USA11</option>
-                                <option>USA12</option>
-                                <option>USA13</option>
-                                <option>USA14</option>
-                                <option>USA15</option>
-                                <option>USA16</option>
-                                <option>USA17</option>
-                                <option>USA18</option>
-                                <option disabled></option>
-                                <option disabled>SINGAPORE</option>
-                                <option>SG1</option>
-                                <option>SG2</option>
-                                <option disabled></option>
-                                <option disabled>AUSTRALIA</option>
-                                <option>AU1</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-12 col-sm-9">
-                            <label for="client-username">Username</label>
-                            <input type="text" class="form-control" id="client-username" placeholder="Enter username" />
-                            <small class="form-text text-muted">We'll never share your email with anyone else.</small>
-                        </div>
-                        <input class="button center button-rounded button-medium ml-3 whiteotter" id="client-btn"
-                            type="submit" value="Next" />
-                    </form>
-                </div>
+      <header class="heading-block center col-12 pt-5" style="margin: 0 auto;">
+        <h1>ANDROID APP PREVIEW</h1>
+        <span class="divcenter mt-3"
+          >Easily create sub-accounts for individual stations in Centova Cast
+          admin panel. You set the limits!</span
+        >
+      </header>
+      <main class="container">
+        <div class="accordion accordion-border clearfix">
+          <div class="acctitle py-4">I have radio</div>
+          <div class="acc_content px-3 clearfix">
+            <form action="#" method="get" class="row">
+              <div class="form-group col-12 col-sm-3">
+                <label for="client-server">Server</label>
+                <select class="form-control" id="client-server">
+                  <option disabled>EUROPE</option>
+                  <option value="eu1.fastcast4u.com">EU1</option>
+                  <option value="eu2.fastcast4u.com">EU2</option>
+                  <option value="eu3.fastcast4u.com">EU3</option>
+                  <option value="eu4.fastcast4u.com">EU4</option>
+                  <option value="eu5.fastcast4u.com">EU5</option>
+                  <option value="eu6.fastcast4u.com">EU6</option>
+                  <option value="eu7.fastcast4u.com">EU7</option>
+                  <option value="eu8.fastcast4u.com">EU8</option>
+                  <option value="eu9.fastcast4u.com">EU9</option>
+                  <option value="eu11.fastcast4u.com">EU11</option>
+                  <option disabled></option>
+                  <option disabled>UNITED STATES of AMERICA</option>
+                  <option value="usa1.fastcast4u.com">USA1</option>
+                  <option value="usa2.fastcast4u.com">USA2</option>
+                  <option value="usa3.fastcast4u.com">USA3</option>
+                  <option value="usa4.fastcast4u.com">USA4</option>
+                  <option value="usa5.fastcast4u.com">USA5</option>
+                  <option value="usa6.fastcast4u.com">USA6</option>
+                  <option value="usa7.fastcast4u.com">USA7</option>
+                  <option value="usa8.fastcast4u.com">USA8</option>
+                  <option value="usa9.fastcast4u.com">USA9</option>
+                  <option value="usa11.fastcast4u.com">USA11</option>
+                  <option value="usa12.fastcast4u.com">USA12</option>
+                  <option value="usa13.fastcast4u.com">USA13</option>
+                  <option value="usa14.fastcast4u.com">USA14</option>
+                  <option value="usa15.fastcast4u.com">USA15</option>
+                  <option value="usa16.fastcast4u.com">USA16</option>
+                  <option value="usa17.fastcast4u.com">USA17</option>
+                  <option value="usa18.fastcast4u.com">USA18</option>
+                  <option disabled></option>
+                  <option disabled>SINGAPORE</option>
+                  <option value="sg1.fastcast4u.com">SG1</option>
+                  <option value="sg2.fastcast4u.com">SG2</option>
+                  <option disabled></option>
+                  <option disabled>AUSTRALIA</option>
+                  <option value="au1.fastcast4u.com">AU1</option>
+                </select>
+              </div>
+              <div class="form-group col-12 col-sm-9">
+                <label for="client-username">Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="client-username"
+                  placeholder="Enter username"
+                />
+                <small class="form-text text-muted"
+                  >We'll never share your email with anyone else.</small
+                >
+              </div>
+              <input
+                class="button center button-rounded button-medium ml-3 whiteotter"
+                id="client-btn"
+                type="submit"
+                value="Next"
+              />
+            </form>
+          </div>
 
-                <div class="acctitle py-4">I don't have radio</div>
-                <div class="acc_content px-3 clearfix">
-                    <form action="">
-                        <div class="form-group col-12 col-sm-8">
-                            <label for="username-form">Server link</label>
-                            <input type="url" class="form-control" id="username-form" placeholder="Enter username" />
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                                else.</small>
-                        </div>
-                        <input class="button center button-rounded button-medium ml-3 whiteotter" type="submit"
-                            value="Next" />
-                    </form>
-                </div>
-            </div>
-        </main>
+          <div class="acctitle py-4">I don't have radio</div>
+          <div class="acc_content px-3 clearfix">
+            <form action="">
+              <div class="form-group col-12 col-sm-8">
+                <label for="username-form">Server link</label>
+                <input
+                  type="url"
+                  class="form-control"
+                  id="username-form"
+                  placeholder="Enter username"
+                />
+                <small id="emailHelp" class="form-text text-muted"
+                  >We'll never share your email with anyone else.</small
+                >
+              </div>
+              <input
+                class="button center button-rounded button-medium ml-3 whiteotter"
+                type="submit"
+                value="Next"
+              />
+            </form>
+          </div>
+        </div>
+      </main>
 
-        <!-- Footer
+      <!-- Footer
     ============================================= -->
-        <footer id="footer" class="dark">
-            <?php
+      <footer id="footer" class="dark">
+        <?php
         include('footer.php');
         ?>
-        </footer>
-        <!-- #footer end -->
+      </footer>
+      <!-- #footer end -->
 
-        <script src="js/creator.js"></script>
+      <script src="js/creator.js"></script>
     </div>
     <!-- #wrapper end -->
-</body>
-
+  </body>
 </html>
