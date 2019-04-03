@@ -1,98 +1,94 @@
-$(document).ready(function() {
-  const otter = new Audio();
-  let connectInterval;
+const otter = new Audio();
+let connectInterval;
 
-  /* Functions */
-  function otterPlayer(stream, xml) {
-    if (connectInterval) {
-      clearInterval(connectInterval);
-    }
-    connect(xml);
-    connectInterval = setInterval(function() {
-      connect(xml);
-    }, 20000);
-
-    otter.src = stream;
-    otter.volume = 0.5;
-
-    $("#radio-station-name").text(title);
-
-    $(".player-button").click(function() {
-      $(".radio__buttons-play").toggleClass("hidden");
-      $(".radio__buttons-pause").toggleClass("hidden");
-    });
-
-    $(".radio__buttons-play").click(function() {
-      otter.load();
-      otter.play();
-    });
-
-    $(".radio__buttons-pause").click(function() {
-      otter.pause();
-    });
-
-    $(otter).on("waiting", function() {});
-
-    $(otter).on("playing", function() {});
+/* Functions */
+function otterPlayer(stream, xml) {
+  if (connectInterval) {
+    clearInterval(connectInterval);
   }
+  connect(xml);
+  connectInterval = setInterval(function() {
+    connect(xml);
+  }, 20000);
 
-  const connect = link => {
-    $.ajax({
-      type: "GET",
-      url: link,
-      cache: false,
-      dataType: "xml",
-      success: function(xml) {
-        $(xml)
-          .find("response")
-          .each(function() {
-            $(this)
-              .find("data")
-              .each(function() {
-                $(this)
-                  .find("item")
-                  .each(function() {
-                    let listeners = $(this)
-                      .find("listeners")
-                      .text();
-                    $("#listeners-count").text(`Listeners: ${listeners}`);
-                    $(this)
-                      .find("track")
-                      .each(function() {
-                        let artist = $(this)
-                          .find("artist")
-                          .text();
-                        let title = $(this)
-                          .find("title")
-                          .first()
-                          .text();
-                        let imageurl =
-                          "https://fastcast4u.com/radio-directory/proxy.php?proxy=" +
-                          $(this)
-                            .find("imageurl")
-                            .text();
-                        imageurl =
-                          imageurl.search("nocover.png") > 0
-                            ? "img/bg.png"
-                            : imageurl;
-                        $(".radio").css(
-                          "background-image",
-                          "url(" + imageurl + ")"
-                        );
-                        $("#artist").text(artist);
-                        $("#artist").attr("title", artist);
-                        $("#title").text(title);
-                        $("#title").attr("title", title);
-                      });
-                  });
-              });
-          });
+  otter.src = stream;
+  otter.volume = 0.5;
+
+  $("#radio-station-name").text(title);
+
+  $(".player-button").click(function() {
+    $(".radio__buttons-play").toggleClass("hidden");
+    $(".radio__buttons-pause").toggleClass("hidden");
+  });
+
+  $(".radio__buttons-play").click(function() {
+    otter.load();
+    otter.play();
+  });
+
+  $(".radio__buttons-pause").click(function() {
+    otter.pause();
+  });
+
+  $(otter).on("waiting", function() {});
+
+  $(otter).on("playing", function() {});
+}
+
+const connect = link => {
+  let artist;
+  let title;
+
+  $.ajax({
+    type: "GET",
+    url: link,
+    cache: false,
+    dataType: "xml",
+    success: function(xml) {
+      $(xml)
+        .find("response")
+        .each(function() {
+          $(this)
+            .find("data")
+            .each(function() {
+              $(this)
+                .find("item")
+                .each(function() {
+                  let listeners = $(this)
+                    .find("listeners")
+                    .text();
+                  $("#listeners-count").text(`Listeners: ${listeners}`);
+                  $(this)
+                    .find("track")
+                    .each(function() {
+                      artist = $(this)
+                        .find("artist")
+                        .text();
+                      title = $(this)
+                        .find("title")
+                        .first()
+                        .text();
+                      $("#artist").text(artist);
+                      $("#artist").attr("title", artist);
+                      $("#title").text(title);
+                      $("#title").attr("title", title);
+                    });
+                });
+            });
+        });
+    }
+  }).done(function() {
+    const data = encodeURIComponent(`${artist} ${title}`);
+    const arq = $.ajax({
+      url: `https://itunes.apple.com/search?term=${data}&media=music&limit=1`,
+      dataType: "json"
+    }).done(function(json) {
+      if (json.resultCount > 0) {
+        const avatar = json.results[0].artworkUrl30.replace("30x30", "610x610");
+        $(".radio").css("background-image", `url(\"${avatar}\")`);
+      } else {
+        $(".radio").css("background-image", `url("img/bg.png")`);
       }
     });
-  };
-
-  otterPlayer(
-    "https://eu6.fastcast4u.com/proxy/wydra?mp=/;",
-    "https://eu6.fastcast4u.com:2199/rpc/wydra/streaminfo.get?x=1"
-  );
-});
+  });
+};
