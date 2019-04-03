@@ -29,7 +29,6 @@
 
   &__buttons {
     margin-bottom: 20px;
-    cursor: pointer;
     z-index: 2;
 
     &-play,
@@ -39,6 +38,7 @@
       background-color: $mainColor;
       border: none;
       border-radius: 50%;
+      cursor: pointer;
       @include flex();
 
       &:focus {
