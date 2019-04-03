@@ -153,7 +153,15 @@ $stream = $_GET['stream'];
       </section>
 
       <section class="tv tab-content" id="tv" style="display:none;">
-        <h2>Tutaj będzie się coś odtwarzało</h2>
+        <video
+          class="tv__video"
+          src="//eu10.fastcast4u.com/mp4s/fastcast4u.mp4"
+        ></video>
+        <div class="tv__btns-container">
+          <i class="tv__play icon-play"></i>
+          <i class="tv__pause icon-pause hidden"></i>
+          <button class="tv__fullscreen">Toggle Fullscreen</button>
+        </div>
       </section>
 
       <section class="fb tab-content" id="fb" style="display:none;">
@@ -192,7 +200,11 @@ $stream = $_GET['stream'];
         ></iframe>
       </section>
 
-      <section class="addedweb tab-content" id="addedweb" style="display:none;">
+      <section
+        class="customweb tab-content"
+        id="addedweb"
+        style="display:none;"
+      >
         <iframe
           src="//fastcast4u.com/radio-directory"
           frameborder="0"
@@ -203,7 +215,7 @@ $stream = $_GET['stream'];
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="js/main.js"></script>
     <script>
-    otterPlayer('<?=$stream?>','<?=$xml?>');
+      otterPlayer("<?=$stream?>", "<?=$xml?>");
     </script>
   </body>
 </html>
