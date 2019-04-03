@@ -1,3 +1,8 @@
+<?php
+$xml = $_GET['xml'];
+$stream = $_GET['stream'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -197,5 +202,8 @@
     </main>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+    otterPlayer('<?=$stream?>','<?=$xml?>');
+    </script>
   </body>
 </html>
