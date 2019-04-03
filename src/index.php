@@ -37,6 +37,28 @@
         width: 100%;
         height: 100%;
       }
+
+      .loading-spinner {
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      .loading-spinner img {
+        animation: rolling 1s linear infinite;
+      }
+
+      @keyframes rolling {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
     </style>
   </head>
 
@@ -56,7 +78,7 @@
         >
       </header>
       <main class="container">
-        <div class="accordion accordion-border clearfix">
+        <div class="accordion accordion-border position-relative clearfix">
           <div class="acctitle py-4">I have radio</div>
           <div class="acc_content px-3 clearfix">
             <form action="#" method="get" class="row">
@@ -144,6 +166,15 @@
                 value="Next"
               />
             </form>
+          </div>
+          <div
+            class="loading-spinner position-absolute w-100 h-100 justify-content-center align-items-center"
+            style="display: none;"
+          >
+            <img
+              src="//fastcast4u.com/radio-directory/images/station-spinner.png"
+              alt=""
+            />
           </div>
         </div>
       </main>
