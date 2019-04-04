@@ -99,7 +99,7 @@ $stream = $_GET['stream'];
               </a>
             </li>
             <li>
-              <a href="#addedweb" class="navigation__item tabs">
+              <a href="#customweb" class="navigation__item tabs">
                 <img src="img/web.png" alt="" class="navigation__icon" />
                 <h3>Added website</h3>
               </a>
@@ -198,6 +198,52 @@ $stream = $_GET['stream'];
           frameborder="0"
           style="width:100%;height:100%;"
         ></iframe>
+      </section>
+
+      <section class="settings tab-content" id="settings" style="display:none;">
+        <article class="settings__article">
+          <h3 class="settings__heading">General</h3>
+          <ul class="settings__list">
+            <li class="settings__item">
+              <h4 class="settings__title">Show side menu on start</h4>
+              <p class="settings__description">Yes/No</p>
+              <label class="settings__checkbox">
+                <input type="checkbox">
+                <span></span>
+              </label>
+            </li>
+            <li class="settings__item">
+              <h4 class="settings__title">Text size</h4>
+              <p class="settings__description">
+                Preserrend text size for articles and posts
+              </p>
+            </li>
+          </ul>
+        </article>
+
+        <article class="settings__article">
+          <h3 class="settings__heading">Other</h3>
+          <ul class="settings__list">
+            <li class="settings__item">
+              <h4 class="settings__title">About</h4>
+              <p class="settings__description">
+                Information about our application
+              </p>
+            </li>
+            <li class="settings__item">
+              <h4 class="settings__title">Open-source licenses</h4>
+              <p class="settings__description">
+                Licence details for open-source software
+              </p>
+            </li>
+            <li class="settings__item">
+              <h4 class="settings__title">Rate this app</h4>
+              <p class="settings__description">
+                Help other users enjoy this application
+              </p>
+            </li>
+          </ul>
+        </article>
       </section>
 
       <section
