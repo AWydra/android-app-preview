@@ -24,16 +24,56 @@ document.addEventListener("DOMContentLoaded", function() {
       console.log(msg.xmlLink);
       console.log(msg.streamLink);
       $("main").load("appform.html", function() {
-        $(".screen iframe").attr(
+        $("#phone-iframe").attr(
           "src",
           `app.php?xml=${msg.xmlLink}&stream=${msg.streamLink}`
         );
+
+        // Color picker
+        jsc.init();
+
+        // File input
+        $(".image-input").fileinput({
+          allowedFileTypes: ["image"],
+          mainClass: "input-group-md",
+          showUpload: false,
+          previewFileType: "image",
+          browseClass: "btn bgcolor whiteotter m-0",
+          browseLabel: "Pick Image",
+          browseIcon: '<i class="icon-picture"></i> ',
+          removeClass: "btn btn-danger",
+          removeLabel: "Delete",
+          removeIcon: '<i class="icon-trash"></i> ',
+          uploadIcon: '<i class="icon-upload"></i> '
+        });
+
+        // Sortable nav
+        sortable(".otter-sort-container", {
+          forcePlaceholderSize: true,
+          placeholderClass: "ph-class",
+          hoverClass: "bg-maroon yellow"
+        });
+
+        sortable(".otter-sort-item", {
+          forcePlaceholderSize: true,
+          placeholderClass: "ph-class",
+          hoverClass: "bg-maroon yellow",
+          acceptFrom: ".otter-sort-item"
+        });
+
+        // Show/hide upload
+        $("#checkbox1").change(function() {
+          if (this.checked) {
+            $("#autoUpdate").fadeIn("slow");
+          } else {
+            $("#autoUpdate").fadeOut("slow");
+          }
+        });
       });
     });
 
     arq.fail(function(jqXHR, msg) {
-      alert(`Enter valid data
-Request failed: ${msg}`);
+      console.log(jqXHR, msg);
     });
 
     // $("main").load("appform.html");
