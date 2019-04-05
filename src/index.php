@@ -9,6 +9,10 @@
       rel="stylesheet"
       href="//marvelapp.github.io/devices.css/assets/devices.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="//fastcast4u.com/css/components/bs-filestyle.css"
+    />
 
     <style>
       .acctitle {
@@ -19,6 +23,7 @@
       .marvel-device.note8 {
         width: 340px;
         height: 669px;
+        top: 100px;
       }
 
       .marvel-device.note8 .camera {
@@ -58,6 +63,56 @@
           -webkit-transform: rotate(360deg);
           transform: rotate(360deg);
         }
+      }
+
+      .file-footer-buttons {
+        display: none;
+      }
+
+      .otter-sort-container,
+      .otter-sort-item {
+        list-style: none;
+        width: 100%;
+      }
+
+      .otter-sort-container {
+        padding: 30px 0;
+      }
+
+      .otter-sort-container > li {
+        margin: 0 0 20px;
+        padding: 20px;
+        border: solid #777 2px;
+        border-radius: 10px;
+      }
+
+      .otter-sort-item {
+        min-height: 50px;
+      }
+
+      .otter-sort-item > li {
+        margin: 0 0 20px;
+        padding: 5px 10px;
+        background-color: #2e8ece;
+        color: white;
+      }
+
+      .otter-sort-item > li input {
+        padding: 3px;
+        background-color: transparent;
+        color: white;
+        border: none;
+        border-bottom: solid white 2px;
+      }
+
+      .navy h4 {
+        margin: 0 0 10px;
+      }
+
+      .navy h4 input {
+        padding: 3px;
+        border: none;
+        border-bottom: solid #ddd 2px;
       }
     </style>
   </head>
@@ -189,6 +244,9 @@
       <!-- #footer end -->
 
       <script src="js/creator.js"></script>
+      <script src="//fastcast4u.com/js/jscolor.js"></script>
+      <script src="//fastcast4u.com/js/components/bs-filestyle.js"></script>
+      <script src="https://lukasoppermann.github.io/html5sortable/html5sortable.js"></script>
     </div>
     <!-- #wrapper end -->
   </body>

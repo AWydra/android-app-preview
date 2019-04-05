@@ -1,15 +1,356 @@
-<div class="marvel-device note8">
-  <div class="inner"></div>
-  <div class="overflow">
-    <div class="shadow"></div>
-  </div>
-  <div class="speaker"></div>
-  <div class="sensors"></div>
-  <div class="more-sensors"></div>
-  <div class="sleep"></div>
-  <div class="volume"></div>
-  <div class="camera"></div>
-  <div class="screen">
-    <iframe frameborder="0"></iframe>
+<div class="row justify-content-center justify-content-lg-between">
+  <form class="col-12 col-lg-7 col-xl-8" autocomplete="off">
+    <!-- General -->
+    <fieldset>
+      <legend>General</legend>
+      <div class="row">
+        <div class="form-group col-6">
+          <label for="appName"></label>
+          <input
+            type="text"
+            class="form-control"
+            id="appName"
+            placeholder="Enter app name"
+          />
+          <small id="emailHelp" class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
+        </div>
+        <div class="form-group col-6">
+          <label for="appName"></label>
+          <input
+            type="text"
+            class="form-control"
+            id="appName"
+            placeholder="Enter app name"
+          />
+          <small id="emailHelp" class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
+        </div>
+        <div class="form-group col-6">
+          <label for="appName"></label>
+          <input
+            type="text"
+            class="form-control"
+            id="appName"
+            placeholder="Enter app name"
+          />
+          <small id="emailHelp" class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
+        </div>
+
+        <div class="form-group col-6">
+          <label for="appName"></label>
+          <input
+            type="text"
+            class="form-control"
+            id="appName"
+            placeholder="Enter app name"
+          />
+          <small id="emailHelp" class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Colors -->
+    <fieldset>
+      <legend>Colors</legend>
+      <div class="row">
+        <div class="form-group col-6">
+          <label for="slideMenu">Slide Menu color</label>
+          <input
+            class="form-control jscolor {hash:true}"
+            id="slideMenu"
+            placeholder="Slide Menu color"
+            name="slideMenu"
+          />
+          <small class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
+        </div>
+        <div class="form-group col-6">
+          <label for="menuFont">Menu font color</label>
+          <input
+            class="form-control jscolor {hash:true}"
+            id="menuFont"
+            placeholder="Menu font color"
+            name="menuFont"
+          />
+          <small class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
+        </div>
+
+        <div class="form-group col-6">
+          <label for="navbarColor">Navbar color</label>
+          <input
+            class="form-control jscolor {hash:true}"
+            id="navbarColor"
+            placeholder="Navbar color"
+            name="navbarColor"
+          />
+          <small class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
+        </div>
+
+        <div class="form-group col-6">
+          <label for="navbarFont">Navbar font color</label>
+          <input
+            class="form-control jscolor {hash:true}"
+            id="navbarFont"
+            placeholder="Navbar font color"
+            name="navbarFont"
+          />
+          <small class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
+        </div>
+
+        <div class="form-group col-6">
+          <label for="playButton">Play button color</label>
+          <input
+            class="form-control jscolor {hash:true}"
+            id="playButton"
+            placeholder="Play button color"
+            name="playButton"
+          />
+          <small class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
+        </div>
+
+        <div class="form-group col-6">
+          <label for="navigationBg">Navigation background color</label>
+          <input
+            class="form-control jscolor {hash:true}"
+            id="navigationBg"
+            placeholder="Navigation background color"
+            name="navigationBg"
+          />
+          <small class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Images -->
+    <fieldset class="form-group">
+      <legend>
+        Main Menu Logo image
+      </legend>
+      <div class="row">
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="menuLogo"
+              id="menuLogo1"
+              value="option1"
+              checked=""
+            />
+            <label class="form-check-label" for="menuLogo1">
+              Upload your logo (recommended 512x512)
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="menuLogo"
+              id="menuLogo2"
+              value="option2"
+            />
+            <label class="form-check-label" for="menuLogo2">
+              Menu without logo
+            </label>
+          </div>
+        </div>
+      </div>
+      <input
+        class="image-input"
+        type="file"
+        class="file"
+        accept="image/*"
+        data-show-preview="true"
+      />
+    </fieldset>
+
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-12 pt-0">
+          Cover Art display
+        </legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="coverDisplay"
+              id="coverDisplay1"
+              value="option1"
+              checked=""
+            />
+            <label class="form-check-label" for="coverDisplay1">
+              Dynamic Cover Art (based on track metadata and Tunein)
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="coverDisplay"
+              id="coverDisplay2"
+              value="option2"
+            />
+            <label class="form-check-label" for="coverDisplay2">
+              Fixed logo as Cover Art (recommended 640x640)
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="coverDisplay"
+              id="coverDisplay3"
+              value="option3"
+            />
+            <label class="form-check-label" for="coverDisplay3">
+              No Cover
+            </label>
+          </div>
+        </div>
+      </div>
+      <input
+        class="image-input"
+        type="file"
+        class="file"
+        accept="image/*"
+        data-show-preview="true"
+      />
+    </fieldset>
+
+    <fieldset class="form-group">
+      <legend>
+        Links
+      </legend>
+      <div class="row"></div>
+    </fieldset>
+
+    <!-- Navigation -->
+    <fieldset>
+      <legend>Navigation</legend>
+      <div class="row flex-column">
+        <ul class="otter-sort-container js-sortable sortable list list-reset">
+          <li
+            class="p1 mb1 navy bg-yellow"
+            style="position: relative; z-index: 10"
+          >
+            <h4><input type="text" value="Home" /></h4>
+            <ul class="otter-sort-item js-sortable sortable list list-reset">
+              <li
+                class="p1 mb1 navy bg-yellow"
+                style="position: relative; z-index: 10"
+              >
+                <input type="text" value="FastCast4u Radio" />
+              </li>
+              <li
+                class="p1 mb1 navy bg-yellow"
+                style="position: relative; z-index: 10"
+              >
+                <input type="text" value="Live TV" />
+              </li>
+            </ul>
+          </li>
+          <li
+            class="p1 mb1 navy bg-yellow"
+            style="position: relative; z-index: 10"
+          >
+            <h4><input type="text" value="Social Media" /></h4>
+            <ul class="otter-sort-item js-sortable sortable list list-reset">
+              <li
+                class="p1 mb1 navy bg-yellow"
+                style="position: relative; z-index: 10"
+              >
+                <input type="text" value="Facebook" />
+              </li>
+              <li
+                class="p1 mb1 navy bg-yellow"
+                style="position: relative; z-index: 10"
+              >
+                <input type="text" value="Twitter" />
+              </li>
+              <li
+                class="p1 mb1 navy bg-yellow"
+                style="position: relative; z-index: 10"
+              >
+                <input type="text" value="Instagram" />
+              </li>
+            </ul>
+          </li>
+          <li
+            class="p1 mb1 navy bg-yellow"
+            style="position: relative; z-index: 10"
+          >
+            <h4><input type="text" value="Content" /></h4>
+            <ul class="otter-sort-item js-sortable sortable list list-reset">
+              <li
+                class="p1 mb1 navy bg-yellow"
+                style="position: relative; z-index: 10"
+              >
+                <input type="text" value="Your website" />
+              </li>
+              <li
+                class="p1 mb1 navy bg-yellow"
+                style="position: relative; z-index: 10"
+              >
+                <input type="text" value="Added website" />
+              </li>
+              <li
+                class="p1 mb1 navy bg-yellow"
+                style="position: relative; z-index: 10"
+              >
+                <input type="text" value="Your wordpress blog" />
+              </li>
+            </ul>
+          </li>
+          <li
+            class="p1 mb1 navy bg-yellow"
+            style="position: relative; z-index: 10"
+          >
+            <h4><input type="text" value="Misc" /></h4>
+            <ul class="otter-sort-item js-sortable sortable list list-reset">
+              <li
+                class="p1 mb1 navy bg-yellow"
+                style="position: relative; z-index: 10"
+              >
+                <input type="text" value="Settings" />
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </fieldset>
+  </form>
+  <div class="marvel-device note8 position-sticky mb-5">
+    <div class="inner"></div>
+    <div class="overflow">
+      <div class="shadow"></div>
+    </div>
+    <div class="speaker"></div>
+    <div class="sensors"></div>
+    <div class="more-sensors"></div>
+    <div class="sleep"></div>
+    <div class="volume"></div>
+    <div class="camera"></div>
+    <div class="screen">
+      <iframe id="phone-iframe" frameborder="0"></iframe>
+    </div>
   </div>
 </div>
