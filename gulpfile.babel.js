@@ -2,7 +2,7 @@ import gulp from "gulp";
 import babel from "gulp-babel";
 import sass from "gulp-sass";
 import uglify from "gulp-uglify";
-import concat from 'gulp-concat';
+import concat from "gulp-concat";
 import autoprefixer from "gulp-autoprefixer";
 import clean from "gulp-clean-css";
 import browserSync from "browser-sync";
@@ -19,13 +19,15 @@ const config = {
       sass: ["src/sass/style.scss"],
       app: ["src/js/plugins/*.js", "src/js/app/*.js"],
       creator: ["src/js/creator/*.js"],
-      html: "src/*.html"
+      html: "src/*.html",
+      fonts: "src/fonts/*.*"
     },
     dist: {
       main: "./dist",
       css: "./dist/css",
       js: "./dist/js",
-      img: "./dist/img"
+      img: "./dist/img",
+      fonts: "./dist/css/fonts/"
     }
   }
 };
@@ -59,7 +61,7 @@ gulp.task(
           presets: ["env"]
         })
       )
-      .pipe(concat('main.js'))
+      .pipe(concat("main.js"))
       .pipe(uglify())
       .pipe(gulp.dest(config.paths.dist.js));
   }, refresh)
@@ -75,7 +77,7 @@ gulp.task(
           presets: ["env"]
         })
       )
-      .pipe(concat('creator.js'))
+      .pipe(concat("creator.js"))
       .pipe(uglify())
       .pipe(gulp.dest(config.paths.dist.js));
   }, refresh)
@@ -94,6 +96,11 @@ gulp.task(
         .src(config.paths.src.html)
         .pipe(gulp.dest(config.paths.dist.main));
     },
+    function moveFonts() {
+      return gulp
+        .src(config.paths.src.fonts)
+        .pipe(gulp.dest(config.paths.dist.fonts));
+    },
     function moveImages() {
       return gulp
         .src(config.paths.src.img)
@@ -110,7 +117,7 @@ gulp.task("clean", () => {
 gulp.task("build", gulp.series(["clean", "sass", "js", "static", "creator"]));
 
 function server() {
-  connect.server({}, function () {
+  connect.server({}, function() {
     sync.init({
       injectChanges: true,
       proxy: "127.0.0.1/android-app-preview/dist"

@@ -11,7 +11,15 @@
     />
     <link
       rel="stylesheet"
+      href="//fastcast4u.com/css/otterIcons.css"
+    /><link
+      rel="stylesheet"
       href="//fastcast4u.com/css/components/bs-filestyle.css"
+    />
+    <link rel="stylesheet" href="//fastcast4u.com/css/fontpicker.css" />
+    <link
+      rel="stylesheet"
+      href="//codeb.it/fonticonpicker/themes/grey-theme/jquery.fonticonpicker.grey.min.css?v=2.0.0"
     />
 
     <style>
@@ -113,6 +121,41 @@
         padding: 3px;
         border: none;
         border-bottom: solid #ddd 2px;
+      }
+
+      .icons-selector .selector-popup {
+        width: 276px;
+      }
+
+      .fip-icons-container {
+        color: black;
+      }
+
+      .icons-selector {
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+      }
+
+      .icons-selector .selector-button {
+        width: 25px;
+      }
+
+      .icons-selector .selector {
+        width: 66px;
+        height: 30px;
+      }
+
+      .icons-selector .selected-icon {
+        width: 40px;
+      }
+
+      .icons-selector .selected-icon i {
+        line-height: 30px;
+      }
+
+      .icons-selector .selector-button i {
+        line-height: 28px;
       }
     </style>
   </head>
@@ -246,7 +289,7 @@
       <script src="js/creator.js"></script>
       <script src="//fastcast4u.com/js/jscolor.js"></script>
       <script src="//fastcast4u.com/js/components/bs-filestyle.js"></script>
-      <script src="https://lukasoppermann.github.io/html5sortable/html5sortable.js"></script>
+      <script src="//lukasoppermann.github.io/html5sortable/html5sortable.js"></script>
     </div>
     <!-- #wrapper end -->
   </body>
