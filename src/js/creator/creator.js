@@ -1,3 +1,10 @@
+const zIndex = () => {
+  const select = document.querySelectorAll(".icons-selector");
+  for (let i = 0; i < select.length; i++) {
+    select[i].style.zIndex = select.length - i;
+  }
+};
+
 document.addEventListener("DOMContentLoaded", function() {
   const clientForm = document.querySelector("#client-btn");
 
@@ -70,7 +77,15 @@ document.addEventListener("DOMContentLoaded", function() {
           }
         });
 
-        $(".iconpicker-select").fontIconPicker();
+        $(".iconpicker-select")
+          .fontIconPicker({
+            emptyIcon: false
+          })
+          .on("change", function() {
+            navOtter();
+          });
+
+        zIndex();
       });
     });
 
