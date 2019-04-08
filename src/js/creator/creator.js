@@ -69,6 +69,8 @@ document.addEventListener("DOMContentLoaded", function() {
             $("#autoUpdate").fadeOut("slow");
           }
         });
+
+        $(".iconpicker-select").fontIconPicker();
       });
     });
 
