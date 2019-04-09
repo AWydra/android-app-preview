@@ -1,0 +1,16 @@
+.notificationbar {
+  background-color: #2e8ece;
+  @include flex(space-between);
+
+  &__item {
+    width: 50%;
+    padding: 1px 0 1px 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+
+    &:nth-child(2) {
+      padding: 1px 10px 1px 0;
+      text-align: right;
+    }
+  }
+}

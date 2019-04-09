@@ -25,13 +25,25 @@ $stream = $_GET['stream'];
   </head>
 
   <body>
+    <section class="notificationbar">
+      <article class="notificationbar__item">
+        <i class="icon-wifi-full"></i>
+        <i class="icon-soundcloud"></i>
+        <i class="icon-line2-envelope"></i>
+      </article>
+      <article class="notificationbar__item">
+        <i class="icon-line2-bubbles"></i>
+        <i class="icon-line2-energy"></i>
+        <span>13:37</span>
+      </article>
+    </section>
     <header class="navbar">
       <button class="navbar__hamburger" id="otter-btn">
         <span class="navbar__hamburger-inner"></span>
         <span class="navbar__hamburger-inner"></span>
         <span class="navbar__hamburger-inner"></span>
       </button>
-      <h1>FastCast4u Demo App</h1>
+      <h1 class="navbar__title">FastCast4u Demo App</h1>
     </header>
     <aside class="navigation" id="otter-nav">
       <div class="navigation__img">
@@ -208,7 +220,7 @@ $stream = $_GET['stream'];
               <h4 class="settings__title">Show side menu on start</h4>
               <p class="settings__description">Yes/No</p>
               <label class="settings__checkbox">
-                <input type="checkbox">
+                <input type="checkbox" />
                 <span></span>
               </label>
             </li>
