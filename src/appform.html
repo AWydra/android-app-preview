@@ -1,5 +1,5 @@
 <div class="row justify-content-center justify-content-lg-between">
-  <form class="col-12 col-lg-7 col-xl-8" autocomplete="off">
+  <form action="stub.php" class="col-12 col-lg-7 col-xl-8" autocomplete="off">
     <!-- General -->
     <fieldset>
       <legend>General</legend>
@@ -213,6 +213,7 @@
         accept="image/*"
         data-show-preview="true"
         name="menuLogoFile"
+        onchange="makeImg(this, '.navigation__img img');"
       />
     </fieldset>
 
@@ -268,6 +269,7 @@
         accept="image/*"
         data-show-preview="true"
         name="coverDisplayFile"
+        onchange="makeImg(this, '#radio', true);"
       />
     </fieldset>
 
@@ -281,7 +283,8 @@
             <ul class="otter-sort-item js-sortable sortable list list-reset">
               <li
                 class="p1 mb1 navy bg-yellow row"
-                style="position: relative; "
+                style="position: relative;"
+                data-tabs="#radio"
               >
                 <div class="form-group col-2 m-0">
                   <select class="iconpicker-select">
@@ -307,7 +310,6 @@
                     <option>icon-line-download</option>
                     <option>icon-line-globe</option>
                     <option>icon-line-bar-graph</option>
-                    <option>icon-line-star</option>
                     <option>icon-comment</option>
                     <option>icon-location</option>
                     <option>icon-call</option>
@@ -341,6 +343,7 @@
               <li
                 class="p1 mb1 navy bg-yellow row"
                 style="position: relative; "
+                data-tabs="#tv"
               >
                 <div class="form-group col-2 m-0">
                   <select class="iconpicker-select">
@@ -366,7 +369,6 @@
                     <option>icon-line-download</option>
                     <option>icon-line-globe</option>
                     <option>icon-line-bar-graph</option>
-                    <option>icon-line-star</option>
                     <option>icon-comment</option>
                     <option>icon-location</option>
                     <option>icon-call</option>
@@ -405,6 +407,7 @@
               <li
                 class="p1 mb1 navy bg-yellow row"
                 style="position: relative; "
+                data-tabs="#web"
               >
                 <div class="form-group col-2 m-0">
                   <select class="iconpicker-select">
@@ -430,7 +433,6 @@
                     <option>icon-line-download</option>
                     <option>icon-line-globe</option>
                     <option>icon-line-bar-graph</option>
-                    <option>icon-line-star</option>
                     <option>icon-comment</option>
                     <option>icon-location</option>
                     <option>icon-call</option>
@@ -464,6 +466,7 @@
               <li
                 class="p1 mb1 navy bg-yellow row"
                 style="position: relative; "
+                data-tabs="#web"
               >
                 <div class="form-group col-2 m-0">
                   <select class="iconpicker-select">
@@ -488,7 +491,6 @@
                     <option>icon-line-download</option>
                     <option>icon-line-globe</option>
                     <option>icon-line-bar-graph</option>
-                    <option>icon-line-star</option>
                     <option>icon-comment</option>
                     <option>icon-location</option>
                     <option>icon-call</option>
@@ -522,6 +524,7 @@
               <li
                 class="p1 mb1 navy bg-yellow row"
                 style="position: relative; "
+                data-tabs="#web"
               >
                 <div class="form-group col-2 m-0">
                   <select class="iconpicker-select">
@@ -547,7 +550,6 @@
                     <option>icon-line-download</option>
                     <option>icon-line-globe</option>
                     <option>icon-line-bar-graph</option>
-                    <option>icon-line-star</option>
                     <option>icon-comment</option>
                     <option>icon-location</option>
                     <option>icon-call</option>
@@ -586,6 +588,7 @@
               <li
                 class="p1 mb1 navy bg-yellow row"
                 style="position: relative; "
+                data-tabs="#web"
               >
                 <div class="form-group col-2 m-0">
                   <select class="iconpicker-select">
@@ -611,7 +614,6 @@
                     <option>icon-line-download</option>
                     <option>icon-line-globe</option>
                     <option>icon-line-bar-graph</option>
-                    <option>icon-line-star</option>
                     <option>icon-comment</option>
                     <option>icon-location</option>
                     <option>icon-call</option>
@@ -645,6 +647,7 @@
               <li
                 class="p1 mb1 navy bg-yellow row"
                 style="position: relative; "
+                data-tabs="#web"
               >
                 <div class="form-group col-2 m-0">
                   <select class="iconpicker-select">
@@ -670,7 +673,6 @@
                     <option>icon-line-download</option>
                     <option>icon-line-globe</option>
                     <option>icon-line-bar-graph</option>
-                    <option>icon-line-star</option>
                     <option>icon-comment</option>
                     <option>icon-location</option>
                     <option>icon-call</option>
@@ -704,6 +706,7 @@
               <li
                 class="p1 mb1 navy bg-yellow row"
                 style="position: relative; "
+                data-tabs="#web"
               >
                 <div class="form-group col-2 m-0">
                   <select class="iconpicker-select">
@@ -729,7 +732,6 @@
                     <option>icon-line-download</option>
                     <option>icon-line-globe</option>
                     <option>icon-line-bar-graph</option>
-                    <option>icon-line-star</option>
                     <option>icon-comment</option>
                     <option>icon-location</option>
                     <option>icon-call</option>
@@ -768,6 +770,7 @@
               <li
                 class="p1 mb1 navy bg-yellow row"
                 style="position: relative; "
+                data-tabs="#settings"
               >
                 <div class="form-group col-2 m-0">
                   <select class="iconpicker-select">
@@ -793,7 +796,6 @@
                     <option>icon-line-download</option>
                     <option>icon-line-globe</option>
                     <option>icon-line-bar-graph</option>
-                    <option>icon-line-star</option>
                     <option>icon-comment</option>
                     <option>icon-location</option>
                     <option>icon-call</option>
@@ -841,11 +843,11 @@
     <div class="sleep"></div>
     <div class="volume"></div>
     <div class="camera"></div>
-    <div class="screen">
+    <div class="screen d-flex">
       <iframe
         id="phone-iframe"
         frameborder="0"
-        onload="iframe = document.querySelector('#phone-iframe').contentDocument;navOtter();"
+        onload="iframe = this.contentDocument;iframeWindow = this.contentWindow;init();"
       ></iframe>
     </div>
   </div>

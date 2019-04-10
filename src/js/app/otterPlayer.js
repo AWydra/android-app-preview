@@ -9,7 +9,7 @@ function otterPlayer(stream, xml) {
   connect(xml);
   connectInterval = setInterval(function() {
     connect(xml);
-  }, 20000);
+  }, 10000);
 
   otter.src = stream;
   otter.volume = 0.5;
@@ -83,9 +83,11 @@ const connect = link => {
       url: `https://itunes.apple.com/search?term=${data}&media=music&limit=1`,
       dataType: "json"
     }).done(function(json) {
-      if (json.resultCount > 0) {
+      if (json.resultCount > 0 && !$("#radio").hasClass("fixed-bg")) {
         const avatar = json.results[0].artworkUrl30.replace("30x30", "610x610");
         $(".radio").css("background-image", `url(\"${avatar}\")`);
+      } else if ($("#radio").hasClass("custom-bg")) {
+        //do nothing
       } else {
         $(".radio").css("background-image", `url("img/bg.png")`);
       }
