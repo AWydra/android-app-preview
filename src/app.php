@@ -176,40 +176,11 @@ $stream = $_GET['stream'];
         </div>
       </section>
 
-      <section class="fb tab-content" id="fb" style="display:none;">
-        <iframe
-          src="//fb.me/freeshoutcast/"
-          frameborder="0"
-          style="width:100%;height:100%;"
-        ></iframe>
-      </section>
-
-      <section class="twitter tab-content" id="twitter" style="display:none;">
-        <iframe
-          src="//twitter.com/FastCast4u/"
-          frameborder="0"
-          style="width:100%;height:100%;"
-        ></iframe>
-      </section>
-
-      <section
-        class="instagram tab-content"
-        id="instagram"
-        style="display:none;"
-      >
-        <iframe
-          src="//instagram.com/"
-          frameborder="0"
-          style="width:100%;height:100%;"
-        ></iframe>
-      </section>
-
       <section class="web tab-content" id="web" style="display:none;">
-        <iframe
-          src="//fastcast4u.com"
-          frameborder="0"
-          style="width:100%;height:100%;"
-        ></iframe>
+        <h2 class="web__heading">
+          Your Page will be displayed here in the App
+        </h2>
+        <p class="web__content">Preview is unavailable in App Creator</p>
       </section>
 
       <section class="settings tab-content" id="settings" style="display:none;">
@@ -256,18 +227,6 @@ $stream = $_GET['stream'];
             </li>
           </ul>
         </article>
-      </section>
-
-      <section
-        class="customweb tab-content"
-        id="addedweb"
-        style="display:none;"
-      >
-        <iframe
-          src="//fastcast4u.com/radio-directory"
-          frameborder="0"
-          style="width:100%;height:100%;"
-        ></iframe>
       </section>
     </main>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
