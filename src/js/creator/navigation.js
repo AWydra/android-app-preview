@@ -26,12 +26,14 @@ function navOtter() {
       const iconClass = el.children[0].children[1].value;
       const name = el.children[1].children[1].value;
       const url = el.children[2].children[1].value;
+      const tabs = el.getAttribute("data-tabs");
 
       icon.classList.add("navigation__icon", iconClass);
 
       h3.innerHTML = name;
       h3.classList.add("navigation__item-heading");
       anchor.classList.add("navigation__item", "tabs");
+      anchor.setAttribute("href", tabs);
 
       anchor.appendChild(icon);
       anchor.appendChild(h3);
@@ -51,6 +53,8 @@ function navOtter() {
     el.addEventListener("dragend", navOtter);
     slideColor();
     slideHeading();
+    iframeWindow.appNav();
+    iframeWindow.tabs();
   });
 
   sortInput.forEach(el => {
