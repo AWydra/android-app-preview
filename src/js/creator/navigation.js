@@ -1,17 +1,17 @@
 function navOtter() {
-  const iframe = document.querySelector("#phone-iframe").contentDocument;
-
   iframe.querySelectorAll(".navigation__category").forEach(child => {
     child.remove();
   });
 
-  document.querySelectorAll(".otter-sort-container > li").forEach(el => {
+  document.querySelectorAll(".otter-sort-container > .navy").forEach(el => {
     const section = document.createElement("section");
     const hr = document.createElement("hr");
     const h2 = document.createElement("h2");
     const ul = document.createElement("ul");
     const heading = [...el.children][0].children[0].value;
     const children = [...[...el.children][1].children];
+
+    h2.classList.add("navigation__heading");
     h2.innerHTML = heading;
 
     section.classList.add("navigation__category");
@@ -30,6 +30,7 @@ function navOtter() {
       icon.classList.add("navigation__icon", iconClass);
 
       h3.innerHTML = name;
+      h3.classList.add("navigation__item-heading");
       anchor.classList.add("navigation__item", "tabs");
 
       anchor.appendChild(icon);
@@ -48,6 +49,8 @@ function navOtter() {
 
   sortList.forEach(el => {
     el.addEventListener("dragend", navOtter);
+    slideColor();
+    slideHeading();
   });
 
   sortInput.forEach(el => {

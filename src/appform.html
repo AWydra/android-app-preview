@@ -61,24 +61,25 @@
       <legend>Colors</legend>
       <div class="row">
         <div class="form-group col-6">
-          <label for="slideMenu">Slide Menu color</label>
+          <label for="slideBg">Slide Menu color</label>
           <input
-            class="form-control jscolor {hash:true}"
-            id="slideMenu"
+            class="form-control jscolor {hash:true,onFineChange:slideBg}"
+            id="slideBg"
             placeholder="Slide Menu color"
-            name="slideMenu"
+            name="slideBg"
           />
           <small class="form-text text-muted"
             >We'll never share your email with anyone else.</small
           >
         </div>
         <div class="form-group col-6">
-          <label for="menuFont">Menu font color</label>
+          <label for="slideColor">Menu font color</label>
           <input
-            class="form-control jscolor {hash:true}"
-            id="menuFont"
+            class="form-control jscolor {hash:true,onFineChange:slideColor}"
+            id="slideColor"
             placeholder="Menu font color"
-            name="menuFont"
+            name="slideColor"
+            value="000000"
           />
           <small class="form-text text-muted"
             >We'll never share your email with anyone else.</small
@@ -86,12 +87,41 @@
         </div>
 
         <div class="form-group col-6">
-          <label for="navbarColor">Navbar color</label>
+          <label for="slideHeading">Menu headings color</label>
           <input
-            class="form-control jscolor {hash:true}"
-            id="navbarColor"
+            class="form-control jscolor {hash:true,onFineChange:slideHeading}"
+            id="slideHeading"
+            placeholder="Menu headings color"
+            name="slideHeading"
+            value="555555"
+          />
+          <small class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
+        </div>
+
+        <div class="form-group col-6">
+          <label for="notificationBg">Notificationbar color</label>
+          <input
+            class="form-control jscolor {hash:true,onFineChange:notificationBg}"
+            id="notificationBg"
+            placeholder="Notificationbar color"
+            name="notificationBg"
+            value="2e8ece"
+          />
+          <small class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
+        </div>
+
+        <div class="form-group col-6">
+          <label for="navbarBg">Navbar color</label>
+          <input
+            class="form-control jscolor {hash:true,onFineChange:navbarBg}"
+            id="navbarBg"
             placeholder="Navbar color"
-            name="navbarColor"
+            name="navbarBg"
+            value="2e8ece"
           />
           <small class="form-text text-muted"
             >We'll never share your email with anyone else.</small
@@ -99,12 +129,13 @@
         </div>
 
         <div class="form-group col-6">
-          <label for="navbarFont">Navbar font color</label>
+          <label for="navbarColor">Navbar font color</label>
           <input
-            class="form-control jscolor {hash:true}"
-            id="navbarFont"
+            class="form-control jscolor {hash:true,onFineChange:navbarColor}"
+            id="navbarColor"
             placeholder="Navbar font color"
-            name="navbarFont"
+            name="navbarColor"
+            value="ffffff"
           />
           <small class="form-text text-muted"
             >We'll never share your email with anyone else.</small
@@ -114,10 +145,11 @@
         <div class="form-group col-6">
           <label for="playButton">Play button color</label>
           <input
-            class="form-control jscolor {hash:true}"
+            class="form-control jscolor {hash:true,onFineChange:playButton}"
             id="playButton"
             placeholder="Play button color"
             name="playButton"
+            value="2e8ece"
           />
           <small class="form-text text-muted"
             >We'll never share your email with anyone else.</small
@@ -125,12 +157,13 @@
         </div>
 
         <div class="form-group col-6">
-          <label for="navigationBg">Navigation background color</label>
+          <label for="playButtonIcon">Play button icon color</label>
           <input
-            class="form-control jscolor {hash:true}"
-            id="navigationBg"
-            placeholder="Navigation background color"
-            name="navigationBg"
+            class="form-control jscolor {hash:true,onFineChange:playButtonIcon}"
+            id="playButtonIcon"
+            placeholder="Play button font color"
+            name="playButtonIcon"
+            value="ffffff"
           />
           <small class="form-text text-muted"
             >We'll never share your email with anyone else.</small
@@ -152,7 +185,7 @@
               type="radio"
               name="menuLogo"
               id="menuLogo1"
-              value="option1"
+              value="Logo"
               checked=""
             />
             <label class="form-check-label" for="menuLogo1">
@@ -165,7 +198,7 @@
               type="radio"
               name="menuLogo"
               id="menuLogo2"
-              value="option2"
+              value="NoLogo"
             />
             <label class="form-check-label" for="menuLogo2">
               Menu without logo
@@ -179,6 +212,7 @@
         class="file"
         accept="image/*"
         data-show-preview="true"
+        name="menuLogoFile"
       />
     </fieldset>
 
@@ -194,7 +228,7 @@
               type="radio"
               name="coverDisplay"
               id="coverDisplay1"
-              value="option1"
+              value="Metadata"
               checked=""
             />
             <label class="form-check-label" for="coverDisplay1">
@@ -219,7 +253,7 @@
               type="radio"
               name="coverDisplay"
               id="coverDisplay3"
-              value="option3"
+              value="NoCover"
             />
             <label class="form-check-label" for="coverDisplay3">
               No Cover
@@ -233,14 +267,8 @@
         class="file"
         accept="image/*"
         data-show-preview="true"
+        name="coverDisplayFile"
       />
-    </fieldset>
-
-    <fieldset class="form-group">
-      <legend>
-        Links
-      </legend>
-      <div class="row"></div>
     </fieldset>
 
     <!-- Navigation -->
@@ -814,7 +842,11 @@
     <div class="volume"></div>
     <div class="camera"></div>
     <div class="screen">
-      <iframe id="phone-iframe" frameborder="0" onload="navOtter();"></iframe>
+      <iframe
+        id="phone-iframe"
+        frameborder="0"
+        onload="iframe = document.querySelector('#phone-iframe').contentDocument;navOtter();"
+      ></iframe>
     </div>
   </div>
 </div>

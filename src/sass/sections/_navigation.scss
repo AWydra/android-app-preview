@@ -8,7 +8,7 @@
   background-color: white;
   overflow-x: hidden;
   overflow-y: overlay;
-  transition: all 0.3s ease-in-out;
+  transition: left 0.3s ease-in-out;
   z-index: 3;
   @include flex(flex-start, center, column);
 
@@ -57,13 +57,13 @@
       border: none;
       border-top: solid 1px #ddd;
     }
+  }
 
-    h2 {
-      margin: 15px 0;
-      color: #555;
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
+  &__heading {
+    margin: 15px 0;
+    color: #555;
+    font-size: 0.9rem;
+    font-weight: 500;
   }
 
   &__item {
@@ -84,12 +84,12 @@
       background-color: rgba(0, 140, 255, 0.2);
       color: rgb(0, 140, 255);
     }
+  }
 
-    h3 {
-      width: max-content;
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
+  &__item-heading {
+    width: max-content;
+    font-size: 0.9rem;
+    font-weight: 500;
   }
 
   &__icon {
