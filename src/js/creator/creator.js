@@ -5,6 +5,12 @@ const zIndex = () => {
   }
 };
 
+const init = () => {
+  navOtter();
+  iframeWindow.appInit();
+  iframeWindow.tabs();
+};
+
 document.addEventListener("DOMContentLoaded", function() {
   const clientForm = document.querySelector("#client-btn");
 
@@ -86,6 +92,8 @@ document.addEventListener("DOMContentLoaded", function() {
           });
 
         zIndex();
+        logoInput();
+        coverInput();
       });
     });
 
