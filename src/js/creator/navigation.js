@@ -1,9 +1,14 @@
+let navStructure = [];
+
 function navOtter() {
+  navStructure = [];
+
   iframe.querySelectorAll(".navigation__category").forEach(child => {
     child.remove();
   });
 
   document.querySelectorAll(".otter-sort-container > .navy").forEach(el => {
+    const headingStructure = [];
     const section = document.createElement("section");
     const hr = document.createElement("hr");
     const h2 = document.createElement("h2");
@@ -18,7 +23,10 @@ function navOtter() {
     section.appendChild(hr);
     section.appendChild(h2);
 
+    headingStructure[0] = heading;
+
     children.forEach(el => {
+      const itemStructure = [];
       const li = document.createElement("li");
       const anchor = document.createElement("a");
       const icon = document.createElement("i");
@@ -39,7 +47,12 @@ function navOtter() {
       anchor.appendChild(h3);
       li.appendChild(anchor);
       ul.appendChild(li);
+
+      itemStructure.push(iconClass, name, url);
+      headingStructure.push(itemStructure);
     });
+    navStructure.push(headingStructure);
+
     section.appendChild(ul);
     iframe.querySelector(".navigation__menu").appendChild(section);
   });
