@@ -279,7 +279,7 @@
       <div class="row flex-column">
         <ul class="otter-sort-container js-sortable sortable list list-reset">
           <li class="p1 mb1 navy bg-yellow" style="position: relative; ">
-            <h4><input type="text" value="Home" /></h4>
+            <h4><input class="section-heading" type="text" value="Home" /></h4>
             <ul class="otter-sort-item js-sortable sortable list list-reset">
               <li
                 class="p1 mb1 navy bg-yellow row"
@@ -331,13 +331,22 @@
                   <label class="text-white d-block m-0" for="exampleInputEmail1"
                     >Radio:
                   </label>
-                  <input type="text" value="FastCast4u Radio" />
+                  <input
+                    class="item-name"
+                    type="text"
+                    value="FastCast4u Radio"
+                  />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0" for="exampleInputEmail1"
                     >URL:
                   </label>
-                  <input type="text" value="Your radio" />
+                  <input
+                    class="item-url"
+                    type="text"
+                    value="Your radio"
+                    disabled
+                  />
                 </div>
               </li>
               <li
@@ -390,19 +399,21 @@
                   <label class="text-white d-block m-0" for="exampleInputEmail1"
                     >Name:
                   </label>
-                  <input type="text" value="Live TV" />
+                  <input class="item-name" type="text" value="Live TV" />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0" for="exampleInputEmail1"
                     >URL:
                   </label>
-                  <input type="text" value="lorem" />
+                  <input class="item-url" type="text" value="lorem" />
                 </div>
               </li>
             </ul>
           </li>
           <li class="p1 mb1 navy bg-yellow" style="position: relative; ">
-            <h4><input type="text" value="Social Media" /></h4>
+            <h4>
+              <input class="section-heading" type="text" value="Social Media" />
+            </h4>
             <ul class="otter-sort-item js-sortable sortable list list-reset">
               <li
                 class="p1 mb1 navy bg-yellow row"
@@ -454,13 +465,13 @@
                   <label class="text-white d-block m-0" for="exampleInputEmail1"
                     >Name:
                   </label>
-                  <input type="text" value="Facebook" />
+                  <input class="item-name" type="text" value="Facebook" />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0" for="exampleInputEmail1"
                     >URL:
                   </label>
-                  <input type="text" value="lorem" />
+                  <input class="item-url" type="text" value="lorem" />
                 </div>
               </li>
               <li
@@ -512,13 +523,13 @@
                   <label class="text-white d-block m-0" for="exampleInputEmail1"
                     >Name:
                   </label>
-                  <input type="text" value="Twitter" />
+                  <input class="item-name" type="text" value="Twitter" />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0" for="exampleInputEmail1"
                     >URL:
                   </label>
-                  <input type="text" value="lorem" />
+                  <input class="item-url" type="text" value="lorem" />
                 </div>
               </li>
               <li
@@ -571,19 +582,21 @@
                   <label class="text-white d-block m-0" for="exampleInputEmail1"
                     >Name:
                   </label>
-                  <input type="text" value="Instagram" />
+                  <input class="item-name" type="text" value="Instagram" />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0" for="exampleInputEmail1"
                     >URL:
                   </label>
-                  <input type="text" value="lorem" />
+                  <input class="item-url" type="text" value="lorem" />
                 </div>
               </li>
             </ul>
           </li>
           <li class="p1 mb1 navy bg-yellow" style="position: relative; ">
-            <h4><input type="text" value="Content" /></h4>
+            <h4>
+              <input class="section-heading" type="text" value="Content" />
+            </h4>
             <ul class="otter-sort-item js-sortable sortable list list-reset">
               <li
                 class="p1 mb1 navy bg-yellow row"
@@ -635,13 +648,13 @@
                   <label class="text-white d-block m-0" for="exampleInputEmail1"
                     >Name:
                   </label>
-                  <input type="text" value="Your website" />
+                  <input class="item-name" type="text" value="Your website" />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0" for="exampleInputEmail1"
                     >URL:
                   </label>
-                  <input type="text" value="lorem" />
+                  <input class="item-url" type="text" value="lorem" />
                 </div>
               </li>
               <li
@@ -694,13 +707,13 @@
                   <label class="text-white d-block m-0" for="exampleInputEmail1"
                     >Name:
                   </label>
-                  <input type="text" value="Custom website" />
+                  <input class="item-name" type="text" value="Custom website" />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0" for="exampleInputEmail1"
                     >URL:
                   </label>
-                  <input type="text" value="lorem" />
+                  <input class="item-url" type="text" value="lorem" />
                 </div>
               </li>
               <li
@@ -753,19 +766,23 @@
                   <label class="text-white d-block m-0" for="exampleInputEmail1"
                     >Name:
                   </label>
-                  <input type="text" value="Your wordpress blog" />
+                  <input
+                    class="item-name"
+                    type="text"
+                    value="Your wordpress blog"
+                  />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0" for="exampleInputEmail1"
                     >URL:
                   </label>
-                  <input type="text" value="lorem" />
+                  <input class="item-url" type="text" value="lorem" />
                 </div>
               </li>
             </ul>
           </li>
           <li class="p1 mb1 navy bg-yellow" style="position: relative; ">
-            <h4><input type="text" value="Misc" /></h4>
+            <h4><input class="section-heading" type="text" value="Misc" /></h4>
             <ul class="otter-sort-item js-sortable sortable list list-reset">
               <li
                 class="p1 mb1 navy bg-yellow row"
@@ -817,13 +834,13 @@
                   <label class="text-white d-block m-0" for="exampleInputEmail1"
                     >Name:
                   </label>
-                  <input type="text" value="Settings" />
+                  <input class="item-name" type="text" value="Settings" />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0" for="exampleInputEmail1"
                     >URL:
                   </label>
-                  <input type="text" value="lorem" />
+                  <input class="item-url" type="text" value="lorem" />
                 </div>
               </li>
             </ul>
@@ -844,11 +861,7 @@
     <div class="volume"></div>
     <div class="camera"></div>
     <div class="screen d-flex">
-      <iframe
-        id="phone-iframe"
-        frameborder="0"
-        onload="iframe = this.contentDocument;iframeWindow = this.contentWindow;init();"
-      ></iframe>
+      <iframe id="phone-iframe" frameborder="0" onload="init();"></iframe>
     </div>
   </div>
 </div>

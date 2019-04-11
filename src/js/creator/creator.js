@@ -1,14 +1,21 @@
+let iframe;
+let iframeWindow;
+
+const init = () => {
+  const appFrame = document.querySelector("#phone-iframe");
+  appFrame.addEventListener("load", () => {
+    iframe = appFrame.contentDocument;
+    iframeWindow = appFrame.contentWindow;
+    navOtter();
+    iframeWindow.appInit();
+    iframeWindow.tabs();
+  });
+};
 const zIndex = () => {
   const select = document.querySelectorAll(".icons-selector");
   for (let i = 0; i < select.length; i++) {
     select[i].style.zIndex = select.length - i;
   }
-};
-
-const init = () => {
-  navOtter();
-  iframeWindow.appInit();
-  iframeWindow.tabs();
 };
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -90,7 +97,6 @@ document.addEventListener("DOMContentLoaded", function() {
           .on("change", function() {
             navOtter();
           });
-
         zIndex();
         logoInput();
         coverInput();

@@ -8,8 +8,8 @@ function navOtter() {
     const hr = document.createElement("hr");
     const h2 = document.createElement("h2");
     const ul = document.createElement("ul");
-    const heading = [...el.children][0].children[0].value;
-    const children = [...[...el.children][1].children];
+    const heading = el.querySelector(".section-heading").value;
+    const children = el.querySelectorAll(".otter-sort-item > .navy");
 
     h2.classList.add("navigation__heading");
     h2.innerHTML = heading;
@@ -23,9 +23,9 @@ function navOtter() {
       const anchor = document.createElement("a");
       const icon = document.createElement("i");
       const h3 = document.createElement("h3");
-      const iconClass = el.children[0].children[1].value;
-      const name = el.children[1].children[1].value;
-      const url = el.children[2].children[1].value;
+      const iconClass = el.querySelector(".iconpicker-select").value;
+      const name = el.querySelector(".item-name").value;
+      const url = el.querySelector(".item-url").value;
       const tabs = el.getAttribute("data-tabs");
 
       icon.classList.add("navigation__icon", iconClass);
