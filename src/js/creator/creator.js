@@ -97,6 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
           .on("change", function() {
             navOtter();
           });
+        appName();
         zIndex();
         logoInput();
         coverInput();

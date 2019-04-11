@@ -1,3 +1,10 @@
+function appName() {
+  const appName = document.querySelector("#appName");
+  appName.addEventListener("input", () => {
+    iframe.querySelector(".navbar__title").innerHTML = appName.value;
+  });
+}
+
 function slideBg() {
   const input = document.querySelector("#slideBg").value;
 
