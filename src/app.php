@@ -47,7 +47,7 @@ $stream = $_GET['stream'];
     </header>
     <aside class="navigation" id="otter-nav">
       <div class="navigation__img">
-        <img src="https://fastcast4u.com/images/logo_fb.png" alt="" />
+        <img src="https://fastcast4u.com/images/logo.png" alt="" />
       </div>
       <nav class="navigation__menu">
         <section class="navigation__category">
