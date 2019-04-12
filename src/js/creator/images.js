@@ -28,11 +28,10 @@ function logoInput() {
     el.addEventListener("change", () => {
       if (logoCheckbox[0].checked) {
         iframe.querySelector(".navigation__img").style.display = "block";
-        iframe.querySelector(".navigation__img").style.pointerEvents = "all";
+        fileContainer.style.pointerEvents = "all";
         fileContainer.style.opacity = 1;
       } else {
-        iframe.querySelector(".navigation__img").style.display = "none";
-        iframe.querySelector(".navigation__img").style.pointerEvents = "none";
+        fileContainer.style.pointerEvents = "none";
         fileContainer.style.opacity = 0;
       }
     });
