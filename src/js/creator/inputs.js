@@ -66,3 +66,18 @@ function playButtonIcon() {
     el.style.color = input;
   });
 }
+
+function liveTV() {
+  const input = document.querySelector("#live-tv");
+  const video = iframe.querySelector(".tv__video");
+  input.addEventListener("input", () => {
+    if (Hls.isSupported()) {
+      var hls = new Hls();
+      hls.loadSource(input.value);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, function() {
+        video.load();
+      });
+    }
+  });
+}
