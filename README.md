@@ -33,4 +33,4 @@ The page will reload if you make edits. All files Builds the app for production 
 
 ## License
 
-This project is licensed under the GNU General Public License v3.0 License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GNU General Public License v3.0 License - see the [LICENSE](LICENSE) file for details
