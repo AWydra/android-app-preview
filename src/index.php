@@ -241,9 +241,6 @@
                   id="client-username"
                   placeholder="Enter username"
                 />
-                <small class="form-text text-muted"
-                  >We'll never share your email with anyone else.</small
-                >
               </div>
               <input
                 class="button center button-rounded button-medium ml-3 whiteotter"
@@ -277,7 +274,7 @@
             </form>
           </div> -->
 
-          <div class="acctitle py-4">Demo</div>
+          <!-- <div class="acctitle py-4">Demo</div>
           <div class="acc_content px-3 clearfix">
             <form action="">
               <div class="form-group col-12 col-sm-8">
@@ -295,7 +292,7 @@
                 value="Use demo link"
               />
             </form>
-          </div>
+          </div> -->
           <div
             class="loading-spinner position-absolute w-100 h-100 justify-content-center align-items-center"
             style="display: none;"
@@ -320,6 +317,7 @@
       <script src="js/creator.js"></script>
       <script src="//fastcast4u.com/js/jscolor.js"></script>
       <script src="//fastcast4u.com/js/components/bs-filestyle.js"></script>
+      <script src="//fastcast4u.com/radio-directory/js/sweetalert2.js"></script>
       <script src="//lukasoppermann.github.io/html5sortable/html5sortable.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     </div>

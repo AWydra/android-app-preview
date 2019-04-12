@@ -64,7 +64,7 @@ const zIndex = () => {
 
 document.addEventListener("DOMContentLoaded", function() {
   const clientForm = document.querySelector("#client-btn");
-  const demoForm = document.querySelector("#demo-btn");
+  //const demoForm = document.querySelector("#demo-btn");
 
   clientForm.addEventListener("click", ev => {
     const server = document.querySelector("#client-server").value;
@@ -108,8 +108,28 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     });
 
-    arq.fail(function(jqXHR, msg) {
-      console.log(jqXHR, msg);
+    arq.fail(function(jqXHR) {
+      const response = jqXHR.responseText;
+
+      if (response === "WrongData") {
+        Swal.fire({
+          type: "error",
+          title: "Stream cannot be found",
+          text: "Please enter a valid username"
+        });
+      } else if (response === "WrongUser") {
+        Swal.fire({
+          type: "error",
+          title: "Invalid username",
+          text: "Please check your Centova username and try again"
+        });
+      } else {
+        Swal.fire({
+          type: "error",
+          title: "Oops...",
+          text: "Something went wrong! We will fix it asap."
+        });
+      }
     });
 
     // $("main").load("appform.html");
@@ -117,46 +137,44 @@ document.addEventListener("DOMContentLoaded", function() {
     return false;
   });
 
-  demoForm.addEventListener("click", ev => {
-    ev.preventDefault();
+  // demoForm.addEventListener("click", ev => {
+  //   ev.preventDefault();
 
-    const arq = $.ajax({
-      url: "getStreamAndXML.php",
-      method: "GET",
-      dataType: "json",
-      data: { username: "wydra", server: "eu6.fastcast4u.com" },
-      beforeSend: function() {
-        $(".loading-spinner").css("display", "flex");
-      },
-      complete: function() {
-        $(".loading-spinner").hide();
-      }
-    });
+  //   const arq = $.ajax({
+  //     url: "getStreamAndXML.php",
+  //     method: "GET",
+  //     dataType: "json",
+  //     data: { username: "wydra", server: "eu6.fastcast4u.com" },
+  //     beforeSend: function() {
+  //       $(".loading-spinner").css("display", "flex");
+  //     },
+  //     complete: function() {
+  //       $(".loading-spinner").hide();
+  //     }
+  //   });
 
-    arq.done(function(msg) {
-      console.log(msg.xmlLink);
-      console.log(msg.streamLink);
-      $("main").load("appform.html", function() {
-        $("#phone-iframe").attr(
-          "src",
-          `app.php?xml=${msg.xmlLink}&stream=${msg.streamLink}`
-        );
+  //   arq.done(function(msg) {
+  //     $("main").load("appform.html", function() {
+  //       $("#phone-iframe").attr(
+  //         "src",
+  //         `app.php?xml=${msg.xmlLink}&stream=${msg.streamLink}`
+  //       );
 
-        const appFrame = document.querySelector("#phone-iframe");
-        appFrame.onload = function() {
-          iframe = appFrame.contentDocument;
-          iframeWindow = appFrame.contentWindow;
-          navOtter();
-          iframeWindow.appInit();
-          iframeWindow.tabs();
-          liveTV();
-        };
+  //       const appFrame = document.querySelector("#phone-iframe");
+  //       appFrame.onload = function() {
+  //         iframe = appFrame.contentDocument;
+  //         iframeWindow = appFrame.contentWindow;
+  //         navOtter();
+  //         iframeWindow.appInit();
+  //         iframeWindow.tabs();
+  //         liveTV();
+  //       };
 
-        init();
+  //       init();
 
-        document.querySelector("#form-submit").remove();
-        document.querySelector("form").removeAttribute("action");
-      });
-    });
-  });
+  //       document.querySelector("#form-submit").remove();
+  //       document.querySelector("form").removeAttribute("action");
+  //     });
+  //   });
+  // });
 });
