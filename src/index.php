@@ -4,15 +4,13 @@
     <?php
         include('head.php');
     ?>
-    <title>FastCast4u | ANDROID APP PREVIEW</title>
+    <title>FastCast4u | MOBILE APP CREATOR</title>
     <link
       rel="stylesheet"
       href="//marvelapp.github.io/devices.css/assets/devices.min.css"
     />
+    <link rel="stylesheet" href="//fastcast4u.com/css/otterIcons.css" />
     <link
-      rel="stylesheet"
-      href="//fastcast4u.com/css/otterIcons.css"
-    /><link
       rel="stylesheet"
       href="//fastcast4u.com/css/components/bs-filestyle.css"
     />
@@ -113,6 +111,16 @@
         border-bottom: solid white 2px;
       }
 
+      ::-webkit-input-placeholder {
+        color: white;
+      }
+      ::-moz-placeholder {
+        color: white;
+      }
+      :-ms-input-placeholder {
+        color: white;
+      }
+
       .navy h4 {
         margin: 0 0 10px;
       }
@@ -157,6 +165,10 @@
       .icons-selector .selector-button i {
         line-height: 28px;
       }
+
+      ::placeholder {
+        color: white;
+      }
     </style>
   </head>
 
@@ -169,10 +181,9 @@
 ============================================= -->
     <div id="wrapper" class="clearfix w-100">
       <header class="heading-block center col-12 pt-5" style="margin: 0 auto;">
-        <h1>ANDROID APP PREVIEW</h1>
+        <h1>MOBILE APP CREATOR</h1>
         <span class="divcenter mt-3"
-          >Easily create sub-accounts for individual stations in Centova Cast
-          admin panel. You set the limits!</span
+          >Create and Preview your own Mobile App</span
         >
       </header>
       <main class="container">
@@ -243,7 +254,7 @@
             </form>
           </div>
 
-          <div class="acctitle py-4">I don't have radio</div>
+          <!-- <div class="acctitle py-4">I don't have radio</div>
           <div class="acc_content px-3 clearfix">
             <form action="">
               <div class="form-group col-12 col-sm-8">
@@ -262,6 +273,26 @@
                 class="button center button-rounded button-medium ml-3 whiteotter"
                 type="submit"
                 value="Next"
+              />
+            </form>
+          </div> -->
+
+          <div class="acctitle py-4">Demo</div>
+          <div class="acc_content px-3 clearfix">
+            <form action="">
+              <div class="form-group col-12 col-sm-8">
+                <input
+                  type="hidden"
+                  class="form-control"
+                  id="username-form"
+                  placeholder="Enter username"
+                />
+              </div>
+              <input
+                id="demo-btn"
+                class="button center button-rounded button-medium ml-3 whiteotter"
+                type="submit"
+                value="Use demo link"
               />
             </form>
           </div>
@@ -290,6 +321,7 @@
       <script src="//fastcast4u.com/js/jscolor.js"></script>
       <script src="//fastcast4u.com/js/components/bs-filestyle.js"></script>
       <script src="//lukasoppermann.github.io/html5sortable/html5sortable.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     </div>
     <!-- #wrapper end -->
   </body>

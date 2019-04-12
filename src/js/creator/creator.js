@@ -1,16 +1,60 @@
 let iframe;
 let iframeWindow;
 
-const init = () => {
-  const appFrame = document.querySelector("#phone-iframe");
-  appFrame.addEventListener("load", () => {
-    iframe = appFrame.contentDocument;
-    iframeWindow = appFrame.contentWindow;
-    navOtter();
-    iframeWindow.appInit();
-    iframeWindow.tabs();
+function init() {
+  // Color picker
+  jsc.init();
+
+  // File input
+  $(".image-input").fileinput({
+    allowedFileTypes: ["image"],
+    mainClass: "input-group-md",
+    showUpload: false,
+    previewFileType: "image",
+    browseClass: "btn bgcolor whiteotter m-0",
+    browseLabel: "Pick Image",
+    browseIcon: '<i class="icon-picture"></i> ',
+    removeClass: "btn btn-danger",
+    removeLabel: "Delete",
+    removeIcon: '<i class="icon-trash"></i> ',
+    uploadIcon: '<i class="icon-upload"></i> '
   });
-};
+
+  // Sortable nav
+  sortable(".otter-sort-container", {
+    forcePlaceholderSize: true,
+    placeholderClass: "ph-class",
+    hoverClass: "bg-maroon yellow"
+  });
+
+  sortable(".otter-sort-item", {
+    forcePlaceholderSize: true,
+    placeholderClass: "ph-class",
+    hoverClass: "bg-maroon yellow",
+    acceptFrom: ".otter-sort-item"
+  });
+
+  // Show/hide upload
+  $("#checkbox1").change(function() {
+    if (this.checked) {
+      $("#autoUpdate").fadeIn("slow");
+    } else {
+      $("#autoUpdate").fadeOut("slow");
+    }
+  });
+
+  $(".iconpicker-select")
+    .fontIconPicker({
+      emptyIcon: false
+    })
+    .on("change", function() {
+      navOtter();
+    });
+  appName();
+  zIndex();
+  logoInput();
+  coverInput();
+}
 const zIndex = () => {
   const select = document.querySelectorAll(".icons-selector");
   for (let i = 0; i < select.length; i++) {
@@ -20,6 +64,7 @@ const zIndex = () => {
 
 document.addEventListener("DOMContentLoaded", function() {
   const clientForm = document.querySelector("#client-btn");
+  const demoForm = document.querySelector("#demo-btn");
 
   clientForm.addEventListener("click", ev => {
     const server = document.querySelector("#client-server").value;
@@ -49,58 +94,17 @@ document.addEventListener("DOMContentLoaded", function() {
           `app.php?xml=${msg.xmlLink}&stream=${msg.streamLink}`
         );
 
-        // Color picker
-        jsc.init();
+        const appFrame = document.querySelector("#phone-iframe");
+        appFrame.onload = function() {
+          iframe = appFrame.contentDocument;
+          iframeWindow = appFrame.contentWindow;
+          navOtter();
+          iframeWindow.appInit();
+          iframeWindow.tabs();
+          liveTV();
+        };
 
-        // File input
-        $(".image-input").fileinput({
-          allowedFileTypes: ["image"],
-          mainClass: "input-group-md",
-          showUpload: false,
-          previewFileType: "image",
-          browseClass: "btn bgcolor whiteotter m-0",
-          browseLabel: "Pick Image",
-          browseIcon: '<i class="icon-picture"></i> ',
-          removeClass: "btn btn-danger",
-          removeLabel: "Delete",
-          removeIcon: '<i class="icon-trash"></i> ',
-          uploadIcon: '<i class="icon-upload"></i> '
-        });
-
-        // Sortable nav
-        sortable(".otter-sort-container", {
-          forcePlaceholderSize: true,
-          placeholderClass: "ph-class",
-          hoverClass: "bg-maroon yellow"
-        });
-
-        sortable(".otter-sort-item", {
-          forcePlaceholderSize: true,
-          placeholderClass: "ph-class",
-          hoverClass: "bg-maroon yellow",
-          acceptFrom: ".otter-sort-item"
-        });
-
-        // Show/hide upload
-        $("#checkbox1").change(function() {
-          if (this.checked) {
-            $("#autoUpdate").fadeIn("slow");
-          } else {
-            $("#autoUpdate").fadeOut("slow");
-          }
-        });
-
-        $(".iconpicker-select")
-          .fontIconPicker({
-            emptyIcon: false
-          })
-          .on("change", function() {
-            navOtter();
-          });
-        appName();
-        zIndex();
-        logoInput();
-        coverInput();
+        init();
       });
     });
 
@@ -111,5 +115,48 @@ document.addEventListener("DOMContentLoaded", function() {
     // $("main").load("appform.html");
 
     return false;
+  });
+
+  demoForm.addEventListener("click", ev => {
+    ev.preventDefault();
+
+    const arq = $.ajax({
+      url: "getStreamAndXML.php",
+      method: "GET",
+      dataType: "json",
+      data: { username: "wydra", server: "eu6.fastcast4u.com" },
+      beforeSend: function() {
+        $(".loading-spinner").css("display", "flex");
+      },
+      complete: function() {
+        $(".loading-spinner").hide();
+      }
+    });
+
+    arq.done(function(msg) {
+      console.log(msg.xmlLink);
+      console.log(msg.streamLink);
+      $("main").load("appform.html", function() {
+        $("#phone-iframe").attr(
+          "src",
+          `app.php?xml=${msg.xmlLink}&stream=${msg.streamLink}`
+        );
+
+        const appFrame = document.querySelector("#phone-iframe");
+        appFrame.onload = function() {
+          iframe = appFrame.contentDocument;
+          iframeWindow = appFrame.contentWindow;
+          navOtter();
+          iframeWindow.appInit();
+          iframeWindow.tabs();
+          liveTV();
+        };
+
+        init();
+
+        document.querySelector("#form-submit").remove();
+        document.querySelector("form").removeAttribute("action");
+      });
+    });
   });
 });

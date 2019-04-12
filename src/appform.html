@@ -13,9 +13,21 @@
             placeholder="Enter app name"
             value="FastCast4u Demo App"
           />
-          <small id="emailHelp" class="form-text text-muted"
-            >We'll never share your email with anyone else.</small
+          <small class="form-text text-muted"
+            >Name displays on toolbar and under icon</small
           >
+        </div>
+        <div class="form-group col-12">
+          <label for="appIcon">App icon</label>
+          <input
+            class="image-input"
+            type="file"
+            class="file"
+            accept="image/*"
+            data-show-preview="true"
+            name="appIcon"
+          />
+          <small class="form-text text-muted">Recomended 1024x1024</small>
         </div>
       </div>
     </fieldset>
@@ -292,9 +304,7 @@
                   </select>
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0" for="exampleInputEmail1"
-                    >Radio:
-                  </label>
+                  <label class="text-white d-block m-0">Radio: </label>
                   <input
                     class="item-name"
                     type="text"
@@ -302,9 +312,7 @@
                   />
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0" for="exampleInputEmail1"
-                    >URL:
-                  </label>
+                  <label class="text-white d-block m-0">URL: </label>
                   <input
                     class="item-url"
                     type="text"
@@ -360,16 +368,19 @@
                   </select>
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0" for="exampleInputEmail1"
-                    >Name:
-                  </label>
+                  <label class="text-white d-block m-0">Name: </label>
                   <input class="item-name" type="text" value="Live TV" />
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0" for="exampleInputEmail1"
+                  <label class="text-white d-block m-0" for="live-tv"
                     >URL:
                   </label>
-                  <input class="item-url" type="text" value="lorem" />
+                  <input
+                    id="live-tv"
+                    class="item-url"
+                    type="text"
+                    placeholder="Live Stream URL"
+                  />
                 </div>
               </li>
             </ul>
@@ -426,16 +437,12 @@
                   </select>
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0" for="exampleInputEmail1"
-                    >Name:
-                  </label>
+                  <label class="text-white d-block m-0">Name: </label>
                   <input class="item-name" type="text" value="Facebook" />
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0" for="exampleInputEmail1"
-                    >URL:
-                  </label>
-                  <input class="item-url" type="text" value="lorem" />
+                  <label class="text-white d-block m-0">URL: </label>
+                  <input class="item-url" type="text" placeholder="URL" />
                 </div>
               </li>
               <li
@@ -484,16 +491,12 @@
                   </select>
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0" for="exampleInputEmail1"
-                    >Name:
-                  </label>
+                  <label class="text-white d-block m-0">Name: </label>
                   <input class="item-name" type="text" value="Twitter" />
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0" for="exampleInputEmail1"
-                    >URL:
-                  </label>
-                  <input class="item-url" type="text" value="lorem" />
+                  <label class="text-white d-block m-0">URL: </label>
+                  <input class="item-url" type="text" placeholder="URL" />
                 </div>
               </li>
               <li
@@ -543,16 +546,12 @@
                   </select>
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0" for="exampleInputEmail1"
-                    >Name:
-                  </label>
+                  <label class="text-white d-block m-0">Name: </label>
                   <input class="item-name" type="text" value="Instagram" />
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0" for="exampleInputEmail1"
-                    >URL:
-                  </label>
-                  <input class="item-url" type="text" value="lorem" />
+                  <label class="text-white d-block m-0">URL: </label>
+                  <input class="item-url" type="text" placeholder="URL" />
                 </div>
               </li>
             </ul>
@@ -609,16 +608,12 @@
                   </select>
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0" for="exampleInputEmail1"
-                    >Name:
-                  </label>
+                  <label class="text-white d-block m-0">Name: </label>
                   <input class="item-name" type="text" value="Your website" />
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0" for="exampleInputEmail1"
-                    >URL:
-                  </label>
-                  <input class="item-url" type="text" value="lorem" />
+                  <label class="text-white d-block m-0">URL: </label>
+                  <input class="item-url" type="text" placeholder="URL" />
                 </div>
               </li>
               <li
@@ -668,16 +663,12 @@
                   </select>
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0" for="exampleInputEmail1"
-                    >Name:
-                  </label>
+                  <label class="text-white d-block m-0">Name: </label>
                   <input class="item-name" type="text" value="Custom website" />
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0" for="exampleInputEmail1"
-                    >URL:
-                  </label>
-                  <input class="item-url" type="text" value="lorem" />
+                  <label class="text-white d-block m-0">URL: </label>
+                  <input class="item-url" type="text" placeholder="URL" />
                 </div>
               </li>
               <li
@@ -727,9 +718,7 @@
                   </select>
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0" for="exampleInputEmail1"
-                    >Name:
-                  </label>
+                  <label class="text-white d-block m-0">Name: </label>
                   <input
                     class="item-name"
                     type="text"
@@ -737,10 +726,8 @@
                   />
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0" for="exampleInputEmail1"
-                    >URL:
-                  </label>
-                  <input class="item-url" type="text" value="lorem" />
+                  <label class="text-white d-block m-0">URL: </label>
+                  <input class="item-url" type="text" placeholder="URL" />
                 </div>
               </li>
             </ul>
@@ -795,16 +782,17 @@
                   </select>
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0" for="exampleInputEmail1"
-                    >Name:
-                  </label>
+                  <label class="text-white d-block m-0">Name: </label>
                   <input class="item-name" type="text" value="Settings" />
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0" for="exampleInputEmail1"
-                    >URL:
-                  </label>
-                  <input class="item-url" type="text" value="lorem" />
+                  <label class="text-white d-block m-0">URL: </label>
+                  <input
+                    class="item-url"
+                    type="text"
+                    value="Settings"
+                    disabled
+                  />
                 </div>
               </li>
             </ul>
@@ -812,6 +800,12 @@
         </ul>
       </div>
     </fieldset>
+    <input
+      id="form-submit"
+      class="button center button-rounded button-large"
+      type="submit"
+      value="Send"
+    />
   </form>
   <div class="marvel-device note8 position-sticky mb-5">
     <div class="inner"></div>
