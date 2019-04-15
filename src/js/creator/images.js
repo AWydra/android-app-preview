@@ -1,4 +1,4 @@
-function makeImg(input, destination, bg) {
+const makeImg = (input, destination, bg) => {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
 
@@ -17,9 +17,9 @@ function makeImg(input, destination, bg) {
 
     reader.readAsDataURL(input.files[0]);
   }
-}
+};
 
-function logoInput() {
+const logoInput = () => {
   const logoCheckbox = document.querySelectorAll('[name="menuLogo"]');
   const fileInput = document.querySelector('[name="menuLogoFile"]');
   const fileContainer = fileInput.offsetParent.offsetParent.parentElement;
@@ -36,9 +36,9 @@ function logoInput() {
       }
     });
   });
-}
+};
 
-function coverInput() {
+const coverInput = () => {
   const logoCheckbox = document.querySelectorAll('[name="coverDisplay"]');
   const fileInput = document.querySelector('[name="coverDisplayFile"]');
   const fileContainer = fileInput.offsetParent.offsetParent.parentElement;
@@ -66,4 +66,4 @@ function coverInput() {
       }
     });
   });
-}
+};

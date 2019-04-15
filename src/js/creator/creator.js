@@ -1,7 +1,7 @@
 let iframe;
 let iframeWindow;
 
-function init() {
+const init = () => {
   // Color picker
   jsc.init();
 
@@ -35,7 +35,7 @@ function init() {
   });
 
   // Show/hide upload
-  $("#checkbox1").change(function() {
+  $("#checkbox1").change(() => {
     if (this.checked) {
       $("#autoUpdate").fadeIn("slow");
     } else {
@@ -47,14 +47,14 @@ function init() {
     .fontIconPicker({
       emptyIcon: false
     })
-    .on("change", function() {
+    .on("change", () => {
       navOtter();
     });
   appName();
   zIndex();
   logoInput();
   coverInput();
-}
+};
 const zIndex = () => {
   const select = document.querySelectorAll(".icons-selector");
   for (let i = 0; i < select.length; i++) {
@@ -62,7 +62,7 @@ const zIndex = () => {
   }
 };
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
   const clientForm = document.querySelector("#client-btn");
   //const demoForm = document.querySelector("#demo-btn");
 
@@ -77,25 +77,25 @@ document.addEventListener("DOMContentLoaded", function() {
       method: "GET",
       dataType: "json",
       data: { username: username, server: server },
-      beforeSend: function() {
+      beforeSend: () => {
         $(".loading-spinner").css("display", "flex");
       },
-      complete: function() {
+      complete: () => {
         $(".loading-spinner").hide();
       }
     });
 
-    arq.done(function(msg) {
+    arq.done(msg => {
       console.log(msg.xmlLink);
       console.log(msg.streamLink);
-      $("main").load("appform.html", function() {
+      $("main").load("appform.html", () => {
         $("#phone-iframe").attr(
           "src",
           `app.php?xml=${msg.xmlLink}&stream=${msg.streamLink}`
         );
 
         const appFrame = document.querySelector("#phone-iframe");
-        appFrame.onload = function() {
+        appFrame.onload = () => {
           iframe = appFrame.contentDocument;
           iframeWindow = appFrame.contentWindow;
           navOtter();
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     });
 
-    arq.fail(function(jqXHR) {
+    arq.fail(jqXHR => {
       const response = jqXHR.responseText;
 
       if (response === "WrongData") {
@@ -145,23 +145,23 @@ document.addEventListener("DOMContentLoaded", function() {
   //     method: "GET",
   //     dataType: "json",
   //     data: { username: "wydra", server: "eu6.fastcast4u.com" },
-  //     beforeSend: function() {
+  //     beforeSend: () => {
   //       $(".loading-spinner").css("display", "flex");
   //     },
-  //     complete: function() {
+  //     complete: () => {
   //       $(".loading-spinner").hide();
   //     }
   //   });
 
-  //   arq.done(function(msg) {
-  //     $("main").load("appform.html", function() {
+  //   arq.done(msg => {
+  //     $("main").load("appform.html", () => {
   //       $("#phone-iframe").attr(
   //         "src",
   //         `app.php?xml=${msg.xmlLink}&stream=${msg.streamLink}`
   //       );
 
   //       const appFrame = document.querySelector("#phone-iframe");
-  //       appFrame.onload = function() {
+  //       appFrame.onload = () => {
   //         iframe = appFrame.contentDocument;
   //         iframeWindow = appFrame.contentWindow;
   //         navOtter();

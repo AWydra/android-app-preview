@@ -1,6 +1,6 @@
 let navStructure = [];
 
-function navOtter() {
+const navOtter = () => {
   navStructure = [];
 
   iframe.querySelectorAll(".navigation__category").forEach(child => {
@@ -73,4 +73,4 @@ function navOtter() {
   sortInput.forEach(el => {
     el.addEventListener("keyup", navOtter);
   });
-}
+};
