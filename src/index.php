@@ -85,7 +85,7 @@
         padding: 30px 0;
       }
 
-      .otter-sort-container > li {
+      .otter-sort-container > .navy {
         margin: 0 0 20px;
         padding: 20px;
         border: solid #777 2px;
@@ -96,14 +96,14 @@
         min-height: 50px;
       }
 
-      .otter-sort-item > li {
+      .otter-sort-item > .navy {
         margin: 0 0 20px;
         padding: 5px 10px;
         background-color: #2e8ece;
         color: white;
       }
 
-      .otter-sort-item > li input {
+      .otter-sort-item > .navy input {
         padding: 3px;
         background-color: transparent;
         color: white;
@@ -169,6 +169,23 @@
       ::placeholder {
         color: white;
       }
+
+      .remove {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: red;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      .remove--item {
+        color: white;
+        font-size: 1.1rem;
+      }
     </style>
   </head>
 
@@ -188,7 +205,7 @@
       </header>
       <main class="container">
         <div class="accordion accordion-border position-relative clearfix">
-          <div class="acctitle py-4">I have radio</div>
+          <div class="acctitle py-4">Select your Radio Server</div>
           <div class="acc_content px-3 clearfix">
             <form action="#" method="get" class="row">
               <div class="form-group col-12 col-sm-3">

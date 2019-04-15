@@ -36,22 +36,53 @@
             value="FastCast4u Demo App"
           />
           <small class="form-text text-muted"
-            >Name displays on toolbar and under icon</small
+            >Name displays on toolbar and under menu icon</small
           >
         </div>
-        <div class="form-group col-12">
-          <label for="appIcon">App icon</label>
-          <input
-            class="image-input"
-            type="file"
-            class="file"
-            accept="image/*"
-            data-show-preview="true"
-            name="appIcon"
-          />
-          <small class="form-text text-muted">Recomended 1024x1024</small>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>
+        Main Menu Logo image
+      </legend>
+      <div class="row">
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="menuLogo"
+              id="menuLogo1"
+              value="Logo"
+              checked=""
+            />
+            <label class="form-check-label" for="menuLogo1">
+              Upload your logo (recommended 512x512)
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="menuLogo"
+              id="menuLogo2"
+              value="NoLogo"
+            />
+            <label class="form-check-label" for="menuLogo2">
+              Menu without logo
+            </label>
+          </div>
         </div>
       </div>
+      <input
+        class="image-input"
+        type="file"
+        class="file"
+        accept="image/*"
+        data-show-preview="true"
+        name="menuLogoFile"
+        onchange="makeImg(this, '.navigation__img img');"
+      />
     </fieldset>
 
     <!-- Colors -->
@@ -172,50 +203,6 @@
 
     <!-- Images -->
     <fieldset>
-      <legend>
-        Main Menu Logo image
-      </legend>
-      <div class="row">
-        <div class="col-sm-10">
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="menuLogo"
-              id="menuLogo1"
-              value="Logo"
-              checked=""
-            />
-            <label class="form-check-label" for="menuLogo1">
-              Upload your logo (recommended 512x512)
-            </label>
-          </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="menuLogo"
-              id="menuLogo2"
-              value="NoLogo"
-            />
-            <label class="form-check-label" for="menuLogo2">
-              Menu without logo
-            </label>
-          </div>
-        </div>
-      </div>
-      <input
-        class="image-input"
-        type="file"
-        class="file"
-        accept="image/*"
-        data-show-preview="true"
-        name="menuLogoFile"
-        onchange="makeImg(this, '.navigation__img img');"
-      />
-    </fieldset>
-
-    <fieldset>
       <div class="row">
         <legend class="col-12 pt-0">
           Cover Art display
@@ -275,8 +262,13 @@
     <fieldset>
       <legend>Navigation</legend>
       <div class="row flex-column">
-        <ul class="otter-sort-container js-sortable sortable list list-reset">
-          <li class="p1 mb1 navy bg-yellow" style="position: relative; ">
+        <ul
+          class="otter-sort-container js-sortable sortable list list-reset pb-0"
+        >
+          <li class="p1 mb1 navy bg-yellow position-relative">
+            <button class="remove">
+              <i class="icon-line-circle-cross"></i>
+            </button>
             <h4><input class="section-heading" type="text" value="Home" /></h4>
             <ul class="otter-sort-item js-sortable sortable list list-reset">
               <li
@@ -290,7 +282,6 @@
                     <option selected>otterIcon-signal</option>
                     <option>otterIcon-tv</option>
                     <option>otterIcon-fb</option>
-                    <option>otterIcon-tv</option>
                     <option>icon-line2-social-twitter</option>
                     <option>otterIcon-instagram</option>
                     <option>icon-line2-globe</option>
@@ -328,7 +319,7 @@
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Radio: </label>
                   <input
-                    class="item-name"
+                    class="item-name w-100"
                     type="text"
                     value="FastCast4u Radio"
                   />
@@ -336,12 +327,15 @@
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">URL: </label>
                   <input
-                    class="item-url"
+                    class="item-url w-100"
                     type="text"
                     value="Your radio"
                     disabled
                   />
                 </div>
+                <button class="remove remove--item">
+                  <i class="icon-line-circle-cross"></i>
+                </button>
               </li>
               <li
                 class="p1 mb1 navy bg-yellow row"
@@ -354,7 +348,6 @@
                     <option>otterIcon-signal</option>
                     <option selected>otterIcon-tv</option>
                     <option>otterIcon-fb</option>
-                    <option>otterIcon-tv</option>
                     <option>icon-line2-social-twitter</option>
                     <option>otterIcon-instagram</option>
                     <option>icon-line2-globe</option>
@@ -391,7 +384,7 @@
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Name: </label>
-                  <input class="item-name" type="text" value="Live TV" />
+                  <input class="item-name w-100" type="text" value="Live TV" />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0" for="live-tv"
@@ -399,15 +392,26 @@
                   </label>
                   <input
                     id="live-tv"
-                    class="item-url"
+                    class="item-url w-100"
                     type="text"
                     placeholder="Live Stream URL"
                   />
                 </div>
+                <button class="remove remove--item">
+                  <i class="icon-line-circle-cross"></i>
+                </button>
+              </li>
+              <li class="navigation__btn">
+                <button class="item-add button button-rounded button-small">
+                  Add item
+                </button>
               </li>
             </ul>
           </li>
-          <li class="p1 mb1 navy bg-yellow" style="position: relative; ">
+          <li class="p1 mb1 navy bg-yellow position-relative">
+            <button class="remove">
+              <i class="icon-line-circle-cross"></i>
+            </button>
             <h4>
               <input class="section-heading" type="text" value="Social Media" />
             </h4>
@@ -423,7 +427,6 @@
                     <option>otterIcon-signal</option>
                     <option>otterIcon-tv</option>
                     <option selected>otterIcon-fb</option>
-                    <option>otterIcon-tv</option>
                     <option>icon-line2-social-twitter</option>
                     <option>otterIcon-instagram</option>
                     <option>icon-line2-globe</option>
@@ -460,12 +463,15 @@
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Name: </label>
-                  <input class="item-name" type="text" value="Facebook" />
+                  <input class="item-name w-100" type="text" value="Facebook" />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">URL: </label>
-                  <input class="item-url" type="text" placeholder="URL" />
+                  <input class="item-url w-100" type="text" placeholder="URL" />
                 </div>
+                <button class="remove remove--item">
+                  <i class="icon-line-circle-cross"></i>
+                </button>
               </li>
               <li
                 class="p1 mb1 navy bg-yellow row"
@@ -514,12 +520,15 @@
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Name: </label>
-                  <input class="item-name" type="text" value="Twitter" />
+                  <input class="item-name w-100" type="text" value="Twitter" />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">URL: </label>
-                  <input class="item-url" type="text" placeholder="URL" />
+                  <input class="item-url w-100" type="text" placeholder="URL" />
                 </div>
+                <button class="remove remove--item">
+                  <i class="icon-line-circle-cross"></i>
+                </button>
               </li>
               <li
                 class="p1 mb1 navy bg-yellow row"
@@ -532,7 +541,6 @@
                     <option>otterIcon-signal</option>
                     <option>otterIcon-tv</option>
                     <option>otterIcon-fb</option>
-                    <option>otterIcon-tv</option>
                     <option>icon-line2-social-twitter</option>
                     <option selected>otterIcon-instagram</option>
                     <option>icon-line2-globe</option>
@@ -569,16 +577,31 @@
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Name: </label>
-                  <input class="item-name" type="text" value="Instagram" />
+                  <input
+                    class="item-name w-100"
+                    type="text"
+                    value="Instagram"
+                  />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">URL: </label>
-                  <input class="item-url" type="text" placeholder="URL" />
+                  <input class="item-url w-100" type="text" placeholder="URL" />
                 </div>
+                <button class="remove remove--item">
+                  <i class="icon-line-circle-cross"></i>
+                </button>
+              </li>
+              <li class="navigation__btn">
+                <button class="item-add button button-rounded button-small">
+                  Add item
+                </button>
               </li>
             </ul>
           </li>
-          <li class="p1 mb1 navy bg-yellow" style="position: relative; ">
+          <li class="p1 mb1 navy bg-yellow position-relative">
+            <button class="remove">
+              <i class="icon-line-circle-cross"></i>
+            </button>
             <h4>
               <input class="section-heading" type="text" value="Content" />
             </h4>
@@ -594,7 +617,6 @@
                     <option>otterIcon-signal</option>
                     <option>otterIcon-tv</option>
                     <option>otterIcon-fb</option>
-                    <option>otterIcon-tv</option>
                     <option>icon-line2-social-twitter</option>
                     <option>otterIcon-instagram</option>
                     <option selected>icon-line2-globe</option>
@@ -631,12 +653,19 @@
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Name: </label>
-                  <input class="item-name" type="text" value="Your website" />
+                  <input
+                    class="item-name w-100"
+                    type="text"
+                    value="Your website"
+                  />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">URL: </label>
-                  <input class="item-url" type="text" placeholder="URL" />
+                  <input class="item-url w-100" type="text" placeholder="URL" />
                 </div>
+                <button class="remove remove--item">
+                  <i class="icon-line-circle-cross"></i>
+                </button>
               </li>
               <li
                 class="p1 mb1 navy bg-yellow row"
@@ -649,7 +678,6 @@
                     <option>otterIcon-signal</option>
                     <option>otterIcon-tv</option>
                     <option>otterIcon-fb</option>
-                    <option>otterIcon-tv</option>
                     <option>icon-line2-social-twitter</option>
                     <option>otterIcon-instagram</option>
                     <option selected>icon-line2-globe</option>
@@ -686,12 +714,19 @@
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Name: </label>
-                  <input class="item-name" type="text" value="Custom website" />
+                  <input
+                    class="item-name w-100"
+                    type="text"
+                    value="Custom website"
+                  />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">URL: </label>
-                  <input class="item-url" type="text" placeholder="URL" />
+                  <input class="item-url w-100" type="text" placeholder="URL" />
                 </div>
+                <button class="remove remove--item">
+                  <i class="icon-line-circle-cross"></i>
+                </button>
               </li>
               <li
                 class="p1 mb1 navy bg-yellow row"
@@ -704,7 +739,6 @@
                     <option>otterIcon-signal</option>
                     <option>otterIcon-tv</option>
                     <option>otterIcon-fb</option>
-                    <option>otterIcon-tv</option>
                     <option>icon-line2-social-twitter</option>
                     <option>otterIcon-instagram</option>
                     <option>icon-line2-globe</option>
@@ -742,19 +776,30 @@
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Name: </label>
                   <input
-                    class="item-name"
+                    class="item-name w-100"
                     type="text"
                     value="Your wordpress blog"
                   />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">URL: </label>
-                  <input class="item-url" type="text" placeholder="URL" />
+                  <input class="item-url w-100" type="text" placeholder="URL" />
                 </div>
+                <button class="remove remove--item">
+                  <i class="icon-line-circle-cross"></i>
+                </button>
+              </li>
+              <li class="navigation__btn">
+                <button class="item-add button button-rounded button-small">
+                  Add item
+                </button>
               </li>
             </ul>
           </li>
-          <li class="p1 mb1 navy bg-yellow" style="position: relative; ">
+          <li class="p1 mb1 navy bg-yellow position-relative">
+            <button class="remove">
+              <i class="icon-line-circle-cross"></i>
+            </button>
             <h4><input class="section-heading" type="text" value="Misc" /></h4>
             <ul class="otter-sort-item js-sortable sortable list list-reset">
               <li
@@ -768,7 +813,6 @@
                     <option>otterIcon-signal</option>
                     <option>otterIcon-tv</option>
                     <option>otterIcon-fb</option>
-                    <option>otterIcon-tv</option>
                     <option>icon-line2-social-twitter</option>
                     <option>otterIcon-instagram</option>
                     <option>icon-line2-globe</option>
@@ -805,23 +849,80 @@
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Name: </label>
-                  <input class="item-name" type="text" value="Settings" />
+                  <input class="item-name w-100" type="text" value="Settings" />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">URL: </label>
                   <input
-                    class="item-url"
+                    class="item-url w-100"
                     type="text"
                     value="Settings"
                     disabled
                   />
                 </div>
+                <button class="remove remove--item">
+                  <i class="icon-line-circle-cross"></i>
+                </button>
+              </li>
+              <li class="navigation__btn">
+                <button class="item-add button button-rounded button-small">
+                  Add item
+                </button>
               </li>
             </ul>
+          </li>
+          <li class="navigation__btn">
+            <button class="section-add button button-rounded button-small">
+              Add section
+            </button>
           </li>
         </ul>
       </div>
     </fieldset>
+
+    <fieldset>
+      <legend>
+        App Icon
+      </legend>
+      <div class="row">
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="appLogo"
+              id="appLogo1"
+              value="Logo"
+              checked=""
+            />
+            <label class="form-check-label" for="appLogo1">
+              Upload your logo (recommended 512x512)
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="appLogo"
+              id="appLogo2"
+              value="SameAsMenuLogo"
+            />
+            <label class="form-check-label" for="appLogo2">
+              Same as Main Menu Logo
+            </label>
+          </div>
+        </div>
+      </div>
+      <input
+        class="image-input"
+        type="file"
+        class="file"
+        accept="image/*"
+        data-show-preview="true"
+        name="appLogoFile"
+      />
+    </fieldset>
+
     <input
       id="form-submit"
       class="button center button-rounded button-large"

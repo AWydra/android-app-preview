@@ -54,6 +54,14 @@ const init = () => {
   zIndex();
   logoInput();
   coverInput();
+  document.querySelector(".section-add").addEventListener("click", addSection);
+  document.querySelectorAll(".remove").forEach(el => {
+    el.addEventListener("click", removeSection);
+  });
+
+  document.querySelectorAll(".item-add").forEach(el => {
+    el.addEventListener("click", addItem);
+  });
 };
 const zIndex = () => {
   const select = document.querySelectorAll(".icons-selector");
