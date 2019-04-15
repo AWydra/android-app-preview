@@ -15,7 +15,7 @@ const addSection = ev => {
   </ul>`;
 
   addBtn.classList.add("item-add", "button", "button-rounded", "button-small");
-  addBtn.textContent = `Add item`;
+  addBtn.textContent = `Add More`;
   addBtn.addEventListener("click", addItem);
   li.querySelector(".navigation__btn").appendChild(addBtn);
 
@@ -109,7 +109,7 @@ const addItem = ev => {
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Name: </label>
-                  <input class="item-name" type="text" value="Your item" />
+                  <input class="item-name w-100" type="text" value="Your item" />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">URL: </label>
