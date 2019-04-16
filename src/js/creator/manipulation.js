@@ -112,11 +112,11 @@ const addItem = ev => {
                   <input class="item-name w-100" type="text" value="Your item" />
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0">URL: </label>
+                  <label class="text-white d-block m-0">Website URL: </label>
                   <input
                     class="item-url w-100"
                     type="url"
-                    placeholder="URL"
+                    placeholder="http://www.example.com"
                   />
                 </div>`;
 

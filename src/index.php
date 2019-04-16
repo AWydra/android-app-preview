@@ -186,6 +186,14 @@
         color: white;
         font-size: 1.1rem;
       }
+
+      .bad-validation{
+        background-color: rgba(255,0,0,.9) !important;
+      }
+
+      .bad-validation-img{
+        border: solid red 2px;
+      }
     </style>
   </head>
 

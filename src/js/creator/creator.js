@@ -54,6 +54,7 @@ const init = () => {
   zIndex();
   logoInput();
   coverInput();
+  appInput();
   document.querySelector(".section-add").addEventListener("click", addSection);
   document.querySelectorAll(".remove").forEach(el => {
     el.addEventListener("click", removeSection);
@@ -84,7 +85,10 @@ document.addEventListener("DOMContentLoaded", () => {
       url: "getStreamAndXML.php",
       method: "GET",
       dataType: "json",
-      data: { username: username, server: server },
+      data: {
+        username: username,
+        server: server
+      },
       beforeSend: () => {
         $(".loading-spinner").css("display", "flex");
       },
@@ -94,8 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     arq.done(msg => {
-      console.log(msg.xmlLink);
-      console.log(msg.streamLink);
       $("main").load("appform.html", () => {
         $("#phone-iframe").attr(
           "src",
@@ -111,6 +113,9 @@ document.addEventListener("DOMContentLoaded", () => {
           iframeWindow.tabs();
           liveTV();
         };
+
+        document.querySelector('#customerName').value = msg.username;
+        document.querySelector('#customerEmail').value = msg.email;
 
         init();
       });

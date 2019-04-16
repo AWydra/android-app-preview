@@ -178,7 +178,7 @@ $stream = $_GET['stream'];
 
       <section class="web tab-content" id="web" style="display:none;">
         <h2 class="web__heading">
-          Your Page will be displayed here in the App
+          Your Content will be displayed here in the App
         </h2>
         <p class="web__content">Preview is unavailable in App Creator</p>
       </section>

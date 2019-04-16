@@ -2,7 +2,6 @@ const appName = () => {
   const appName = document.querySelector("#appName");
   appName.addEventListener("input", () => {
     iframe.querySelector(".navbar__title").innerHTML = appName.value;
-    console.log(this);
   });
 };
 
@@ -76,7 +75,7 @@ const liveTV = () => {
       var hls = new Hls();
       hls.loadSource(input.value);
       hls.attachMedia(video);
-      hls.on(Hls.Events.MANIFEST_PARSED, function() {
+      hls.on(Hls.Events.MANIFEST_PARSED, function () {
         video.load();
       });
     }
