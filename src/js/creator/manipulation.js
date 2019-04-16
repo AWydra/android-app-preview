@@ -8,7 +8,7 @@ const addSection = ev => {
   const li = document.createElement("li");
   li.classList.add("p1", "mb1", "navy", "bg-yellow", "position-relative");
   li.innerHTML = `
-  <h4><input class="section-heading" type="text" value="Your section"></h4>
+  <h4><input class="section-heading" type="text" value="Your section" required /></h4>
   <ul class="otter-sort-item js-sortable sortable list list-reset" aria-dropeffect="move">
     <li class="navigation__btn">
     </li>
@@ -109,7 +109,7 @@ const addItem = ev => {
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Name: </label>
-                  <input class="item-name w-100" type="text" value="Your item" />
+                  <input class="item-name w-100" type="text" value="Your item" required />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Website URL: </label>
@@ -117,6 +117,7 @@ const addItem = ev => {
                     class="item-url w-100"
                     type="url"
                     placeholder="http://www.example.com"
+                    required
                   />
                 </div>`;
 

@@ -6,19 +6,39 @@
       <div class="row">
         <div class="form-group col-6">
           <label for="customerName">Name</label>
-          <input type="text" class="form-control disabled" id="customerName" name="customerName" placeholder="Name"
-            readonly />
+          <input
+            type="text"
+            class="form-control disabled"
+            id="customerName"
+            name="customerName"
+            placeholder="Name"
+            readonly
+          />
         </div>
         <div class="form-group col-6">
           <label for="customerEmail">Email</label>
-          <input type="email" class="form-control disabled" id="customerEmail" name="customerEmail" placeholder="Email"
-            readonly />
+          <input
+            type="email"
+            class="form-control disabled"
+            id="customerEmail"
+            name="customerEmail"
+            placeholder="Email"
+            readonly
+          />
         </div>
         <div class="form-group col-12">
           <label for="appName">Name of your app</label>
-          <input type="text" class="form-control" id="appName" placeholder="Enter app name"
-            value="FastCast4u Demo App" />
-          <small class="form-text text-muted">Name displays on toolbar and under menu icon</small>
+          <input
+            type="text"
+            class="form-control"
+            id="appName"
+            placeholder="Enter app name"
+            value="FastCast4u Demo App"
+            required
+          />
+          <small class="form-text text-muted"
+            >Name displays on toolbar and under menu icon</small
+          >
         </div>
       </div>
     </fieldset>
@@ -29,21 +49,42 @@
       <div class="row">
         <div class="col-sm-10">
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="menuLogo" id="menuLogo1" value="Logo" checked="" />
+            <input
+              class="form-check-input"
+              type="radio"
+              name="menuLogo"
+              id="menuLogo1"
+              value="Logo"
+              checked=""
+            />
             <label class="form-check-label" for="menuLogo1">
-              Upload your logo (recommended 512x512)
+              Upload your logo
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="menuLogo" id="menuLogo2" value="NoLogo" />
+            <input
+              class="form-check-input"
+              type="radio"
+              name="menuLogo"
+              id="menuLogo2"
+              value="NoLogo"
+            />
             <label class="form-check-label" for="menuLogo2">
               Menu without logo
             </label>
           </div>
         </div>
       </div>
-      <input class="image-input" type="file" class="file" accept="image/*" data-show-preview="true" name="menuLogoFile"
-        onchange="makeImg(this, '.navigation__img img');" required />
+      <input
+        class="image-input"
+        type="file"
+        class="file"
+        accept="image/*"
+        data-show-preview="true"
+        name="menuLogoFile"
+        onchange="makeImg(this, '.navigation__img img');"
+        required
+      />
     </fieldset>
 
     <!-- Colors -->
@@ -52,62 +93,117 @@
       <div class="row">
         <div class="form-group col-6">
           <label for="slideBg">Slide Menu color</label>
-          <input class="form-control jscolor {hash:true,onFineChange:slideBg}" id="slideBg"
-            placeholder="Slide Menu color" name="slideBg" />
-          <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <input
+            class="form-control jscolor {hash:true,onFineChange:slideBg}"
+            id="slideBg"
+            placeholder="Slide Menu color"
+            name="slideBg"
+          />
+          <small class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
         </div>
         <div class="form-group col-6">
           <label for="slideColor">Menu font color</label>
-          <input class="form-control jscolor {hash:true,onFineChange:slideColor}" id="slideColor"
-            placeholder="Menu font color" name="slideColor" value="000000" />
-          <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <input
+            class="form-control jscolor {hash:true,onFineChange:slideColor}"
+            id="slideColor"
+            placeholder="Menu font color"
+            name="slideColor"
+            value="000000"
+          />
+          <small class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
         </div>
 
         <div class="form-group col-6">
           <label for="slideHeading">Menu headings color</label>
-          <input class="form-control jscolor {hash:true,onFineChange:slideHeading}" id="slideHeading"
-            placeholder="Menu headings color" name="slideHeading" value="555555" />
-          <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <input
+            class="form-control jscolor {hash:true,onFineChange:slideHeading}"
+            id="slideHeading"
+            placeholder="Menu headings color"
+            name="slideHeading"
+            value="555555"
+          />
+          <small class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
         </div>
 
         <div class="form-group col-6">
           <label for="notificationBg">Notificationbar color</label>
-          <input class="form-control jscolor {hash:true,onFineChange:notificationBg}" id="notificationBg"
-            placeholder="Notificationbar color" name="notificationBg" value="2e8ece" />
-          <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <input
+            class="form-control jscolor {hash:true,onFineChange:notificationBg}"
+            id="notificationBg"
+            placeholder="Notificationbar color"
+            name="notificationBg"
+            value="2e8ece"
+          />
+          <small class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
         </div>
 
         <div class="form-group col-6">
           <label for="navbarBg">Navbar color</label>
-          <input class="form-control jscolor {hash:true,onFineChange:navbarBg}" id="navbarBg" placeholder="Navbar color"
-            name="navbarBg" value="2e8ece" />
-          <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <input
+            class="form-control jscolor {hash:true,onFineChange:navbarBg}"
+            id="navbarBg"
+            placeholder="Navbar color"
+            name="navbarBg"
+            value="2e8ece"
+          />
+          <small class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
         </div>
 
         <div class="form-group col-6">
           <label for="navbarColor">Navbar font color</label>
-          <input class="form-control jscolor {hash:true,onFineChange:navbarColor}" id="navbarColor"
-            placeholder="Navbar font color" name="navbarColor" value="ffffff" />
-          <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <input
+            class="form-control jscolor {hash:true,onFineChange:navbarColor}"
+            id="navbarColor"
+            placeholder="Navbar font color"
+            name="navbarColor"
+            value="ffffff"
+          />
+          <small class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
         </div>
 
         <div class="form-group col-6">
           <label for="playButton">Play button color</label>
-          <input class="form-control jscolor {hash:true,onFineChange:playButton}" id="playButton"
-            placeholder="Play button color" name="playButton" value="2e8ece" />
-          <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <input
+            class="form-control jscolor {hash:true,onFineChange:playButton}"
+            id="playButton"
+            placeholder="Play button color"
+            name="playButton"
+            value="2e8ece"
+          />
+          <small class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
         </div>
 
         <div class="form-group col-6">
           <label for="playButtonIcon">Play button icon color</label>
-          <input class="form-control jscolor {hash:true,onFineChange:playButtonIcon}" id="playButtonIcon"
-            placeholder="Play button font color" name="playButtonIcon" value="ffffff" />
-          <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <input
+            class="form-control jscolor {hash:true,onFineChange:playButtonIcon}"
+            id="playButtonIcon"
+            placeholder="Play button font color"
+            name="playButtonIcon"
+            value="ffffff"
+          />
+          <small class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
         </div>
       </div>
     </fieldset>
 
-    <!-- Images -->
+    <!-- Cover Image -->
     <fieldset>
       <div class="row">
         <legend class="col-12 pt-0">
@@ -115,42 +211,80 @@
         </legend>
         <div class="col-sm-10">
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="coverDisplay" id="coverDisplay1" value="Metadata"
-              checked="" />
+            <input
+              class="form-check-input"
+              type="radio"
+              name="coverDisplay"
+              id="coverDisplay1"
+              value="Metadata"
+              checked=""
+            />
             <label class="form-check-label" for="coverDisplay1">
               Dynamic Cover Art (based on track metadata and Tunein)
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="coverDisplay" id="coverDisplay2" value="option2" />
+            <input
+              class="form-check-input"
+              type="radio"
+              name="coverDisplay"
+              id="coverDisplay2"
+              value="option2"
+            />
             <label class="form-check-label" for="coverDisplay2">
               Fixed logo as Cover Art (recommended 640x640)
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="coverDisplay" id="coverDisplay3" value="NoCover" />
+            <input
+              class="form-check-input"
+              type="radio"
+              name="coverDisplay"
+              id="coverDisplay3"
+              value="NoCover"
+            />
             <label class="form-check-label" for="coverDisplay3">
               No Cover
             </label>
           </div>
         </div>
       </div>
-      <input class="image-input" type="file" class="file" accept="image/*" data-show-preview="true"
-        name="coverDisplayFile" onchange="makeImg(this, '#radio', true);" />
+      <input
+        class="image-input"
+        type="file"
+        class="file"
+        accept="image/*"
+        data-show-preview="true"
+        name="coverDisplayFile"
+        onchange="makeImg(this, '#radio', true);"
+      />
     </fieldset>
 
     <!-- Navigation -->
     <fieldset>
       <legend>Navigation</legend>
       <div class="row flex-column">
-        <ul class="otter-sort-container js-sortable sortable list list-reset pb-0">
+        <ul
+          class="otter-sort-container js-sortable sortable list list-reset pb-0"
+        >
           <li class="p1 mb1 navy bg-yellow position-relative">
             <button class="remove">
               <i class="icon-line-circle-cross"></i>
             </button>
-            <h4><input class="section-heading" type="text" value="Home" /></h4>
+            <h4>
+              <input
+                class="section-heading"
+                type="text"
+                value="Home"
+                required
+              />
+            </h4>
             <ul class="otter-sort-item js-sortable sortable list list-reset">
-              <li class="p1 mb1 navy bg-yellow row" style="position: relative;" data-tabs="#radio">
+              <li
+                class="p1 mb1 navy bg-yellow row"
+                style="position: relative;"
+                data-tabs="#radio"
+              >
                 <div class="form-group col-2 m-0">
                   <select class="iconpicker-select">
                     <option value="hidden">No icon</option>
@@ -193,18 +327,33 @@
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Radio: </label>
-                  <input class="item-name w-100" type="text" value="FastCast4u Radio" />
+                  <input
+                    class="item-name w-100"
+                    type="text"
+                    value="FastCast4u Radio"
+                    required
+                  />
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0">Radio Stream URL
+                  <label class="text-white d-block m-0"
+                    >Radio Stream URL
                   </label>
-                  <input class="item-url disabled w-100" type="text" value="Your radio" readonly />
+                  <input
+                    class="item-url disabled w-100"
+                    type="text"
+                    value="Your radio"
+                    readonly
+                  />
                 </div>
                 <button class="remove remove--item">
                   <i class="icon-line-circle-cross"></i>
                 </button>
               </li>
-              <li class="p1 mb1 navy bg-yellow row" style="position: relative; " data-tabs="#tv">
+              <li
+                class="p1 mb1 navy bg-yellow row"
+                style="position: relative; "
+                data-tabs="#tv"
+              >
                 <div class="form-group col-2 m-0">
                   <select class="iconpicker-select">
                     <option value="hidden">No icon</option>
@@ -247,12 +396,24 @@
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Name: </label>
-                  <input class="item-name w-100" type="text" value="Live TV" />
+                  <input
+                    class="item-name w-100"
+                    type="text"
+                    value="Live TV"
+                    required
+                  />
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0" for="live-tv">Live Stream URL
+                  <label class="text-white d-block m-0" for="live-tv"
+                    >Live Stream URL
                   </label>
-                  <input id="live-tv" class="item-url w-100" type="url" placeholder="Live Stream URL" />
+                  <input
+                    id="live-tv"
+                    class="item-url w-100"
+                    type="url"
+                    placeholder="Live Stream URL"
+                    required
+                  />
                 </div>
                 <button class="remove remove--item">
                   <i class="icon-line-circle-cross"></i>
@@ -270,10 +431,19 @@
               <i class="icon-line-circle-cross"></i>
             </button>
             <h4>
-              <input class="section-heading" type="text" value="Social Media" />
+              <input
+                class="section-heading"
+                type="text"
+                value="Social Media"
+                required
+              />
             </h4>
             <ul class="otter-sort-item js-sortable sortable list list-reset">
-              <li class="p1 mb1 navy bg-yellow row" style="position: relative; " data-tabs="#web">
+              <li
+                class="p1 mb1 navy bg-yellow row"
+                style="position: relative; "
+                data-tabs="#web"
+              >
                 <div class="form-group col-2 m-0">
                   <select class="iconpicker-select">
                     <option value="hidden">No icon</option>
@@ -316,17 +486,31 @@
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Name: </label>
-                  <input class="item-name w-100" type="text" value="Facebook" />
+                  <input
+                    class="item-name w-100"
+                    type="text"
+                    value="Facebook"
+                    required
+                  />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Website URL </label>
-                  <input class="item-url w-100" type="url" placeholder="http://www.example.com" />
+                  <input
+                    class="item-url w-100"
+                    type="url"
+                    placeholder="http://www.example.com"
+                    required
+                  />
                 </div>
                 <button class="remove remove--item">
                   <i class="icon-line-circle-cross"></i>
                 </button>
               </li>
-              <li class="p1 mb1 navy bg-yellow row" style="position: relative; " data-tabs="#web">
+              <li
+                class="p1 mb1 navy bg-yellow row"
+                style="position: relative; "
+                data-tabs="#web"
+              >
                 <div class="form-group col-2 m-0">
                   <select class="iconpicker-select">
                     <option value="hidden">No icon</option>
@@ -369,17 +553,31 @@
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Name: </label>
-                  <input class="item-name w-100" type="text" value="Twitter" />
+                  <input
+                    class="item-name w-100"
+                    type="text"
+                    value="Twitter"
+                    required
+                  />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Website URL </label>
-                  <input class="item-url w-100" type="url" placeholder="http://www.example.com" />
+                  <input
+                    class="item-url w-100"
+                    type="url"
+                    placeholder="http://www.example.com"
+                    required
+                  />
                 </div>
                 <button class="remove remove--item">
                   <i class="icon-line-circle-cross"></i>
                 </button>
               </li>
-              <li class="p1 mb1 navy bg-yellow row" style="position: relative; " data-tabs="#web">
+              <li
+                class="p1 mb1 navy bg-yellow row"
+                style="position: relative; "
+                data-tabs="#web"
+              >
                 <div class="form-group col-2 m-0">
                   <select class="iconpicker-select">
                     <option value="hidden">No icon</option>
@@ -422,11 +620,21 @@
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Name: </label>
-                  <input class="item-name w-100" type="text" value="Instagram" />
+                  <input
+                    class="item-name w-100"
+                    type="text"
+                    value="Instagram"
+                    required
+                  />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Website URL </label>
-                  <input class="item-url w-100" type="url" placeholder="http://www.example.com" />
+                  <input
+                    class="item-url w-100"
+                    type="url"
+                    placeholder="http://www.example.com"
+                    required
+                  />
                 </div>
                 <button class="remove remove--item">
                   <i class="icon-line-circle-cross"></i>
@@ -444,10 +652,19 @@
               <i class="icon-line-circle-cross"></i>
             </button>
             <h4>
-              <input class="section-heading" type="text" value="Content" />
+              <input
+                class="section-heading"
+                type="text"
+                value="Content"
+                required
+              />
             </h4>
             <ul class="otter-sort-item js-sortable sortable list list-reset">
-              <li class="p1 mb1 navy bg-yellow row" style="position: relative; " data-tabs="#web">
+              <li
+                class="p1 mb1 navy bg-yellow row"
+                style="position: relative; "
+                data-tabs="#web"
+              >
                 <div class="form-group col-2 m-0">
                   <select class="iconpicker-select">
                     <option value="hidden">No icon</option>
@@ -490,17 +707,31 @@
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Name: </label>
-                  <input class="item-name w-100" type="text" value="Your website" />
+                  <input
+                    class="item-name w-100"
+                    type="text"
+                    value="Your website"
+                    required
+                  />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Website URL </label>
-                  <input class="item-url w-100" type="url" placeholder="http://www.example.com" />
+                  <input
+                    class="item-url w-100"
+                    type="url"
+                    placeholder="http://www.example.com"
+                    required
+                  />
                 </div>
                 <button class="remove remove--item">
                   <i class="icon-line-circle-cross"></i>
                 </button>
               </li>
-              <li class="p1 mb1 navy bg-yellow row" style="position: relative; " data-tabs="#web">
+              <li
+                class="p1 mb1 navy bg-yellow row"
+                style="position: relative; "
+                data-tabs="#web"
+              >
                 <div class="form-group col-2 m-0">
                   <select class="iconpicker-select">
                     <option value="hidden">No icon</option>
@@ -543,17 +774,31 @@
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Name: </label>
-                  <input class="item-name w-100" type="text" value="Custom website" />
+                  <input
+                    class="item-name w-100"
+                    type="text"
+                    value="Custom website"
+                    required
+                  />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Website URL </label>
-                  <input class="item-url w-100" type="url" placeholder="http://www.example.com" />
+                  <input
+                    class="item-url w-100"
+                    type="url"
+                    placeholder="http://www.example.com"
+                    required
+                  />
                 </div>
                 <button class="remove remove--item">
                   <i class="icon-line-circle-cross"></i>
                 </button>
               </li>
-              <li class="p1 mb1 navy bg-yellow row" style="position: relative; " data-tabs="#web">
+              <li
+                class="p1 mb1 navy bg-yellow row"
+                style="position: relative; "
+                data-tabs="#web"
+              >
                 <div class="form-group col-2 m-0">
                   <select class="iconpicker-select">
                     <option value="hidden">No icon</option>
@@ -596,11 +841,21 @@
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Name: </label>
-                  <input class="item-name w-100" type="text" value="Your wordpress blog" />
+                  <input
+                    class="item-name w-100"
+                    type="text"
+                    value="Your wordpress blog"
+                    required
+                  />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Website URL </label>
-                  <input class="item-url w-100" type="url" placeholder="http://www.example.com" />
+                  <input
+                    class="item-url w-100"
+                    type="url"
+                    placeholder="http://www.example.com"
+                    required
+                  />
                 </div>
                 <button class="remove remove--item">
                   <i class="icon-line-circle-cross"></i>
@@ -617,9 +872,20 @@
             <button class="remove">
               <i class="icon-line-circle-cross"></i>
             </button>
-            <h4><input class="section-heading" type="text" value="Misc" /></h4>
+            <h4>
+              <input
+                class="section-heading"
+                type="text"
+                value="Misc"
+                required
+              />
+            </h4>
             <ul class="otter-sort-item js-sortable sortable list list-reset">
-              <li class="p1 mb1 navy bg-yellow row" style="position: relative; " data-tabs="#settings">
+              <li
+                class="p1 mb1 navy bg-yellow row"
+                style="position: relative; "
+                data-tabs="#settings"
+              >
                 <div class="form-group col-2 m-0">
                   <select class="iconpicker-select">
                     <option value="hidden">No icon</option>
@@ -662,11 +928,21 @@
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">Name: </label>
-                  <input class="item-name w-100" type="text" value="Settings" />
+                  <input
+                    class="item-name w-100"
+                    type="text"
+                    value="Settings"
+                    required
+                  />
                 </div>
                 <div class="form-group col-5 m-0">
                   <label class="text-white d-block m-0">URL </label>
-                  <input class="item-url w-100" type="text" value="Settings" disabled />
+                  <input
+                    class="item-url w-100"
+                    type="text"
+                    value="Settings"
+                    readonly
+                  />
                 </div>
                 <button class="remove remove--item">
                   <i class="icon-line-circle-cross"></i>
@@ -695,24 +971,50 @@
       <div class="row">
         <div class="col-sm-10">
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="appLogo" id="appLogo1" value="Logo" checked="" />
+            <input
+              class="form-check-input"
+              type="radio"
+              name="appLogo"
+              id="appLogo1"
+              value="Logo"
+              checked=""
+            />
             <label class="form-check-label" for="appLogo1">
               Upload your logo (recommended 512x512)
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="appLogo" id="appLogo2" value="SameAsMenuLogo" />
+            <input
+              class="form-check-input"
+              type="radio"
+              name="appLogo"
+              id="appLogo2"
+              value="SameAsMenuLogo"
+            />
             <label class="form-check-label" for="appLogo2">
               Same as Main Menu Logo
             </label>
           </div>
         </div>
       </div>
-      <input class="image-input" type="file" class="file" accept="image/*" data-show-preview="true" name="appLogoFile"
-        required />
+      <input
+        class="image-input"
+        type="file"
+        class="file"
+        accept="image/*"
+        data-show-preview="true"
+        name="appLogoFile"
+        required
+      />
     </fieldset>
 
-    <button id="form-submit" class="button center button-rounded button-large" type="submit">Submit</button>
+    <button
+      id="form-submit"
+      class="button center button-rounded button-large"
+      type="submit"
+    >
+      Submit
+    </button>
   </form>
   <div class="marvel-device note8 position-sticky mb-5">
     <div class="inner"></div>
