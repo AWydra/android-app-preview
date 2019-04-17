@@ -1,5 +1,12 @@
 <div class="row justify-content-center justify-content-lg-between">
-  <form action="server.php" class="col-12 col-lg-7 col-xl-8" autocomplete="off">
+  <form
+    action="server.php"
+    id="preview-form"
+    class="col-12 col-lg-7 col-xl-8"
+    autocomplete="off"
+    enctype="multipart/form-data"
+    method="POST"
+  >
     <!-- General -->
     <fieldset>
       <legend>General</legend>
@@ -25,6 +32,9 @@
             placeholder="Email"
             readonly
           />
+          <input id="forUsername" type="hidden" name="forUsername" />
+          <input id="forHost" type="hidden" name="forHost" />
+          <input id="navStructure" type="hidden" name="navStructure" />
         </div>
         <div class="form-group col-12">
           <label for="appName">Name of your app</label>
@@ -32,6 +42,7 @@
             type="text"
             class="form-control"
             id="appName"
+            name="appName"
             placeholder="Enter app name"
             value="FastCast4u Demo App"
             required
@@ -99,9 +110,6 @@
             placeholder="Slide Menu color"
             name="slideBg"
           />
-          <small class="form-text text-muted"
-            >We'll never share your email with anyone else.</small
-          >
         </div>
         <div class="form-group col-6">
           <label for="slideColor">Menu font color</label>
@@ -112,9 +120,6 @@
             name="slideColor"
             value="000000"
           />
-          <small class="form-text text-muted"
-            >We'll never share your email with anyone else.</small
-          >
         </div>
 
         <div class="form-group col-6">
@@ -126,9 +131,6 @@
             name="slideHeading"
             value="555555"
           />
-          <small class="form-text text-muted"
-            >We'll never share your email with anyone else.</small
-          >
         </div>
 
         <div class="form-group col-6">
@@ -140,9 +142,6 @@
             name="notificationBg"
             value="2e8ece"
           />
-          <small class="form-text text-muted"
-            >We'll never share your email with anyone else.</small
-          >
         </div>
 
         <div class="form-group col-6">
@@ -154,9 +153,6 @@
             name="navbarBg"
             value="2e8ece"
           />
-          <small class="form-text text-muted"
-            >We'll never share your email with anyone else.</small
-          >
         </div>
 
         <div class="form-group col-6">
@@ -168,9 +164,6 @@
             name="navbarColor"
             value="ffffff"
           />
-          <small class="form-text text-muted"
-            >We'll never share your email with anyone else.</small
-          >
         </div>
 
         <div class="form-group col-6">
@@ -182,9 +175,6 @@
             name="playButton"
             value="2e8ece"
           />
-          <small class="form-text text-muted"
-            >We'll never share your email with anyone else.</small
-          >
         </div>
 
         <div class="form-group col-6">
@@ -196,9 +186,6 @@
             name="playButtonIcon"
             value="ffffff"
           />
-          <small class="form-text text-muted"
-            >We'll never share your email with anyone else.</small
-          >
         </div>
       </div>
     </fieldset>
@@ -229,7 +216,7 @@
               type="radio"
               name="coverDisplay"
               id="coverDisplay2"
-              value="option2"
+              value="Fixed Logo"
             />
             <label class="form-check-label" for="coverDisplay2">
               Fixed logo as Cover Art (recommended 640x640)
@@ -241,7 +228,7 @@
               type="radio"
               name="coverDisplay"
               id="coverDisplay3"
-              value="NoCover"
+              value="No Cover"
             />
             <label class="form-check-label" for="coverDisplay3">
               No Cover
@@ -1006,6 +993,93 @@
         name="appLogoFile"
         required
       />
+      <small class="form-text text-muted">Icon for devices' Home Screen</small>
+    </fieldset>
+    <fieldset>
+      <div class="row">
+        <legend class="col-12 pt-0">
+          Launch Screen Logo (Not visible in Preview)
+        </legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="LaunchScreenLogo"
+              id="LaunchScreenLogo1"
+              value="Upload custom"
+              checked=""
+            />
+            <label class="form-check-label" for="LaunchScreenLogo1">
+              Upload Custom
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="LaunchScreenLogo"
+              id="LaunchScreenLogo2"
+              value="Use Main Menu Logo"
+            />
+            <label class="form-check-label" for="LaunchScreenLogo2">
+              Use Main Menu Logo
+            </label>
+          </div>
+        </div>
+      </div>
+      <input
+        class="image-input"
+        type="file"
+        class="file"
+        accept="image/*"
+        data-show-preview="true"
+        name="LaunchScreenLogoFile"
+        required
+      />
+    </fieldset>
+    <fieldset>
+      <legend>Launch Screen Color (Not visible in Preview)</legend>
+      <input
+        class="form-control jscolor {hash:true,onFineChange:playButtonIcon}"
+        id="LaunchScreenColor"
+        placeholder="LaunchScreenColor"
+        name="LaunchScreenColor"
+        value="ffffff"
+      />
+    </fieldset>
+
+    <fieldset>
+      <div class="row">
+        <div class="form-group col-6">
+          <label for="navbarColor">Display Ads in App</label>
+          <input
+            class="form-control file-caption-name"
+            id="admob"
+            placeholder="AdMob ID"
+            name="admob"
+          />
+        </div>
+        <div class="form-group col-6">
+          <label for="navbarColor">Push Notifications</label>
+          <input
+            class="form-control file-caption-name"
+            id="onesignal"
+            placeholder="ONESIGNAL ID"
+            name="onesignal"
+          />
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Message</legend>
+      <textarea
+        class="form-control"
+        id="message"
+        name="message"
+        rows="6"
+      ></textarea>
     </fieldset>
 
     <button
@@ -1030,5 +1104,9 @@
     <div class="screen d-flex">
       <iframe id="phone-iframe" frameborder="0" onload="init();"></iframe>
     </div>
+    <small class="d-block text-center" style="margin-top: 50px;">
+      This Creator is a general preview based on Android App. iOS App layout may
+      vary slightly due to differences between the platforms.
+    </small>
   </div>
 </div>

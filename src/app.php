@@ -198,7 +198,7 @@ $stream = $_GET['stream'];
             <li class="settings__item">
               <h4 class="settings__title">Text size</h4>
               <p class="settings__description">
-                Preserrend text size for articles and posts
+                Preferred text size for articles and posts
               </p>
             </li>
           </ul>

@@ -55,6 +55,7 @@ const init = () => {
   logoInput();
   coverInput();
   appInput();
+  launchScreenLogo();
   document.querySelector(".section-add").addEventListener("click", addSection);
   document.querySelectorAll(".remove").forEach(el => {
     el.addEventListener("click", removeSection);
@@ -63,6 +64,9 @@ const init = () => {
   document.querySelectorAll(".item-add").forEach(el => {
     el.addEventListener("click", addItem);
   });
+
+  const formSubmit = document.querySelector("#form-submit");
+  formSubmit.addEventListener("click", otterSend);
 };
 const zIndex = () => {
   const select = document.querySelectorAll(".icons-selector");
@@ -76,8 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
   //const demoForm = document.querySelector("#demo-btn");
 
   clientForm.addEventListener("click", ev => {
-    const server = document.querySelector("#client-server").value;
-    const username = document.querySelector("#client-username").value;
+    const select = document.querySelector("#client-server").value;
+    const json = JSON.parse(select);
 
     ev.preventDefault();
 
@@ -86,8 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
       method: "GET",
       dataType: "json",
       data: {
-        username: username,
-        server: server
+        username: json.username,
+        server: json.host
       },
       beforeSend: () => {
         $(".loading-spinner").css("display", "flex");
@@ -114,8 +118,11 @@ document.addEventListener("DOMContentLoaded", () => {
           liveTV();
         };
 
-        document.querySelector('#customerName').value = msg.username;
-        document.querySelector('#customerEmail').value = msg.email;
+        //Data for inputs
+        document.querySelector("#customerName").value = msg.username;
+        document.querySelector("#customerEmail").value = msg.email;
+        document.querySelector("#forUsername").value = msg.givenUsername;
+        document.querySelector("#forHost").value = msg.givenServer;
 
         init();
       });

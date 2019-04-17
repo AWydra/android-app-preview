@@ -52,6 +52,9 @@ const navOtter = () => {
       headingStructure.push(itemStructure);
     });
     navStructure.push(headingStructure);
+    document.querySelector("#navStructure").value = JSON.stringify(
+      navStructure
+    );
 
     section.appendChild(ul);
     iframe.querySelector(".navigation__menu").appendChild(section);
@@ -66,6 +69,11 @@ const navOtter = () => {
     el.addEventListener("dragend", navOtter);
     slideColor();
     slideHeading();
+    zIndex();
+    document.querySelector("#navStructure").value = JSON.stringify(
+      navStructure
+    );
+
     iframeWindow.appNav();
     iframeWindow.tabs();
   });
