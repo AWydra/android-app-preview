@@ -70,13 +70,13 @@ const playButtonIcon = () => {
 const liveTV = () => {
   const input = document.querySelector("#live-tv");
   const video = iframe.querySelector(".tv__video");
-  input.addEventListener("input", () => {
+  input.addEventListener("input", ev => {
     if (Hls.isSupported()) {
       var hls = new Hls();
-      hls.loadSource(input.value);
+      hls.loadSource(ev.target.value);
       hls.attachMedia(video);
-      hls.on(Hls.Events.MANIFEST_PARSED, function () {
-        video.load();
+      hls.on(Hls.Events.MANIFEST_PARSED, function() {
+        video.pause();
       });
     }
   });

@@ -34,7 +34,7 @@ $stream = $_GET['stream'];
       <article class="notificationbar__item">
         <i class="icon-line2-bubbles"></i>
         <i class="icon-line2-energy"></i>
-        <span>13:37</span>
+        <span>1:37 PM</span>
       </article>
     </section>
     <header class="navbar">
@@ -178,7 +178,7 @@ $stream = $_GET['stream'];
 
       <section class="web tab-content" id="web" style="display:none;">
         <h2 class="web__heading">
-          Your Content will be displayed here in the App
+          Your Page will be displayed here in the App
         </h2>
         <p class="web__content">Preview is unavailable in App Creator</p>
       </section>

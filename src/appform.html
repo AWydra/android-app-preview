@@ -109,6 +109,8 @@
             id="slideBg"
             placeholder="Slide Menu color"
             name="slideBg"
+            value="ffffff"
+            onchange="openNav()"
           />
         </div>
         <div class="form-group col-6">
@@ -119,6 +121,7 @@
             placeholder="Menu font color"
             name="slideColor"
             value="000000"
+            onchange="openNav()"
           />
         </div>
 
@@ -130,6 +133,7 @@
             placeholder="Menu headings color"
             name="slideHeading"
             value="555555"
+            onchange="openNav()"
           />
         </div>
 
@@ -250,6 +254,7 @@
     <!-- Navigation -->
     <fieldset>
       <legend>Navigation</legend>
+      <small>TIP: To add multiple radio or video streams select Add More and paste stream URLs</small>
       <div class="row flex-column">
         <ul
           class="otter-sort-container js-sortable sortable list list-reset pb-0"
@@ -313,7 +318,7 @@
                   </select>
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0">Radio: </label>
+                  <label class="text-white d-block m-0">Radio Name: </label>
                   <input
                     class="item-name w-100"
                     type="text"
@@ -326,7 +331,8 @@
                     >Radio Stream URL
                   </label>
                   <input
-                    class="item-url disabled w-100"
+                    class="item-url font-weight-bold w-100"
+                    style="color:#ccc;"
                     type="text"
                     value="Your radio"
                     readonly
@@ -481,11 +487,12 @@
                   />
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0">Website URL </label>
+                  <label class="text-white d-block m-0">URL </label>
                   <input
                     class="item-url w-100"
                     type="url"
                     placeholder="http://www.example.com"
+                    value="https://www.facebook.com/freeshoutcast/"
                     required
                   />
                 </div>
@@ -548,11 +555,12 @@
                   />
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0">Website URL </label>
+                  <label class="text-white d-block m-0">URL </label>
                   <input
                     class="item-url w-100"
                     type="url"
                     placeholder="http://www.example.com"
+                    value="https://twitter.com/FastCast4u/"
                     required
                   />
                 </div>
@@ -615,11 +623,12 @@
                   />
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0">Website URL </label>
+                  <label class="text-white d-block m-0">URL </label>
                   <input
                     class="item-url w-100"
                     type="url"
                     placeholder="http://www.example.com"
+                    value="https://www.instagram.com/google/"
                     required
                   />
                 </div>
@@ -702,7 +711,7 @@
                   />
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0">Website URL </label>
+                  <label class="text-white d-block m-0">URL </label>
                   <input
                     class="item-url w-100"
                     type="url"
@@ -769,7 +778,7 @@
                   />
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0">Website URL </label>
+                  <label class="text-white d-block m-0">URL </label>
                   <input
                     class="item-url w-100"
                     type="url"
@@ -836,7 +845,7 @@
                   />
                 </div>
                 <div class="form-group col-5 m-0">
-                  <label class="text-white d-block m-0">Website URL </label>
+                  <label class="text-white d-block m-0">URL </label>
                   <input
                     class="item-url w-100"
                     type="url"
@@ -1073,7 +1082,7 @@
     </fieldset>
 
     <fieldset>
-      <legend>Message</legend>
+      <legend>Message (optional)</legend>
       <textarea
         class="form-control"
         id="message"
@@ -1106,7 +1115,7 @@
     </div>
     <small class="d-block text-center" style="margin-top: 50px;">
       This Creator is a general preview based on Android App. iOS App layout may
-      vary slightly due to differences between the platforms.
+      vary between the platforms.
     </small>
   </div>
 </div>

@@ -10,7 +10,7 @@ function appInit() {
 
   // Open navigation
   otterBtn.addEventListener("click", () => {
-    otterNav.classList.add("navigation__active");
+    otterNav.classList.add("navigation--active");
     overlay.classList.remove("hidden");
   });
 
@@ -23,9 +23,9 @@ function appInit() {
     });
   });
 
-  // Clicko navigation overlay
+  // Click navigation overlay
   overlay.addEventListener("click", () => {
-    otterNav.classList.remove("navigation__active");
+    otterNav.classList.remove("navigation--active");
     overlay.classList.add("hidden");
   });
 }
@@ -38,7 +38,7 @@ function appNav() {
   // Close navigation after click item
   navItem.forEach(el => {
     el.addEventListener("click", () => {
-      otterNav.classList.remove("navigation__active");
+      otterNav.classList.remove("navigation--active");
       overlay.classList.add("hidden");
     });
   });

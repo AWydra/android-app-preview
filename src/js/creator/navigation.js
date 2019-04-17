@@ -82,3 +82,11 @@ const navOtter = () => {
     el.addEventListener("keyup", navOtter);
   });
 };
+
+const openNav = () => {
+  const otterNav = iframe.querySelector(".navigation");
+  const overlay = iframe.querySelector(".main-overlay");
+
+  otterNav.classList.add("navigation--active");
+  overlay.classList.remove("hidden");
+};

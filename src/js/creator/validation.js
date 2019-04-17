@@ -32,7 +32,10 @@ const validation = () => {
   }
 };
 
-const validationListeners = () => {
-  textInputs.forEach(el => el.addEventListener("input", validation));
-  imageInputs.forEach(el => el.addEventListener("input", validation));
+const validationListeners = ev => {
+  if (!ev.target.checkValidity() || ev.target.value === 0) {
+    ev.target.classList.add("bad-validation");
+  } else {
+    ev.target.classList.remove("bad-validation");
+  }
 };

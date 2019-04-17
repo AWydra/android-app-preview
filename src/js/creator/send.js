@@ -1,7 +1,6 @@
 const otterSend = ev => {
   if (!validation()) {
     ev.preventDefault();
-    validationListeners();
     Swal.fire({
       type: "error",
       title: "Error: Check form",

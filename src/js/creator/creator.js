@@ -67,6 +67,12 @@ const init = () => {
 
   const formSubmit = document.querySelector("#form-submit");
   formSubmit.addEventListener("click", otterSend);
+
+  document
+    .querySelectorAll(
+      'input:not([type="file"]):not(.file-caption-name):not(.icons-search-input)'
+    )
+    .forEach(el => el.addEventListener("input", validationListeners));
 };
 const zIndex = () => {
   const select = document.querySelectorAll(".icons-selector");
@@ -123,6 +129,15 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("#customerEmail").value = msg.email;
         document.querySelector("#forUsername").value = msg.givenUsername;
         document.querySelector("#forHost").value = msg.givenServer;
+
+        //Remove bug with clicking enter and deleting section
+        document
+          .querySelector(".otter-sort-container")
+          .addEventListener("keydown", ev => {
+            if (ev.keyCode == 13) {
+              ev.preventDefault();
+            }
+          });
 
         init();
       });

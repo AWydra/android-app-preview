@@ -12,7 +12,7 @@
   z-index: 3;
   @include flex(flex-start, center, column);
 
-  &__active {
+  &--active {
     left: 0;
   }
 

@@ -7,7 +7,7 @@ require_once 'functions/isUnauthorized.php';
 <html lang="en">
 <head>
     <?php
-    include('head.php');
+    include('../head.php');
     ?>
 	<title>FastCast4u | MOBILE APP CREATOR</title>
 	<link rel="stylesheet" href="//marvelapp.github.io/devices.css/assets/devices.min.css"/>
@@ -198,7 +198,7 @@ require_once 'functions/isUnauthorized.php';
 
 <body>
 <?php
-include('menu.php');
+include('../menu.php');
 
 /*<form method="POST" action="functions/logout.php">
       <input type="submit" value="Wyloguj mnie kurdeee!">
@@ -295,7 +295,7 @@ include('menu.php');
   ============================================= -->
 	<footer id="footer" class="dark">
         <?php
-        include('footer.php');
+        include('../footer.php');
         ?>
 	</footer>
 	<!-- #footer end -->
