@@ -66,6 +66,7 @@ const addItem = ev => {
     "row",
     "position-relative"
   );
+  li.setAttribute("data-tabs", "#web");
   li.innerHTML = `<div class="form-group col-2 m-0">
                   <select class="iconpicker-select">
                     <option value="hidden">No icon</option>
@@ -106,11 +107,11 @@ const addItem = ev => {
                     <option>icon-share2</option>
                   </select>
                 </div>
-                <div class="form-group col-5 m-0">
+                <div class="form-group col-12 col-sm-5 mt-3 m-sm-0">
                   <label class="text-white d-block m-0">Name: </label>
                   <input class="item-name w-100" type="text" value="Your item" required />
                 </div>
-                <div class="form-group col-5 m-0">
+                <div class=form-group col-12 col-sm-5 mt-3 m-sm-0">
                   <label class="text-white d-block m-0">URL </label>
                   <input
                     class="item-url w-100"
