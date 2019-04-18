@@ -24,6 +24,7 @@ require_once 'functions/isUnauthorized.php';
 		}
 
 		.marvel-device.note8 {
+			min-width: 340px;
 			width: 340px;
 			height: 669px;
 			top: 100px;
@@ -196,7 +197,7 @@ require_once 'functions/isUnauthorized.php';
 	</style>
 </head>
 
-<body>
+<body style="overflow-x: hidden;">
 <?php
 include('../menu.php');
 
@@ -219,8 +220,8 @@ include('../menu.php');
 		<div class="accordion accordion-border position-relative clearfix">
 			<div class="acctitle py-4">Select your Radio Server</div>
 			<div class="acc_content px-3 clearfix">
-				<form action="#" method="get" class="row">
-					<div class="form-group col-12 col-sm-3">
+				<form action="#" method="get" class="row align-items-start flex-column">
+					<div class="form-group col-12 col-md-8">
 						<label for="client-server">Account</label>
 						<select class="form-control" id="client-server">
                             <?php foreach ($_SESSION['app_creator_radios'] as $radio): ?>
@@ -242,16 +243,16 @@ include('../menu.php');
 				</form>
 			</div>
 
-			<!-- <div class="acctitle py-4">I don't have radio</div>
+			<div class="acctitle py-4 d-none">I don't have radio</div>
             <div class="acc_content px-3 clearfix">
               <form action="">
-                <div class="form-group col-12 col-sm-8">
-                  <label for="username-form">Server link</label>
+                <div class="form-group col-12 col-md-8">
+                  <label for="username-form">Stream link</label>
                   <input
                     type="url"
                     class="form-control"
                     id="username-form"
-                    placeholder="Enter username"
+                    placeholder="Enter stream link"
                   />
                   <small id="emailHelp" class="form-text text-muted"
                     >We'll never share your email with anyone else.</small
@@ -263,7 +264,7 @@ include('../menu.php');
                   value="Next"
                 />
               </form>
-            </div> -->
+            </div>
 
 			<!-- <div class="acctitle py-4">Demo</div>
             <div class="acc_content px-3 clearfix">
@@ -289,6 +290,9 @@ include('../menu.php');
 				<img src="//fastcast4u.com/radio-directory/images/station-spinner.png" alt=""/>
 			</div>
 		</div>
+		<div class="w-100 d-flex justify-content-end mb-5">
+		<a href="functions/logout.php">Log out</a>
+	</div>
 	</main>
 
 	<!-- Footer
