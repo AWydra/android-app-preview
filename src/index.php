@@ -1,318 +1,276 @@
-<?php
-session_start();
-require_once 'functions/isUnauthorized.php';
-?>
+<!-- Header
+		============================================= -->
+<header id="header" class="full-header transparent-header">
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <?php
-    include('../head.php');
-    ?>
-	<title>FastCast4u | MOBILE APP CREATOR</title>
-	<link rel="stylesheet" href="//marvelapp.github.io/devices.css/assets/devices.min.css"/>
-	<link rel="stylesheet" href="//fastcast4u.com/css/otterIcons.css"/>
-	<link rel="stylesheet" href="//fastcast4u.com/css/components/bs-filestyle.css"/>
-	<link rel="stylesheet" href="//fastcast4u.com/css/fontpicker.css"/>
-	<link rel="stylesheet"
-		  href="//codeb.it/fonticonpicker/themes/grey-theme/jquery.fonticonpicker.grey.min.css?v=2.0.0"/>
 
-	<style>
-		.acctitle {
-			font-size: 2rem;
-			line-height: 1;
-		}
+    <div id="header-wrap" class="px-3">
 
-		.marvel-device.note8 {
-			min-width: 340px;
-			width: 340px;
-			height: 669px;
-			top: 100px;
-		}
+        <div class="container-fluid clearfix">
 
-		.marvel-device.note8 .camera {
-			left: 45px;
-		}
+            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
 
-		.marvel-device.note8 .sensors {
-			left: 90px;
-		}
 
-		.marvel-device.note8 .more-sensors {
-			left: 245px;
-		}
-
-		.screen iframe {
-			width: 100%;
-			height: 100%;
-		}
-
-		.loading-spinner {
-			top: 0;
-			left: 0;
-			background-color: rgba(0, 0, 0, 0.1);
-		}
-
-		.loading-spinner img {
-			animation: rolling 1s linear infinite;
-		}
-
-		@keyframes rolling {
-			0% {
-				-webkit-transform: rotate(0deg);
-				transform: rotate(0deg);
-			}
-
-			100% {
-				-webkit-transform: rotate(360deg);
-				transform: rotate(360deg);
-			}
-		}
-
-		.file-footer-buttons {
-			display: none;
-		}
-
-		.otter-sort-container,
-		.otter-sort-item {
-			list-style: none;
-			width: 100%;
-		}
-
-		.otter-sort-container {
-			padding: 30px 0;
-		}
-
-		.otter-sort-container > .navy {
-			margin: 0 0 20px;
-			padding: 20px;
-			border: solid #777 2px;
-			border-radius: 10px;
-		}
-
-		.otter-sort-item {
-			min-height: 50px;
-		}
-
-		.otter-sort-item > .navy {
-			margin: 0 0 20px;
-			padding: 5px 10px;
-			background-color: #2e8ece;
-			color: white;
-		}
-
-		.otter-sort-item > .navy input {
-			padding: 3px;
-			background-color: transparent;
-			color: white;
-			border: none;
-			border-bottom: solid white 2px;
-		}
-
-		::-webkit-input-placeholder {
-			color: white;
-		}
-
-		::-moz-placeholder {
-			color: white;
-		}
-
-		:-ms-input-placeholder {
-			color: white;
-		}
-
-		.navy h4 {
-			margin: 0 0 10px;
-		}
-
-		.navy h4 input {
-			padding: 3px;
-			border: none;
-			border-bottom: solid #ddd 2px;
-		}
-
-		.icons-selector .selector-popup {
-			width: 276px;
-		}
-
-		.fip-icons-container {
-			color: black;
-		}
-
-		.icons-selector {
-			top: 50%;
-			transform: translateY(-50%);
-			z-index: 3;
-		}
-
-		.icons-selector .selector-button {
-			width: 25px;
-		}
-
-		.icons-selector .selector {
-			width: 66px;
-			height: 30px;
-		}
-
-		.icons-selector .selected-icon {
-			width: 40px;
-		}
-
-		.icons-selector .selected-icon i {
-			line-height: 30px;
-		}
-
-		.icons-selector .selector-button i {
-			line-height: 28px;
-		}
-
-		::placeholder {
-			color: white;
-		}
-
-		.remove {
-			position: absolute;
-			top: 0;
-			right: 0;
-			background: transparent;
-			border: none;
-			outline: none;
-			color: red;
-			font-size: 1.5rem;
-			cursor: pointer;
-		}
-
-		.remove--item {
-			color: white;
-			font-size: 1.1rem;
-		}
-	
-    .bad-validation{
-      background-color: rgba(255,0,0,.9) !important;
-    }
-
-    .bad-validation-img{
-      border: solid red 2px;
-    }
-	</style>
-</head>
-
-<body style="overflow-x: hidden;">
-<?php
-include('../menu.php');
-
-/*<form method="POST" action="functions/logout.php">
-      <input type="submit" value="Wyloguj mnie kurdeee!">
-  </form>*/
-
-?>
-
-<!-- Document Wrapper
-============================================= -->
-<div id="wrapper" class="clearfix w-100">
-	<header class="heading-block center col-12 pt-5" style="margin: 0 auto;">
-		<h1>MOBILE APP CREATOR</h1>
-        <span class="divcenter mt-3"
-          >Create and Preview your own Mobile App</span
-        >
-      </header>
-	<main class="container">
-		<div class="accordion accordion-border position-relative clearfix">
-			<div class="acctitle py-4">Select your Radio Server</div>
-			<div class="acc_content px-3 clearfix">
-				<form action="#" method="get" class="row align-items-start flex-column">
-					<div class="form-group col-12 col-md-8">
-						<label for="client-server">Account</label>
-						<select class="form-control" id="client-server">
-                            <?php foreach ($_SESSION['app_creator_radios'] as $radio): ?>
-								<option value='{"username":"<?= $radio['username'] ?>","host":"<?= $radio['host'] ?>"}'><?= $radio['username'] ?></option>
-                            <?php endforeach; ?>
-						</select>
-					</div>
-					<!--<div class="form-group col-12 col-sm-9">
-                      <label for="client-username">Username</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="client-username"
-                        placeholder="Enter username"
-                      />
-                    </div>-->
-					<input class="button center button-rounded button-medium ml-3 whiteotter" id="client-btn"
-						   type="submit" value="Next"/>
-				</form>
-			</div>
-
-			<div class="acctitle py-4 d-none">I don't have radio</div>
-            <div class="acc_content px-3 clearfix">
-              <form action="">
-                <div class="form-group col-12 col-md-8">
-                  <label for="username-form">Stream link</label>
-                  <input
-                    type="url"
-                    class="form-control"
-                    id="username-form"
-                    placeholder="Enter stream link"
-                  />
-                  <small id="emailHelp" class="form-text text-muted"
-                    >We'll never share your email with anyone else.</small
-                  >
-                </div>
-                <input
-                  class="button center button-rounded button-medium ml-3 whiteotter"
-                  type="submit"
-                  value="Next"
-                />
-              </form>
+            <!-- Logo
+					============================================= -->
+            <div id="logo"> 
+                <a href="//<?php echo 'fastcast4u.com'; ?>/" class="standard-logo" data-dark-logo="//<?php echo 'fastcast4u.com'; ?>/images/logo-dark.png?cache=1"><img src="//<?php echo 'fastcast4u.com'; ?>/images/logo.png?cache=1" alt="FastCast4u"></a>
+                <a href="//<?php echo 'fastcast4u.com'; ?>/" class="retina-logo" data-dark-logo="//<?php echo 'fastcast4u.com'; ?>/images/logo-dark@2x.png?cache=1"><img src="//<?php echo 'fastcast4u.com'; ?>/images/logo@2x.png?cache=1" alt="FastCast4u"></a>
             </div>
+            <!-- #logo end -->
 
-			<!-- <div class="acctitle py-4">Demo</div>
-            <div class="acc_content px-3 clearfix">
-              <form action="">
-                <div class="form-group col-12 col-sm-8">
-                  <input
-                    type="hidden"
-                    class="form-control"
-                    id="username-form"
-                    placeholder="Enter username"
-                  />
-                </div>
-                <input
-                  id="demo-btn"
-                  class="button center button-rounded button-medium ml-3 whiteotter"
-                  type="submit"
-                  value="Use demo link"
-                />
-              </form>
-            </div> -->
-			<div class="loading-spinner position-absolute w-100 h-100 justify-content-center align-items-center"
-				 style="display: none;">
-				<img src="//fastcast4u.com/radio-directory/images/station-spinner.png" alt=""/>
-			</div>
-		</div>
-		<div class="w-100 d-flex justify-content-end mb-5">
-		<a href="functions/logout.php">Log out</a>
-	</div>
-	</main>
+            <!-- Primary Navigation
+					============================================= -->
+            <nav id="primary-menu" class="not-dark with-arrows">
 
-	<!-- Footer
-  ============================================= -->
-	<footer id="footer" class="dark">
-        <?php
-        include('../footer.php');
-        ?>
-	</footer>
-	<!-- #footer end -->
+                <ul class="not-dark">
+                    <li class="mega-menu" id="otter1"><a href="//<?php echo 'fastcast4u.com'; ?>/create">
+                            <div class="darkotter">Start &nbsp; &nbsp;
+                            </div>
+                        </a>
+                    </li>
+                    
+                    <!--PRICING-->              
+                    <li class="mega-menu" id="otter2"><span>
+                            <div class="darkotter">PRICING
+                                <i class="icon-angle-down"></i>
+                            </div>
+                        </span>
+                        <!-- Mega Menu Content
+								============================================= -->
+                        <div class="mega-menu-otter style-2 border-top-0 clearfix responsiveotter4 animated fadeIn" id="menuotter2" style="animation-duration: 0.2s;">
+                            <!-- Mega Menu Col 1 -->
+                            <ul class="mega-menu-column col-lg-3">
+                                <a href="//<?php echo 'fastcast4u.com'; ?>/start" class="linkotter"></a>
+                                <li>
+                                    <div class="feature-box not-dark fbox-small fbox-center nobottommargin">
+                                        <div class="fbox-icon">
+                                            <a href="//<?php echo 'fastcast4u.com'; ?>/start">
+                                                <img src="//<?php echo 'fastcast4u.com'; ?>/images/svg/radio-antenna.svg" class="noradius nobg tleft" alt="" >
+                                            </a>
+                                        </div>
+                                        <h3 class="t500"><a href="//<?php echo 'fastcast4u.com'; ?>/start" class="darkotter">My Radio Station</a></h3>
+                                        <p class="d-none d-lg-block mb-0 t300">Start your own Internet Radio Station! With us, it's easy...</p>
 
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-- Mega Menu Col 2 -->
+                            <ul class="mega-menu-column col-lg-3">
+                                <a href="//<?php echo 'fastcast4u.com'; ?>/business" class="linkotter"></a>
+                                <li>
+                                    <div class="feature-box not-dark fbox-small fbox-center nobottommargin">
+                                        <div class="fbox-icon">
+                                            <a href="//<?php echo 'fastcast4u.com'; ?>/business">
+                                                <img src="//<?php echo 'fastcast4u.com'; ?>/images/svg/computer-monitor.svg" class="noradius nobg tleft" alt="" >
+                                            </a>
+                                        </div>
+                                        <h3 class="t500"><a href="//<?php echo 'fastcast4u.com'; ?>/business" class="darkotter">Multi-Station &amp; Business</a></h3>
+                                        <p class="d-none d-lg-block mb-0 t300">More that one Online Station? Discover solutions for Business, Multi-Station Operators and Service Resellers.</p>
 
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-- Mega Menu Col 3 -->
+                            <ul class="mega-menu-column col-lg-3">
+                                <a href="//<?php echo 'fastcast4u.com'; ?>/app" class="linkotter"></a>
+                                <li>
+                                    <div class="feature-box not-dark fbox-small fbox-center nobottommargin">
+                                        <div class="fbox-icon">
+                                            <a href="//<?php echo 'fastcast4u.com'; ?>/app">
+                                                <img src="//<?php echo 'fastcast4u.com'; ?>/images/svg/touch-screen.svg" class="noradius nobg tleft" alt="" >
+                                            </a>
+                                        </div>
+                                        <h3 class="t500"><a href="//<?php echo 'fastcast4u.com'; ?>/app" class="darkotter">Mobile App</a></h3>
+                                        <p class="d-none d-lg-block mb-0 t300">Custom-bulit &amp; Interactive Mobile App for your Online Radio Station. </p>
 
-	<script src="js/creator.js"></script>
-	<script src="//fastcast4u.com/js/jscolor.js"></script>
-	<script src="//fastcast4u.com/js/components/bs-filestyle.js"></script>
-	<script src="//fastcast4u.com/radio-directory/js/sweetalert2.js"></script>
-	<script src="//lukasoppermann.github.io/html5sortable/html5sortable.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-</div>
-<!-- #wrapper end -->
-</body>
-</html>
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-- Mega Menu Col 4 -->
+                            <ul class="mega-menu-column col-lg-3">
+                                <a href="//<?php echo 'fastcast4u.com'; ?>/promo" class="linkotter"></a>
+                                <li>
+                                    <div class="feature-box not-dark fbox-small fbox-center nobottommargin">
+                                        <div class="fbox-icon"><a href="//<?php echo 'fastcast4u.com'; ?>/promo">
+                                                <img src="//<?php echo 'fastcast4u.com'; ?>/images/svg/discount.svg" class="noradius nobg tleft" alt="" >
+                                            </a>
+                                        </div>
+                                        <h3 class="t500"><a href="//<?php echo 'fastcast4u.com'; ?>/promo" class="darkotter">Discounts</a></h3>
+                                        <p class="d-none d-lg-block mb-0 t300">Check our Best Deals &amp; Promotions!</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    
+                    <!--MORE-->
+                    <li class="mega-menu" id="otter3"><span>
+                            <div class="darkotter">MORE
+                                <i class="icon-angle-down"></i>
+                            </div>
+                        </span>
+                        <!-- Mega Menu Content
+								============================================= -->
+                        <div class="responsiveotter4 mega-menu-otter style-2 border-top-0 clearfix animated fadeIn" id="menuotter3" style="animation-duration: 0.2s;">
+                           <!-- Mega Menu Col 1 -->
+                            <ul class="mega-menu-column col-lg-3">
+                                <a href="//<?php echo 'fastcast4u.com'; ?>/customize" class="linkotter"></a>
+                                <li>
+                                    <div class="feature-box not-dark fbox-small fbox-center nobottommargin">
+                                        <div class="fbox-icon"><a href="//<?php echo 'fastcast4u.com'; ?>/customize">
+                                                <img src="//<?php echo 'fastcast4u.com'; ?>/images/svg/video-play.svg" class="noradius nobg tleft" alt="" >
+                                            </a>
+                                        </div>
+                                        <h3 class="t500"><a href="//<?php echo 'fastcast4u.com'; ?>/customize" class="darkotter">Webplayer &amp; Addons</a></h3>
+                                        <p class="d-none d-lg-block mb-0 t300">Free &amp; Customizable WebPlayer, TwitterCast, Online Radio Promotion and more...</p>
+
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-- Mega Menu Col 2 -->
+                            <ul class="mega-menu-column col-lg-3">
+                                <a href="//<?php echo 'fastcast4u.com'; ?>/radio-promotion" class="linkotter"></a>
+                                <li>
+                                    <div class="feature-box not-dark fbox-small fbox-center nobottommargin">
+                                        <div class="fbox-icon"><a href="//<?php echo 'fastcast4u.com'; ?>/radio-promotion">
+                                                <img src="//<?php echo 'fastcast4u.com'; ?>/images/svg/profits.svg" class="noradius nobg tleft" alt="">
+                                            </a>
+                                        </div>
+                                        <h3 class="t500"><a href="//<?php echo 'fastcast4u.com'; ?>/radio-promotion" class="darkotter">Radio Promotion Package</a></h3>
+                                        <p class="d-none d-lg-block mb-0 t300">Let us promote your station online and get new listeners!</p>
+
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-- Mega Menu Col 3 -->
+                            <ul class="mega-menu-column col-lg-3">
+                               <a href="//<?php echo 'fastcast4u.com'; ?>/radio-directory/" class="linkotter"></a>
+                                <li>
+                                    <div class="feature-box not-dark fbox-small fbox-center nobottommargin">
+                                        <div class="fbox-icon"><a href="//<?php echo 'fastcast4u.com'; ?>/radio-directory/">
+                                                <img src="https://fastcast4u.com/images/svg/radio.svg" class="noradius nobg tleft" alt="Radio icon"></a>
+                                        </div>
+                                        <h3 class="t500"><a href="//<?php echo 'fastcast4u.com'; ?>/radio-directory/" class="darkotter">Online Radio Directory</a></h3>
+                                        <p class="d-none d-lg-block mb-0 t300">Browse Online Radio Stations that we host. Check and Tune-in!.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-- Mega Menu Col 4 -->
+                            <ul class="mega-menu-column col-lg-3">
+                                    <a href="https://fastcast4u.com/affiliate/" class="linkotter"></a>
+                                <li>
+                                    <div class="feature-box not-dark fbox-small fbox-center nobottommargin">
+                                        <div class="fbox-icon"><a href="https://fastcast4u.com/affiliate/">
+                                                <img src="https://fastcast4u.com/images/svg/pay-per-click.svg" class="noradius nobg tleft" alt="Money icon"></a>
+                                        </div>
+                                        <h3 class="t500"><a href="https://fastcast4u.com/affiliate/" class="darkotter">Affiliate program</a></h3>
+                                        <p class="d-none d-lg-block mb-0 t300">Earn real money online on promoting our Products and Services!</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    
+                    <!--HELP-->
+                    <li class="mega-menu" id="otter4"><span>
+                            <div class="darkotter">HELP
+                                <i class="icon-angle-down"></i>
+                            </div>
+                        </span>
+                        <!-- Mega Menu Content
+								============================================= -->
+                        <div class="mega-menu-otter style-2 border-top-0 clearfix responsiveotter4 animated fadeIn" id="menuotter4" style="animation-duration: 0.2s;">
+                            <!-- Mega Menu Col 1 -->
+                            <ul class="mega-menu-column col-lg-3">
+                                <a href="//<?php echo 'fastcast4u.com'; ?>/help" class="linkotter"></a>
+                                <li>
+                                    <div class="feature-box not-dark fbox-small fbox-center nobottommargin">
+                                        <div class="fbox-icon"><a href="//<?php echo 'fastcast4u.com'; ?>/help">
+                                                <img src="//<?php echo 'fastcast4u.com'; ?>/images/svg/startup.svg" class="noradius nobg tleft" alt="" >
+                                            </a>
+                                        </div>
+                                        <h3 class="t500"><a href="//<?php echo 'fastcast4u.com'; ?>/help" class="darkotter">Tutorials</a></h3>
+                                        <p class="d-none d-lg-block mb-0 t300">Videos and Tutorials: Streaming Live, AutoDJ, Panels and more...</p>
+
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-- Mega Menu Col 2 -->
+                            <ul class="mega-menu-column col-lg-3">
+                                <a href="//<?php echo 'fastcast4u.com'; ?>/faq" class="linkotter"></a>
+                                <li>
+                                    <div class="feature-box not-dark fbox-small fbox-center nobottommargin">
+                                        <div class="fbox-icon"><a href="//<?php echo 'fastcast4u.com'; ?>/faq">
+                                                <img src="//<?php echo 'fastcast4u.com'; ?>/images/svg/question.svg" class="noradius nobg tleft" alt="" >
+                                            </a>
+                                        </div>
+                                        <h3 class="t500"><a href="//<?php echo 'fastcast4u.com'; ?>/faq" class="darkotter">FAQ</a></h3>
+                                        <p class="d-none d-lg-block mb-0 t300">We're always glad to assist you, but you can check for answer here.</p>
+
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-- Mega Menu Col 3 -->
+                            <ul class="mega-menu-column col-lg-3">
+                                <a href="//<?php echo 'fastcast4u.com'; ?>/remote" class="linkotter"></a>
+                                <li>
+                                    <div class="feature-box not-dark fbox-small fbox-center nobottommargin">
+                                        <div class="fbox-icon"><a href="//<?php echo 'fastcast4u.com'; ?>/remote">
+                                                <img src="//<?php echo 'fastcast4u.com'; ?>/images/svg/support.svg" class="noradius nobg tleft" alt="" >
+                                            </a>
+                                        </div>
+                                        <h3 class="t500"><a href="//<?php echo 'fastcast4u.com'; ?>/remote" class="darkotter">Remote Session</a></h3>
+                                        <p class="d-none d-lg-block mb-0 t300">Schedule a Remote Setup session with an Online Radio technician.</p>
+
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-- Mega Menu Col 4 -->
+                            <ul class="mega-menu-column col-lg-3">
+                               <a href="https://billing.fastcast4u.com/serverstatus.php" class="linkotter"></a>
+                                <li>
+                                    <div class="feature-box not-dark fbox-small fbox-center nobottommargin">
+                                        <div class="fbox-icon"><a href="https://billing.fastcast4u.com/serverstatus.php">
+                                                <img src="//<?php echo 'fastcast4u.com'; ?>/images/svg/networking.svg" class="noradius nobg tleft" alt="Server status icon"></a>
+                                        </div>
+                                        <h3 class="t500"><a href="https://billing.fastcast4u.com/serverstatus.php" class="darkotter">Server Status</a></h3>
+                                        <p class="d-none d-lg-block mb-0 t300">Check uptime and current status of our Radio Hosting Servers.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    
+                    <!--CONTACT-->
+                    <li class="mega-menu">
+                        <a href="//<?php echo 'fastcast4u.com'; ?>/contact">
+                            <div class="darkotter">Contact
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mega-menu d-lg-none d-flex justify-content-around">
+                        <a href="//billing.fastcast4u.com/register.php">
+                            <div class="darkotter menu-red">Join Now
+                            </div>
+                        </a>
+                        <a href="//<?php echo 'fastcast4u.com'; ?>/login">
+                            <div class="darkotter color">Log in
+                            </div>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- Top Search
+						============================================= -->
+                <a href="javascript:void(0);" onclick="modalTrial();" class="button bg-white menu-red button-light text-dark button-rounded">Try Now</a>
+                <a href="//<?php echo 'fastcast4u.com'; ?>/login" class="button bg-white text-dark button-light button-rounded color">Log in</a>
+
+            </nav>
+            <!-- #primary-menu end -->
+        </div>
+
+    </div>
+</header>
+<!-- #header end -->
+<noscript><p class="position-fixed w-100 text-center mt-5 pt-5 px-5 display-1">JavaScript is required to see our page</p></noscript>
