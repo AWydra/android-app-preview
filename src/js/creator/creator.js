@@ -130,6 +130,14 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("#forUsername").value = msg.givenUsername;
         document.querySelector("#forHost").value = msg.givenServer;
 
+        //
+        if (!msg.admob) {
+          document.querySelector("#admob-container").remove();
+        }
+        if (!msg.push) {
+          document.querySelector("#push-container").remove();
+        }
+
         //Remove bug with clicking enter and deleting section
         document
           .querySelector(".otter-sort-container")
@@ -177,6 +185,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     ev.preventDefault();
 
+    if (
+      select.includes("fastcast4u.com/player") ||
+      select.includes("player.fastcast4u.com")
+    ) {
+      Swal.fire({
+        type: "error",
+        title: "Player link",
+        text: "Please enter a valid stream link"
+      });
+
+      return false;
+    } else if (
+      select.length === 0 ||
+      !document.querySelector("#username-form").checkValidity()
+    ) {
+      Swal.fire({
+        type: "error",
+        title: "Invalid stream link",
+        text: "Example: https://yourserver.com:port or https://proxy-link"
+      });
+
+      return false;
+    }
+
     const arq = $.ajax({
       url: "api/getUserData.php",
       method: "GET",
@@ -202,6 +234,13 @@ document.addEventListener("DOMContentLoaded", () => {
           iframeWindow.tabs();
           liveTV();
         };
+
+        if (!msg.admob) {
+          document.querySelector("#admob-container").remove();
+        }
+        if (!msg.push) {
+          document.querySelector("#push-container").remove();
+        }
 
         //Remove readonly
         document.querySelector("#customerName").value = msg.username;
