@@ -31,7 +31,7 @@ const navOtter = () => {
       const anchor = document.createElement("a");
       const icon = document.createElement("i");
       const h3 = document.createElement("h3");
-      const iconClass = el.querySelector(".iconpicker-select").value;
+      let iconClass = el.querySelector(".iconpicker-select").value;
       const name = el.querySelector(".item-name").value;
       const url = el.querySelector(".item-url").value;
       const tabs = el.getAttribute("data-tabs");
@@ -48,7 +48,9 @@ const navOtter = () => {
       li.appendChild(anchor);
       ul.appendChild(li);
 
-      itemStructure.push(iconClass, name, url);
+      iconClass = iconClass.toLowerCase().replace(/-/g, "_");
+
+      itemStructure.push(iconClass.replace("-", "_"), name, url);
       headingStructure.push(itemStructure);
     });
     navStructure.push(headingStructure);
