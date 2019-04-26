@@ -94,3 +94,63 @@ const connect = link => {
     });
   });
 };
+
+function otterPlayerCustom(stream) {
+  if (connectInterval) {
+    clearInterval(connectInterval);
+  }
+  customConnect(stream);
+  connectInterval = setInterval(function() {
+    customConnect(stream);
+  }, 10000);
+
+  otter.src = stream;
+  otter.volume = 0.5;
+
+  $("#radio-station-name").text(title);
+
+  $(".player-button").click(function() {
+    $(".radio__buttons-play").toggleClass("hidden");
+    $(".radio__buttons-pause").toggleClass("hidden");
+  });
+
+  $(".radio__buttons-play").click(function() {
+    otter.load();
+    otter.play();
+  });
+
+  $(".radio__buttons-pause").click(function() {
+    otter.pause();
+  });
+
+  $(otter).on("waiting", function() {});
+
+  $(otter).on("playing", function() {});
+}
+
+const customConnect = link => {
+  $.ajax({
+    url: "api/artistAndTitleByStreamlink.php",
+    method: "GET",
+    dataType: "json",
+    data: {
+      streamlink: link
+    }
+  }).done(function(track) {
+    $("#track-container").text(track);
+    const data = encodeURIComponent(track);
+    const arq = $.ajax({
+      url: `https://itunes.apple.com/search?term=${data}&media=music&limit=1`,
+      dataType: "json"
+    }).done(function(json) {
+      if (json.resultCount > 0 && !$("#radio").hasClass("fixed-bg")) {
+        const avatar = json.results[0].artworkUrl30.replace("30x30", "610x610");
+        $(".radio").css("background-image", `url(\"${avatar}\")`);
+      } else if ($("#radio").hasClass("custom-bg")) {
+        //do nothing
+      } else {
+        $(".radio").css("background-image", `url("img/bg.png")`);
+      }
+    });
+  });
+};

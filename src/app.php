@@ -1,6 +1,7 @@
 <?php
 $xml = $_GET['xml'];
 $stream = $_GET['stream'];
+$streamlink = $_GET['streamlink'];
 ?>
 
 <!DOCTYPE html>
@@ -144,7 +145,7 @@ $stream = $_GET['stream'];
       <section class="radio tab-content" id="radio">
         <div class="radio__artist animated fadeOutDown hidden">
           <h2>Now playing</h2>
-          <h3>
+          <h3 id="track-container">
             <span id="artist">Artist</span> - <span id="title">Title</span>
           </h3>
         </div>
@@ -232,7 +233,13 @@ $stream = $_GET['stream'];
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="js/main.js"></script>
     <script>
-      otterPlayer("<?=$stream?>", "<?=$xml?>");
+      <?php
+      if (isset($streamlink)){
+        echo "otterPlayerCustom('".$streamlink."')";
+      } else {
+        echo "otterPlayer('".$stream."','".$xml."')";
+      }
+      ?>
     </script>
   </body>
 </html>

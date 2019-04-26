@@ -83,7 +83,7 @@ const zIndex = () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const clientForm = document.querySelector("#client-btn");
-  //const demoForm = document.querySelector("#demo-btn");
+  const customForm = document.querySelector("#customStreamBtn");
 
   clientForm.addEventListener("click", ev => {
     const select = document.querySelector("#client-server").value;
@@ -172,44 +172,63 @@ document.addEventListener("DOMContentLoaded", () => {
     return false;
   });
 
-  // demoForm.addEventListener("click", ev => {
-  //   ev.preventDefault();
+  customForm.addEventListener("click", ev => {
+    const select = document.querySelector("#username-form").value;
 
-  //   const arq = $.ajax({
-  //     url: "getStreamAndXML.php",
-  //     method: "GET",
-  //     dataType: "json",
-  //     data: { username: "wydra", server: "eu6.fastcast4u.com" },
-  //     beforeSend: () => {
-  //       $(".loading-spinner").css("display", "flex");
-  //     },
-  //     complete: () => {
-  //       $(".loading-spinner").hide();
-  //     }
-  //   });
+    ev.preventDefault();
 
-  //   arq.done(msg => {
-  //     $("main").load("appform.html", () => {
-  //       $("#phone-iframe").attr(
-  //         "src",
-  //         `app.php?xml=${msg.xmlLink}&stream=${msg.streamLink}`
-  //       );
+    const arq = $.ajax({
+      url: "api/getUserData.php",
+      method: "GET",
+      dataType: "json",
+      beforeSend: () => {
+        $(".loading-spinner").css("display", "flex");
+      },
+      complete: () => {
+        $(".loading-spinner").hide();
+      }
+    });
 
-  //       const appFrame = document.querySelector("#phone-iframe");
-  //       appFrame.onload = () => {
-  //         iframe = appFrame.contentDocument;
-  //         iframeWindow = appFrame.contentWindow;
-  //         navOtter();
-  //         iframeWindow.appInit();
-  //         iframeWindow.tabs();
-  //         liveTV();
-  //       };
+    arq.done(msg => {
+      $("main").load("appform.html", () => {
+        $("#phone-iframe").attr("src", `app.php?streamlink=${select}`);
 
-  //       init();
+        const appFrame = document.querySelector("#phone-iframe");
+        appFrame.onload = () => {
+          iframe = appFrame.contentDocument;
+          iframeWindow = appFrame.contentWindow;
+          navOtter();
+          iframeWindow.appInit();
+          iframeWindow.tabs();
+          liveTV();
+        };
 
-  //       document.querySelector("#form-submit").remove();
-  //       document.querySelector("form").removeAttribute("action");
-  //     });
-  //   });
-  // });
+        //Remove readonly
+        document.querySelector("#customerName").value = msg.username;
+        document.querySelector("#customerEmail").value = msg.email;
+        document.querySelector("#customStream").value = select;
+
+        //Remove bug with clicking enter and deleting section
+        document
+          .querySelector(".otter-sort-container")
+          .addEventListener("keydown", ev => {
+            if (ev.keyCode == 13) {
+              ev.preventDefault();
+            }
+          });
+
+        init();
+      });
+    });
+
+    arq.fail(() => {
+      Swal.fire({
+        type: "error",
+        title: "Error",
+        text: "You must be logged to design your app"
+      });
+    });
+
+    return false;
+  });
 });
