@@ -34,6 +34,11 @@ const init = () => {
     acceptFrom: ".otter-sort-item"
   });
 
+  //Remove draggable buttons
+  document.querySelectorAll(".navigation__btn").forEach(el => {
+    el.removeAttribute("draggable");
+  });
+
   // Show/hide upload
   $("#checkbox1").change(() => {
     if (this.checked) {
