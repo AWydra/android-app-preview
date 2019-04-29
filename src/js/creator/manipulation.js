@@ -40,7 +40,6 @@ const addSection = ev => {
   });
 
   navOtter();
-  parent.setAttribute("draggable", "false");
 };
 
 function removeSection(ev) {
@@ -111,7 +110,7 @@ const addItem = ev => {
                   <label class="text-white d-block m-0">Name: </label>
                   <input class="item-name w-100" type="text" value="Your item" required />
                 </div>
-                <div class=form-group col-12 col-sm-5 mt-3 m-sm-0">
+                <div class="form-group col-12 col-sm-5 mt-3 m-sm-0">
                   <label class="text-white d-block m-0">URL </label>
                   <input
                     class="item-url w-100"
