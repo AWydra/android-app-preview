@@ -29,7 +29,6 @@ $streamlink = $_GET['streamlink'];
     <section class="notificationbar">
       <article class="notificationbar__item">
         <i class="icon-wifi-full"></i>
-        <i class="icon-soundcloud"></i>
         <i class="icon-line2-envelope"></i>
       </article>
       <article class="notificationbar__item">
