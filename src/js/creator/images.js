@@ -95,8 +95,8 @@ const appInput = () => {
 };
 
 const launchScreenLogo = () => {
-  const logoCheckbox = document.querySelectorAll('[name="LaunchScreenLogo"]');
-  const fileInput = document.querySelector('[name="LaunchScreenLogoFile"]');
+  const logoCheckbox = document.querySelectorAll('[name="launchScreenLogo"]');
+  const fileInput = document.querySelector('[name="launchScreenLogoFile"]');
   const fileContainer = fileInput.offsetParent.offsetParent.parentElement;
 
   logoCheckbox.forEach(el => {

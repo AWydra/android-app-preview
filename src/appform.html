@@ -255,7 +255,7 @@
     <!-- Navigation -->
     <fieldset>
       <legend>Navigation</legend>
-      <small
+      <small class="form-text text-muted"
         >TIP: To add multiple radio or video streams select Add More and paste
         stream URLs</small
       >
@@ -1018,12 +1018,12 @@
             <input
               class="form-check-input"
               type="radio"
-              name="LaunchScreenLogo"
-              id="LaunchScreenLogo1"
+              name="launchScreenLogo"
+              id="launchScreenLogo1"
               value="Upload custom"
               checked=""
             />
-            <label class="form-check-label" for="LaunchScreenLogo1">
+            <label class="form-check-label" for="launchScreenLogo1">
               Upload Custom
             </label>
           </div>
@@ -1031,11 +1031,11 @@
             <input
               class="form-check-input"
               type="radio"
-              name="LaunchScreenLogo"
-              id="LaunchScreenLogo2"
+              name="launchScreenLogo"
+              id="launchScreenLogo2"
               value="Use Main Menu Logo"
             />
-            <label class="form-check-label" for="LaunchScreenLogo2">
+            <label class="form-check-label" for="launchScreenLogo2">
               Use Main Menu Logo
             </label>
           </div>
@@ -1047,7 +1047,7 @@
         class="file"
         accept="image/*"
         data-show-preview="true"
-        name="LaunchScreenLogoFile"
+        name="launchScreenLogoFile"
         required
       />
     </fieldset>
@@ -1055,16 +1055,16 @@
       <legend>Launch Screen Color (Not visible in Preview)</legend>
       <input
         class="form-control jscolor {hash:true,onFineChange:playButtonIcon}"
-        id="LaunchScreenColor"
-        placeholder="LaunchScreenColor"
-        name="LaunchScreenColor"
+        id="launchScreenColor"
+        placeholder="launchScreenColor"
+        name="launchScreenColor"
         value="ffffff"
       />
     </fieldset>
 
     <fieldset>
       <div class="row">
-        <div class="form-group col-12 col-md-6">
+        <div class="form-group col-12 col-md-6" id="admob-container">
           <label for="navbarColor">Display Ads in App</label>
           <input
             class="form-control file-caption-name"
@@ -1073,13 +1073,13 @@
             name="admob"
           />
         </div>
-        <div class="form-group col-12 col-md-6">
+        <div class="form-group col-12 col-md-6" id="push-container">
           <label for="navbarColor">Push Notifications</label>
           <input
             class="form-control file-caption-name"
-            id="onesignal"
+            id="push"
             placeholder="ONESIGNAL ID"
-            name="onesignal"
+            name="push"
           />
         </div>
       </div>
@@ -1117,7 +1117,10 @@
     <div class="screen d-flex">
       <iframe id="phone-iframe" frameborder="0" onload="init();"></iframe>
     </div>
-    <small class="d-block text-center" style="margin-top: 50px;">
+    <small
+      class="d-block text-center form-text text-muted"
+      style="margin-top: 50px;"
+    >
       This Creator is a general preview based on Android App. iOS App layout may
       vary between the platforms.
     </small>
