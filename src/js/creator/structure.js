@@ -2,38 +2,39 @@ const createStructure = () => {
   const structure = {};
 
   //General
-  structure.appName = "Cośtam";
-  structure.admob = "";
-  structure.push = "";
-  structure.message = "";
+  structure.general = {};
+  structure.general.appName = "appNameValue";
+  structure.general.admob = "admobValue";
+  structure.general.push = "pushValue";
+  structure.general.message = "messageValue";
 
   //Navigation
   structure.navigation = navStructure;
 
   //Color
   structure.color = {};
-  structure.color.slideBg = "";
-  structure.color.slideColor = "";
-  structure.color.slideHeading = "";
-  structure.color.notificationBg = "";
-  structure.color.navbarBg = "";
-  structure.color.navbarColor = "";
-  structure.color.playButton = "";
-  structure.color.playButtonIcon = "";
-  structure.color.launchScreenColor = "";
+  structure.color.slideBg = "000000";
+  structure.color.slideColor = "FFFFFF";
+  structure.color.slideHeading = "DDDDDD";
+  structure.color.notificationBg = "9C9C9C";
+  structure.color.navbarBg = "000000";
+  structure.color.navbarColor = "FFFFFF";
+  structure.color.playButton = "000000";
+  structure.color.playButtonIcon = "FFFFFF";
+  structure.color.launchScreenColor = "FFFFFF";
 
   //Checkbox
   structure.checkbox = {};
-  structure.checkbox.menuLogo = "";
-  structure.checkbox.coverDisplay = "";
-  structure.checkbox.appLogo = "";
-  structure.checkbox.launchScreenLogo = "";
+  structure.checkbox.menuLogo = "Logo";
+  structure.checkbox.coverDisplay = "Fixed Logo";
+  structure.checkbox.appLogo = "Logo";
+  structure.checkbox.launchScreenLogo = "Upload custom";
 
   //Image URLs
   structure.image = {};
-  structure.image.menuLogoFile = "";
-  structure.image.appLogoFile = "";
-  structure.image.launchScreenLogoFile = "";
+  structure.image.menuLogoFile = "https://picsum.photos/200/300";
+  structure.image.appLogoFile = "https://picsum.photos/300/200";
+  structure.image.launchScreenLogoFile = "https://picsum.photos/200/300";
 
   return structure;
 };
