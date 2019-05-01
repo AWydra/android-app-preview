@@ -7,7 +7,7 @@ function otterPlayer(stream, xml) {
     clearInterval(connectInterval);
   }
   connect(xml);
-  connectInterval = setInterval(function() {
+  connectInterval = setInterval(function () {
     connect(xml);
   }, 10000);
 
@@ -16,23 +16,23 @@ function otterPlayer(stream, xml) {
 
   $("#radio-station-name").text(title);
 
-  $(".player-button").click(function() {
+  $(".player-button").click(function () {
     $(".radio__buttons-play").toggleClass("hidden");
     $(".radio__buttons-pause").toggleClass("hidden");
   });
 
-  $(".radio__buttons-play").click(function() {
+  $(".radio__buttons-play").click(function () {
     otter.load();
     otter.play();
   });
 
-  $(".radio__buttons-pause").click(function() {
+  $(".radio__buttons-pause").click(function () {
     otter.pause();
   });
 
-  $(otter).on("waiting", function() {});
+  $(otter).on("waiting", function () {});
 
-  $(otter).on("playing", function() {});
+  $(otter).on("playing", function () {});
 }
 
 const connect = link => {
@@ -44,23 +44,23 @@ const connect = link => {
     url: link,
     cache: false,
     dataType: "xml",
-    success: function(xml) {
+    success: function (xml) {
       $(xml)
         .find("response")
-        .each(function() {
+        .each(function () {
           $(this)
             .find("data")
-            .each(function() {
+            .each(function () {
               $(this)
                 .find("item")
-                .each(function() {
+                .each(function () {
                   let listeners = $(this)
                     .find("listeners")
                     .text();
                   $("#listeners-count").text(`Listeners: ${listeners}`);
                   $(this)
                     .find("track")
-                    .each(function() {
+                    .each(function () {
                       artist = $(this)
                         .find("artist")
                         .text();
@@ -77,12 +77,12 @@ const connect = link => {
             });
         });
     }
-  }).done(function() {
+  }).done(function () {
     const data = encodeURIComponent(`${artist} ${title}`);
-    const arq = $.ajax({
+    $.ajax({
       url: `https://itunes.apple.com/search?term=${data}&media=music&limit=1`,
       dataType: "json"
-    }).done(function(json) {
+    }).done(function (json) {
       if (json.resultCount > 0 && !$("#radio").hasClass("fixed-bg")) {
         const avatar = json.results[0].artworkUrl30.replace("30x30", "610x610");
         $(".radio").css("background-image", `url(\"${avatar}\")`);
@@ -99,33 +99,43 @@ function otterPlayerCustom(stream) {
   if (connectInterval) {
     clearInterval(connectInterval);
   }
-  customConnect(stream);
-  connectInterval = setInterval(function() {
-    customConnect(stream);
-  }, 10000);
 
-  otter.src = stream;
+  $.ajax({
+    url: "api/artistAndTitleByStreamlink.php",
+    method: "GET",
+    dataType: "json",
+    data: {
+      streamlink: stream
+    }
+  }).done(function (stream) {
+    customConnect(stream[0]);
+    connectInterval = setInterval(function () {
+      customConnect(stream[0]);
+    }, 10000);
+
+    otter.src = stream;
+  });
   otter.volume = 0.5;
 
   $("#radio-station-name").text(title);
 
-  $(".player-button").click(function() {
+  $(".player-button").click(function () {
     $(".radio__buttons-play").toggleClass("hidden");
     $(".radio__buttons-pause").toggleClass("hidden");
   });
 
-  $(".radio__buttons-play").click(function() {
+  $(".radio__buttons-play").click(function () {
     otter.load();
     otter.play();
   });
 
-  $(".radio__buttons-pause").click(function() {
+  $(".radio__buttons-pause").click(function () {
     otter.pause();
   });
 
-  $(otter).on("waiting", function() {});
+  $(otter).on("waiting", function () {});
 
-  $(otter).on("playing", function() {});
+  $(otter).on("playing", function () {});
 }
 
 const customConnect = link => {
@@ -136,21 +146,28 @@ const customConnect = link => {
     data: {
       streamlink: link
     }
-  }).done(function(track) {
-    $("#track-container").text(track);
-    const data = encodeURIComponent(track);
-    const arq = $.ajax({
-      url: `https://itunes.apple.com/search?term=${data}&media=music&limit=1`,
-      dataType: "json"
-    }).done(function(json) {
-      if (json.resultCount > 0 && !$("#radio").hasClass("fixed-bg")) {
-        const avatar = json.results[0].artworkUrl30.replace("30x30", "610x610");
-        $(".radio").css("background-image", `url(\"${avatar}\")`);
-      } else if ($("#radio").hasClass("custom-bg")) {
-        //do nothing
-      } else {
-        $(".radio").css("background-image", `url("img/bg.png")`);
-      }
-    });
+  }).done(function (track) {
+    const title = track[1] ? track[1] : "Artist - Title";
+    $("#track-container").text(title);
+    const data = encodeURIComponent(title);
+
+    if (track[1]) {
+      $.ajax({
+        url: `https://itunes.apple.com/search?term=${data}&media=music&limit=1`,
+        dataType: "json"
+      }).done(function (json) {
+        if (json.resultCount > 0 && !$("#radio").hasClass("fixed-bg")) {
+          const avatar = json.results[0].artworkUrl30.replace(
+            "30x30",
+            "610x610"
+          );
+          $(".radio").css("background-image", `url(\"${avatar}\")`);
+        } else if ($("#radio").hasClass("custom-bg")) {
+          //do nothing
+        } else {
+          $(".radio").css("background-image", `url("img/bg.png")`);
+        }
+      });
+    }
   });
 };

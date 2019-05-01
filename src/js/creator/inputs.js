@@ -3,6 +3,10 @@ const appName = () => {
   appName.addEventListener("input", () => {
     iframe.querySelector(".navbar__title").innerHTML = appName.value;
   });
+
+  iframe
+    ? (iframe.querySelector(".navbar__title").innerHTML = appName.value)
+    : "";
 };
 
 const slideBg = () => {

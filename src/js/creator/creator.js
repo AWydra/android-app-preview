@@ -78,6 +78,10 @@ const init = () => {
       'input:not([type="file"]):not(.file-caption-name):not(.icons-search-input)'
     )
     .forEach(el => el.addEventListener("input", validationListeners));
+
+  window.onbeforeunload = function () {
+    return "Are you sure that you want to leave this page?";
+  }
 };
 const zIndex = () => {
   const select = document.querySelectorAll(".icons-selector");
