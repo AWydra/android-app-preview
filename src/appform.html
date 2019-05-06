@@ -73,30 +73,42 @@
               Upload your logo
             </label>
           </div>
-          <div class="form-check">
+          <div class="form-check hidden">
             <input
               class="form-check-input"
               type="radio"
               name="menuLogo"
               id="menuLogo2"
-              value="NoLogo"
+              value="Logo via URL"
             />
             <label class="form-check-label" for="menuLogo2">
+              Upload your logo via URL
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="menuLogo"
+              id="menuLogo3"
+              value="NoLogo"
+            />
+            <label class="form-check-label" for="menuLogo3">
               Menu without logo
             </label>
           </div>
         </div>
       </div>
       <input
-        class="image-input"
+        class="image-input file"
         type="file"
-        class="file"
         accept="image/*"
         data-show-preview="true"
         name="menuLogoFile"
         onchange="makeImg(this, '.navigation__img img');"
         required
       />
+      <input class="form-control hidden" type="url" name="menuLogoURL" placeholder="Enter URL">
     </fieldset>
 
     <!-- Colors -->
@@ -227,29 +239,41 @@
               Fixed logo as Cover Art (recommended 640x640)
             </label>
           </div>
-          <div class="form-check">
+          <div class="form-check hidden">
             <input
               class="form-check-input"
               type="radio"
               name="coverDisplay"
               id="coverDisplay3"
-              value="No Cover"
+              value="Cover image via url"
             />
             <label class="form-check-label" for="coverDisplay3">
+              Fixed logo as Cover Art (URL)
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="coverDisplay"
+              id="coverDisplay4"
+              value="No Cover"
+            />
+            <label class="form-check-label" for="coverDisplay4">
               No Cover
             </label>
           </div>
         </div>
       </div>
       <input
-        class="image-input"
+        class="image-input file"
         type="file"
-        class="file"
         accept="image/*"
         data-show-preview="true"
         name="coverDisplayFile"
         onchange="makeImg(this, '#radio', true);"
       />
+      <input class="form-control hidden" type="url" name="coverDisplayURL" placeholder="Enter URL">
     </fieldset>
 
     <!-- Navigation -->
@@ -980,29 +1004,41 @@
               Upload your logo (recommended 512x512)
             </label>
           </div>
-          <div class="form-check">
+          <div class="form-check hidden">
             <input
               class="form-check-input"
               type="radio"
               name="appLogo"
               id="appLogo2"
-              value="SameAsMenuLogo"
+              value="Logo via url"
             />
             <label class="form-check-label" for="appLogo2">
+              URL to your logo
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="appLogo"
+              id="appLogo3"
+              value="SameAsMenuLogo"
+            />
+            <label class="form-check-label" for="appLogo3">
               Same as Main Menu Logo
             </label>
           </div>
         </div>
       </div>
       <input
-        class="image-input"
+        class="image-input file"
         type="file"
-        class="file"
         accept="image/*"
         data-show-preview="true"
         name="appLogoFile"
         required
       />
+      <input class="form-control hidden" type="url" name="appLogoURL" placeholder="Enter URL">
       <small class="form-text text-muted">Icon for devices' Home Screen</small>
     </fieldset>
     <fieldset>
@@ -1024,29 +1060,41 @@
               Upload Custom
             </label>
           </div>
-          <div class="form-check">
+          <div class="form-check hidden">
             <input
               class="form-check-input"
               type="radio"
               name="launchScreenLogo"
               id="launchScreenLogo2"
-              value="Use Main Menu Logo"
+              value="Upload custom"
             />
             <label class="form-check-label" for="launchScreenLogo2">
+              URL to Custom
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="launchScreenLogo"
+              id="launchScreenLogo3"
+              value="Use Main Menu Logo"
+            />
+            <label class="form-check-label" for="launchScreenLogo3">
               Use Main Menu Logo
             </label>
           </div>
         </div>
       </div>
       <input
-        class="image-input"
+        class="image-input file"
         type="file"
-        class="file"
         accept="image/*"
         data-show-preview="true"
         name="launchScreenLogoFile"
         required
       />
+      <input class="form-control hidden" type="url" name="launchScreenLogoURL" placeholder="Enter URL">
     </fieldset>
     <fieldset>
       <legend>Launch Screen Color (Not visible in Preview)</legend>
