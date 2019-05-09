@@ -11,11 +11,15 @@ const initConfig = () => {
 };
 
 const loadConfig = config => {
+  //Remove navigation
+  document
+    .querySelectorAll(".otter-sort-container > .navy")
+    .forEach(el => el.remove());
+
   //General
   for (const key in config.general) {
-    document.querySelector(`[name="${key}"]`)
-      ? (document.querySelector(`[name="${key}"]`).value = config.general[key])
-      : "";
+    const selector = document.querySelector(`[name="${key}"]`);
+    selector ? (selector.value = config.general[key]) : "";
   }
 
   //Color
@@ -28,6 +32,9 @@ const loadConfig = config => {
 
   //Navigation
   const navContainer = document.querySelector(".otter-sort-container");
+  const navContainerBtn = document.querySelector(
+    ".otter-sort-container > .navigation__btn"
+  );
   config.navigation.forEach(el => {
     const addBtn = document.createElement("button");
     const removeBtn = document.createElement("button");
@@ -57,22 +64,27 @@ const loadConfig = config => {
     removeBtn.addEventListener("click", removeSection);
 
     li.insertBefore(removeBtn, li.firstChild);
-    navContainer.appendChild(li);
+    navContainer.insertBefore(li, navContainerBtn);
 
     sortable(".otter-sort-container", {
       forcePlaceholderSize: true,
       placeholderClass: "ph-class",
-      hoverClass: "bg-maroon yellow"
+      hoverClass: "bg-maroon yellow",
+      items: ":not(.navigation__btn)"
     });
 
     sortable(".otter-sort-item", {
       forcePlaceholderSize: true,
       placeholderClass: "ph-class",
       hoverClass: "bg-maroon yellow",
-      acceptFrom: ".otter-sort-item"
+      acceptFrom: ".otter-sort-item",
+      items: ":not(.navigation__btn)"
     });
 
     const navItemContainer = li.querySelector(".otter-sort-item");
+    const navItemContainerBtn = li.querySelector(
+      ".otter-sort-item > .navigation__btn"
+    );
 
     el.forEach((el, i) => {
       if (i === 0) return;
@@ -138,8 +150,21 @@ const loadConfig = config => {
                   <input
                     class="item-url w-100"
                     type="url"
-                    placeholder="http://www.example.com"
-                    value="${el[2]}"
+                    placeholder="${
+                      el[2] === "Settings" || el[2] === "Your radio"
+                        ? el[2]
+                        : "http://www.example.com"
+                    }"
+                    value="${
+                      el[2] === "Settings" || el[2] === "Your radio"
+                        ? ""
+                        : el[2]
+                    }"
+                    ${
+                      el[2] === "Settings" || el[2] === "Your radio"
+                        ? "readonly"
+                        : ""
+                    }
                     required
                   />
                 </div>`;
@@ -152,13 +177,14 @@ const loadConfig = config => {
       removeBtn.innerHTML = `<i class="icon-line-circle-cross"></i>`;
       removeBtn.addEventListener("click", removeSection);
       li.appendChild(removeBtn);
-      navItemContainer.appendChild(li);
+      navItemContainer.insertBefore(li, navItemContainerBtn);
 
       sortable(".otter-sort-item", {
         forcePlaceholderSize: true,
         placeholderClass: "ph-class",
         hoverClass: "bg-maroon yellow",
-        acceptFrom: ".otter-sort-item"
+        acceptFrom: ".otter-sort-item",
+        items: ":not(.navigation__btn)"
       });
 
       $(".iconpicker-select")
