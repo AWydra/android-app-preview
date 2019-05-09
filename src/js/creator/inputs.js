@@ -39,13 +39,13 @@ const navbarColor = () => {
   });
 };
 
-const slideHeading = () => {
-  const input = document.querySelector("#slideHeading").value;
+// const slideHeading = () => {
+//   const input = document.querySelector("#slideHeading").value;
 
-  iframe.querySelectorAll(".navigation__heading").forEach(el => {
-    el.style.color = input;
-  });
-};
+//   iframe.querySelectorAll(".navigation__heading").forEach(el => {
+//     el.style.color = input;
+//   });
+// };
 
 const notificationBg = () => {
   const input = document.querySelector("#notificationBg").value;

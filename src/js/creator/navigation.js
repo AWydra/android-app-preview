@@ -70,7 +70,7 @@ const navOtter = () => {
   sortList.forEach(el => {
     el.addEventListener("dragend", navOtter);
     slideColor();
-    slideHeading();
+    //slideHeading();
     zIndex();
     document.querySelector("#navStructure").value = JSON.stringify(
       navStructure

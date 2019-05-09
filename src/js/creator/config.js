@@ -4,7 +4,7 @@ const initConfig = () => {
   slideColor();
   navbarBg();
   navbarColor();
-  slideHeading();
+  //slideHeading();
   notificationBg();
   playButton();
   playButtonIcon();

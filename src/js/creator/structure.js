@@ -12,7 +12,7 @@ const createStructure = () => {
     color: {
       slideBg: "000000",
       slideColor: "FFFFFF",
-      slideHeading: "DDDDDD",
+      //slideHeading: "DDDDDD",
       notificationBg: "9C9C9C",
       navbarBg: "000000",
       navbarColor: "FFFFFF",
