@@ -27,6 +27,7 @@ require_once 'functions/isUnauthorized.php';
 			min-width: 340px;
 			width: 340px;
 			height: 669px;
+			margin-bottom: 70px;
 			top: 100px;
 		}
 
@@ -111,6 +112,10 @@ require_once 'functions/isUnauthorized.php';
 			color: white;
 			border: none;
 			border-bottom: solid white 2px;
+		}
+
+		input[readonly]{
+			cursor: not-allowed;
 		}
 
 		::-webkit-input-placeholder {
@@ -198,6 +203,10 @@ require_once 'functions/isUnauthorized.php';
     .bad-validation-img{
       border: solid red 2px;
     }
+
+		.ph-class{
+			background-color: #ddd; 
+		}
 	</style>
 </head>
 
