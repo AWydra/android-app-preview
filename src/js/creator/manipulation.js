@@ -29,14 +29,16 @@ const addSection = ev => {
   sortable(".otter-sort-container", {
     forcePlaceholderSize: true,
     placeholderClass: "ph-class",
-    hoverClass: "bg-maroon yellow"
+    hoverClass: "bg-maroon yellow",
+    items: ":not(.navigation__btn)"
   });
 
   sortable(".otter-sort-item", {
     forcePlaceholderSize: true,
     placeholderClass: "ph-class",
     hoverClass: "bg-maroon yellow",
-    acceptFrom: ".otter-sort-item"
+    acceptFrom: ".otter-sort-item",
+    items: ":not(.navigation__btn)"
   });
 
   navOtter();
@@ -130,7 +132,8 @@ const addItem = ev => {
     forcePlaceholderSize: true,
     placeholderClass: "ph-class",
     hoverClass: "bg-maroon yellow",
-    acceptFrom: ".otter-sort-item"
+    acceptFrom: ".otter-sort-item",
+    items: ":not(.navigation__btn)"
   });
 
   $(".iconpicker-select")

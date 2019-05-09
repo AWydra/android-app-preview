@@ -24,19 +24,16 @@ const init = () => {
   sortable(".otter-sort-container", {
     forcePlaceholderSize: true,
     placeholderClass: "ph-class",
-    hoverClass: "bg-maroon yellow"
+    hoverClass: "bg-maroon yellow",
+    items: ":not(.navigation__btn)"
   });
 
   sortable(".otter-sort-item", {
     forcePlaceholderSize: true,
     placeholderClass: "ph-class",
     hoverClass: "bg-maroon yellow",
-    acceptFrom: ".otter-sort-item"
-  });
-
-  //Remove draggable buttons
-  document.querySelectorAll(".navigation__btn").forEach(el => {
-    el.removeAttribute("draggable");
+    acceptFrom: ".otter-sort-item",
+    items: ":not(.navigation__btn)"
   });
 
   // Show/hide upload
@@ -79,9 +76,9 @@ const init = () => {
     )
     .forEach(el => el.addEventListener("input", validationListeners));
 
-  window.onbeforeunload = function () {
+  window.onbeforeunload = function() {
     return "Are you sure that you want to leave this page?";
-  }
+  };
 };
 const zIndex = () => {
   const select = document.querySelectorAll(".icons-selector");

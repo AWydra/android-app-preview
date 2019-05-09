@@ -28,11 +28,11 @@ const logoInput = () => {
     el.addEventListener("change", () => {
       if (logoCheckbox[0].checked) {
         iframe.querySelector(".navigation__img").style.display = "block";
-        fileContainer.classList.remove('hidden');
+        fileContainer.classList.remove("hidden");
         fileInput.setAttribute("required", "");
       } else {
         iframe.querySelector(".navigation__img").style.display = "none";
-        fileContainer.classList.add('hidden');
+        fileContainer.classList.add("hidden");
         fileInput.removeAttribute("required", "");
       }
     });
@@ -44,24 +44,24 @@ const coverInput = () => {
   const fileInput = document.querySelector('[name="coverDisplayFile"]');
   const fileContainer = fileInput.offsetParent.offsetParent.parentElement;
 
-  fileContainer.classList.add('hidden')
+  fileContainer.classList.add("hidden");
 
   logoCheckbox.forEach(el => {
     el.addEventListener("change", () => {
       if (logoCheckbox[1].checked) {
-        fileContainer.classList.remove('hidden');
+        fileContainer.classList.remove("hidden");
         fileInput.setAttribute("required", "");
       } else if (logoCheckbox[0].checked) {
         iframe
           .querySelector("#radio")
           .classList.remove("fixed-bg", "custom-bg");
-        fileContainer.classList.add('hidden');
+        fileContainer.classList.add("hidden");
         $('[name="coverDisplayFile"]').fileinput("clear");
         fileInput.removeAttribute("required", "");
       } else {
         iframe.querySelector("#radio").classList.add("fixed-bg");
         iframe.querySelector("#radio").classList.remove("custom-bg");
-        fileContainer.classList.add('hidden');
+        fileContainer.classList.add("hidden");
         $('[name="coverDisplayFile"]').fileinput("clear");
         fileInput.removeAttribute("required", "");
       }
@@ -77,10 +77,10 @@ const appInput = () => {
   logoCheckbox.forEach(el => {
     el.addEventListener("change", () => {
       if (logoCheckbox[0].checked) {
-        fileContainer.classList.remove('hidden');
+        fileContainer.classList.remove("hidden");
         fileInput.setAttribute("required", "");
       } else {
-        fileContainer.classList.add('hidden');
+        fileContainer.classList.add("hidden");
         fileInput.removeAttribute("required", "");
       }
     });
@@ -95,10 +95,10 @@ const launchScreenLogo = () => {
   logoCheckbox.forEach(el => {
     el.addEventListener("change", () => {
       if (logoCheckbox[0].checked) {
-        fileContainer.classList.remove('hidden');
+        fileContainer.classList.remove("hidden");
         fileInput.setAttribute("required", "");
       } else {
-        fileContainer.classList.add('hidden');
+        fileContainer.classList.add("hidden");
         fileInput.removeAttribute("required", "");
       }
     });
