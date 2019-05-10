@@ -76,9 +76,10 @@ const init = () => {
     )
     .forEach(el => el.addEventListener("input", validationListeners));
 
-  window.onbeforeunload = function() {
-    return "Are you sure that you want to leave this page?";
-  };
+  window.addEventListener(
+    "beforeunload",
+    () => "Are you sure that you want to leave this page?"
+  );
 };
 const zIndex = () => {
   const select = document.querySelectorAll(".icons-selector");
