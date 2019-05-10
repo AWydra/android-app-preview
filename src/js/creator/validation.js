@@ -2,9 +2,11 @@ let textInputs;
 let imageInputs;
 
 const validation = () => {
-  textInputs = document.querySelectorAll(
-    'input:not([type="file"]):not(.file-caption-name):not(.icons-search-input)'
-  );
+  textInputs = document
+    .querySelector("main")
+    .querySelectorAll(
+      'input:not([type="file"]):not(.hidden):not([type="hidden"]):not(.file-caption-name):not(.icons-search-input)'
+    );
   textInputs.forEach(el => {
     el.classList.remove("bad-validation");
     if (!el.checkValidity() || el.value.length == 0) {
@@ -14,7 +16,9 @@ const validation = () => {
 
   imageInputs = document.querySelectorAll(".image-input");
   imageInputs.forEach(el => {
-    const parent = el.offsetParent.offsetParent;
+    const parent = el.offsetParent
+      ? el.offsetParent.offsetParent
+      : document.createElement("div");
     parent.classList.remove("bad-validation-img");
 
     if (!el.checkValidity()) {

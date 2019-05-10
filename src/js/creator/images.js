@@ -22,7 +22,9 @@ const makeImg = (input, destination, bg) => {
 const logoInput = () => {
   const logoCheckbox = document.querySelectorAll('[name="menuLogo"]');
   const fileInput = document.querySelector('[name="menuLogoFile"]');
-  const fileContainer = fileInput.offsetParent.offsetParent.parentElement;
+  const fileContainer = fileInput.offsetParent
+    ? fileInput.offsetParent.offsetParent.parentElement
+    : document.createElement("div");
 
   logoCheckbox.forEach(el => {
     el.addEventListener("change", () => {
@@ -42,7 +44,9 @@ const logoInput = () => {
 const coverInput = () => {
   const logoCheckbox = document.querySelectorAll('[name="coverDisplay"]');
   const fileInput = document.querySelector('[name="coverDisplayFile"]');
-  const fileContainer = fileInput.offsetParent.offsetParent.parentElement;
+  const fileContainer = fileInput.offsetParent
+    ? fileInput.offsetParent.offsetParent.parentElement
+    : document.createElement("div");
 
   fileContainer.classList.add("hidden");
 
@@ -72,7 +76,9 @@ const coverInput = () => {
 const appInput = () => {
   const logoCheckbox = document.querySelectorAll('[name="appLogo"]');
   const fileInput = document.querySelector('[name="appLogoFile"]');
-  const fileContainer = fileInput.offsetParent.offsetParent.parentElement;
+  const fileContainer = fileInput.offsetParent
+    ? fileInput.offsetParent.offsetParent.parentElement
+    : document.createElement("div");
 
   logoCheckbox.forEach(el => {
     el.addEventListener("change", () => {
@@ -90,7 +96,9 @@ const appInput = () => {
 const launchScreenLogo = () => {
   const logoCheckbox = document.querySelectorAll('[name="launchScreenLogo"]');
   const fileInput = document.querySelector('[name="launchScreenLogoFile"]');
-  const fileContainer = fileInput.offsetParent.offsetParent.parentElement;
+  const fileContainer = fileInput.offsetParent
+    ? fileInput.offsetParent.offsetParent.parentElement
+    : document.createElement("div");
 
   logoCheckbox.forEach(el => {
     el.addEventListener("change", () => {
