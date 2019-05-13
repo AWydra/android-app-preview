@@ -150,28 +150,25 @@ const loadConfig = config => {
                   <input
                     class="item-url w-100"
                     type="url"
-                    placeholder="${
+                    placeholder="http://www.example.com"
+                    value="${
                       el[2] === "Settings" || el[2] === "Your radio"
                         ? el[2]
                         : "http://www.example.com"
                     }"
-                    value="${
-                      el[2] === "Settings" || el[2] === "Your radio"
-                        ? ""
-                        : el[2]
-                    }"
                     ${
                       el[2] === "Settings" || el[2] === "Your radio"
                         ? "readonly"
-                        : ""
+                        : "required"
                     }
-                    required
                   />
                 </div>`;
       li.querySelector(`option[data-value="${el[0]}"]`).setAttribute(
         "selected",
         ""
       );
+
+      console.log(el);
 
       removeBtn.classList.add("remove", "remove--item");
       removeBtn.innerHTML = `<i class="icon-line-circle-cross"></i>`;

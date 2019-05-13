@@ -6,9 +6,28 @@ const createStructure = () => {
       push: "pushValue",
       message: "messageValue"
     },
-    navigation: JSON.parse(
-      '[["Home",["ottericon_signal","FastCast4u Radio",""]],["Social Media",["ottericon_fb","Facebook","https://www.facebook.com/"],["icon_line2_social_twitter","Twitter","https://www.twitter.com/"],["ottericon_instagram","Instagram","https://www.instagram.com/"],["icon_line_heart","Best site","https://www.w3.org/"],["icon_line_globe","Example.com","https://www.example.com/"]],["Content",["icon_line2_globe","Your website","https://www.myblog.com/"],["icon_line2_globe","Custom website","https://www.custom.com/"],["ottericon_wordpress","Your wordpress blog","https://www.wordpress.com/"]],["Misc",["icon_line2_settings","Settings",""]]]'
-    ),
+    navigation: [
+      ["Home", ["ottericon_signal", "FastCast4u Radio", "Your radio"]],
+      [
+        "Social Media",
+        ["ottericon_fb", "Facebook", "https://www.facebook.com/"],
+        ["icon_line2_social_twitter", "Twitter", "https://www.twitter.com/"],
+        ["ottericon_instagram", "Instagram", "https://www.instagram.com/"],
+        ["icon_heart2", "Best site", "https://www.w3.org/"],
+        ["icon_heart2", "Example.com", "https://www.example.com/auuu"]
+      ],
+      [
+        "Content",
+        ["icon_line2_globe", "My website", "https://www.myblog.com/"],
+        ["icon_line2_globe", "Custom website", "https://www.custom.com/"],
+        [
+          "ottericon_wordpress",
+          "Your wordpress blog",
+          "https://www.wordpress.com/"
+        ]
+      ],
+      ["Misc", ["icon_line2_settings", "Settings", "Settings"]]
+    ],
     color: {
       slideBg: "000000",
       slideColor: "FFFFFF",
