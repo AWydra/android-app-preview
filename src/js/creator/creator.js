@@ -58,6 +58,8 @@ const init = () => {
   coverInput();
   appInput();
   launchScreenLogo();
+  menuLogoUrl();
+  coverDisplayUrl();
   document.querySelector(".section-add").addEventListener("click", addSection);
   document.querySelectorAll(".remove").forEach(el => {
     el.addEventListener("click", removeSection);

@@ -85,3 +85,23 @@ const liveTV = () => {
     }
   });
 };
+
+const menuLogoUrl = () => {
+  const input = document.querySelector(
+    'input[type="url"][name="menuLogoFile"]'
+  );
+  input.addEventListener("input", ev => {
+    const url = ev.target.value;
+    iframe.querySelector(".navigation__img img").src = url;
+  });
+};
+
+const coverDisplayUrl = () => {
+  const input = document.querySelector(
+    'input[type="url"][name="coverDisplayFile"]'
+  );
+  input.addEventListener("input", ev => {
+    const url = ev.target.value;
+    iframe.querySelector(".radio").style.backgroundImage = `url(${url})`;
+  });
+};
