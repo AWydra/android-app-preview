@@ -5,10 +5,17 @@ const validation = () => {
   textInputs = document
     .querySelector("main")
     .querySelectorAll(
-      'input:not([type="file"]):not(.hidden):not([type="hidden"]):not(.file-caption-name):not(.icons-search-input)'
+      'input:not([type="file"]):not(.hidden):not([type="hidden"]):not([disabled]):not(.file-caption-name):not(.icons-search-input)'
     );
+
+  document
+    .querySelectorAll("input")
+    .forEach(el => el.classList.remove("bad-validation"));
+  document
+    .querySelectorAll(".input-group")
+    .forEach(el => el.classList.remove("bad-validation-img"));
+
   textInputs.forEach(el => {
-    el.classList.remove("bad-validation");
     if (!el.checkValidity() || el.value.length == 0) {
       el.classList.add("bad-validation");
     }
@@ -19,7 +26,6 @@ const validation = () => {
     const parent = el.offsetParent
       ? el.offsetParent.offsetParent
       : document.createElement("div");
-    parent.classList.remove("bad-validation-img");
 
     if (!el.checkValidity()) {
       parent.classList.add("bad-validation-img");
@@ -29,7 +35,7 @@ const validation = () => {
   const textInputsLength = document.querySelectorAll(".bad-validation").length;
   const imageInputsLength = document.querySelectorAll(".bad-validation-img")
     .length;
-  if (textInputsLength && imageInputsLength) {
+  if (textInputsLength || imageInputsLength) {
     return false;
   } else {
     return true;
