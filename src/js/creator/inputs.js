@@ -90,10 +90,15 @@ const menuLogoUrl = () => {
   const input = document.querySelector(
     'input[type="url"][name="menuLogoFile"]'
   );
+
   input.addEventListener("input", ev => {
     const url = ev.target.value;
     iframe.querySelector(".navigation__img img").src = url;
   });
+
+  if (input.value) {
+    iframe.querySelector(".navigation__img img").src = input.value;
+  }
 };
 
 const coverDisplayUrl = () => {
@@ -104,4 +109,10 @@ const coverDisplayUrl = () => {
     const url = ev.target.value;
     iframe.querySelector(".radio").style.backgroundImage = `url(${url})`;
   });
+
+  if (input.value) {
+    iframe.querySelector(".radio").style.backgroundImage = `url(${
+      input.value
+    })`;
+  }
 };

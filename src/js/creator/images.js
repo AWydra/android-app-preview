@@ -49,6 +49,7 @@ const logoInput = () => {
         fileInput.removeAttribute("required", "");
         logoUrlInput.classList.remove("hidden");
         logoUrlInput.value = "";
+        logoUrlInput.setAttribute("required", "");
         logoUrlInput.removeAttribute("disabled");
         fileInput.setAttribute("disabled", "");
       } else {
@@ -56,7 +57,8 @@ const logoInput = () => {
         fileContainer.classList.add("hidden");
         logoUrlInput.classList.add("hidden");
         logoUrlInput.setAttribute("disabled", "");
-        fileInput.removeAttribute("required", "");
+        logoUrlInput.removeAttribute("required");
+        fileInput.removeAttribute("required");
         fileInput.setAttribute("disabled", "");
       }
     });
@@ -102,6 +104,7 @@ const coverInput = () => {
         fileInput.removeAttribute("required");
         fileInput.setAttribute("disabled", "");
         logoUrlInput.classList.remove("hidden");
+        logoUrlInput.setAttribute("required", "");
         logoUrlInput.removeAttribute("disabled");
       } else {
         iframe.querySelector("#radio").classList.add("fixed-bg");
@@ -112,6 +115,7 @@ const coverInput = () => {
         fileInput.setAttribute("disabled", "");
         logoUrlInput.classList.add("hidden");
         logoUrlInput.setAttribute("disabled", "");
+        logoUrlInput.removeAttribute("required");
       }
     });
   });
@@ -142,6 +146,7 @@ const appInput = () => {
         fileInput.removeAttribute("required");
         fileInput.setAttribute("disabled", "");
         logoUrlInput.classList.remove("hidden");
+        logoUrlInput.setAttribute("required", "");
         logoUrlInput.removeAttribute("disabled");
       } else {
         fileContainer.classList.add("hidden");
@@ -149,6 +154,7 @@ const appInput = () => {
         fileInput.setAttribute("disabled", "");
         logoUrlInput.classList.add("hidden");
         logoUrlInput.setAttribute("disabled", "");
+        logoUrlInput.removeAttribute("required");
       }
     });
   });
@@ -179,6 +185,7 @@ const launchScreenLogo = () => {
         fileInput.removeAttribute("required");
         fileInput.setAttribute("disabled", "");
         logoUrlInput.classList.remove("hidden");
+        logoUrlInput.setAttribute("required", "");
         logoUrlInput.removeAttribute("disabled");
       } else {
         fileContainer.classList.add("hidden");
@@ -186,6 +193,7 @@ const launchScreenLogo = () => {
         fileInput.setAttribute("disabled", "");
         logoUrlInput.classList.add("hidden");
         logoUrlInput.setAttribute("disabled", "");
+        logoUrlInput.removeAttribute("required");
       }
     });
   });

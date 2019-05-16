@@ -66,7 +66,7 @@
               type="radio"
               name="menuLogo"
               id="menuLogo1"
-              value="Logo"
+              value="Menu logo upload"
               checked=""
             />
             <label class="form-check-label" for="menuLogo1">
@@ -79,7 +79,7 @@
               type="radio"
               name="menuLogo"
               id="menuLogo2"
-              value="Logo via URL"
+              value="Menu logo url"
             />
             <label class="form-check-label" for="menuLogo2">
               Upload your logo via URL
@@ -91,7 +91,7 @@
               type="radio"
               name="menuLogo"
               id="menuLogo3"
-              value="NoLogo"
+              value="No Menu Logo"
             />
             <label class="form-check-label" for="menuLogo3">
               Menu without logo
@@ -113,6 +113,7 @@
         type="url"
         name="menuLogoFile"
         placeholder="Enter URL"
+        disabled
       />
     </fieldset>
 
@@ -238,7 +239,7 @@
               type="radio"
               name="coverDisplay"
               id="coverDisplay2"
-              value="Fixed Logo"
+              value="Cover fixed logo upload"
             />
             <label class="form-check-label" for="coverDisplay2">
               Fixed logo as Cover Art (recommended 640x640)
@@ -250,7 +251,7 @@
               type="radio"
               name="coverDisplay"
               id="coverDisplay3"
-              value="Cover image via url"
+              value="Cover fixed logo url"
             />
             <label class="form-check-label" for="coverDisplay3">
               Fixed logo as Cover Art (URL)
@@ -262,7 +263,7 @@
               type="radio"
               name="coverDisplay"
               id="coverDisplay4"
-              value="No Cover"
+              value="No cover"
             />
             <label class="form-check-label" for="coverDisplay4">
               No Cover
@@ -283,6 +284,7 @@
         type="url"
         name="coverDisplayFile"
         placeholder="Enter URL"
+        disabled
       />
     </fieldset>
 
@@ -1006,7 +1008,7 @@
               type="radio"
               name="appLogo"
               id="appLogo1"
-              value="Logo"
+              value="App logo upload"
               checked=""
             />
             <label class="form-check-label" for="appLogo1">
@@ -1019,7 +1021,7 @@
               type="radio"
               name="appLogo"
               id="appLogo2"
-              value="Logo via url"
+              value="App logo url"
             />
             <label class="form-check-label" for="appLogo2">
               URL to your logo
@@ -1031,7 +1033,7 @@
               type="radio"
               name="appLogo"
               id="appLogo3"
-              value="SameAsMenuLogo"
+              value="Same as menu logo"
             />
             <label class="form-check-label" for="appLogo3">
               Same as Main Menu Logo
@@ -1052,6 +1054,7 @@
         type="url"
         name="appLogoFile"
         placeholder="Enter URL"
+        disabled
       />
       <small class="form-text text-muted">Icon for devices' Home Screen</small>
     </fieldset>
@@ -1067,7 +1070,7 @@
               type="radio"
               name="launchScreenLogo"
               id="launchScreenLogo1"
-              value="Upload custom"
+              value="Launch logo upload"
               checked=""
             />
             <label class="form-check-label" for="launchScreenLogo1">
@@ -1080,7 +1083,7 @@
               type="radio"
               name="launchScreenLogo"
               id="launchScreenLogo2"
-              value="Upload custom"
+              value="Launch logo url"
             />
             <label class="form-check-label" for="launchScreenLogo2">
               URL to Custom
@@ -1092,7 +1095,7 @@
               type="radio"
               name="launchScreenLogo"
               id="launchScreenLogo3"
-              value="Use Main Menu Logo"
+              value="Use main menu logo"
             />
             <label class="form-check-label" for="launchScreenLogo3">
               Use Main Menu Logo
@@ -1113,6 +1116,7 @@
         type="url"
         name="launchScreenLogoFile"
         placeholder="Enter URL"
+        disabled
       />
     </fieldset>
     <fieldset>
@@ -1159,12 +1163,15 @@
       ></textarea>
     </fieldset>
 
+    <button id="save-config" class="button center button-rounded button-large">
+      Save project
+    </button>
     <button
       id="form-submit"
       class="button center button-rounded button-large"
       type="submit"
     >
-      Submit
+      Create app
     </button>
   </form>
   <div class="marvel-device note8 position-sticky">
@@ -1175,7 +1182,7 @@
     <div class="speaker"></div>
     <div class="sensors"></div>
     <div class="more-sensors"></div>
-    <div class="sleep"></div>
+    <div class="sleep d-none d-sm-block"></div>
     <div class="volume"></div>
     <div class="camera"></div>
     <div class="screen d-flex">

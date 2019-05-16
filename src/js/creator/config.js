@@ -8,6 +8,8 @@ const initConfig = () => {
   notificationBg();
   playButton();
   playButtonIcon();
+  menuLogoUrl();
+  coverDisplayUrl();
 };
 
 const loadConfig = config => {
@@ -30,7 +32,26 @@ const loadConfig = config => {
     slideBg();
   }
 
+  //Checkbox
+  for (const key in config.checkbox) {
+    if (config.checkbox[key].includes("upload")) {
+      const input = config.checkbox[key].replace("upload", "url");
+      document.querySelector(`[value="${input}"]`).click();
+      console.log(input, "Ale faza");
+      console.log(config.checkbox[key]);
+    } else {
+      document.querySelector(`[value="${config.checkbox[key]}"]`).click();
+    }
+  }
+
+  //Image
+  for (const key in config.image) {
+    document.querySelector(`[type="url"][name="${key}"]`).value =
+      config.image[key];
+  }
+
   //Navigation
+  config.navigation = JSON.parse(config.navigation);
   const navContainer = document.querySelector(".otter-sort-container");
   const navContainerBtn = document.querySelector(
     ".otter-sort-container > .navigation__btn"
@@ -168,8 +189,6 @@ const loadConfig = config => {
         ""
       );
 
-      console.log(el);
-
       removeBtn.classList.add("remove", "remove--item");
       removeBtn.innerHTML = `<i class="icon-line-circle-cross"></i>`;
       removeBtn.addEventListener("click", removeSection);
@@ -201,19 +220,37 @@ const loadConfig = config => {
   initConfig();
 };
 
-const sendConfig = () => {
+const sendConfig = ev => {
+  ev.preventDefault();
+
   const form = document.querySelector("#preview-form");
   const data = new FormData(form);
   data.append("saveOnly", "true");
 
-  jQuery.ajax({
-    url: "server.php",
-    type: "POST",
-    data: data,
-    processData: false,
-    contentType: false,
-    success: function() {
-      console.log("Sent");
-    }
-  });
+  jQuery
+    .ajax({
+      url: "server.php",
+      type: "POST",
+      data: data,
+      processData: false,
+      contentType: false,
+      beforeSend: function() {
+        $("#save-config").attr("disabled", true);
+        $("#save-config").css("background-color", "#6aa5cc");
+      },
+      success: function() {
+        $("#save-config").removeAttr("disabled", "");
+        $("#save-config").css("background-color", "#2e8ece");
+      }
+    })
+    .done(function(res) {
+      Swal.fire({
+        type: "info",
+        title: "Copy & Save your App Project Token",
+        html: `<div class=\"alert alert-secondary mb-2\">${res.replace(
+          /['"]/g,
+          ""
+        )}</div>You may use the Token to load your App project after you leave the Creator`
+      });
+    });
 };

@@ -78,10 +78,43 @@ const init = () => {
     )
     .forEach(el => el.addEventListener("input", validationListeners));
 
+  document.querySelector("#save-config").addEventListener("click", sendConfig);
+
   window.addEventListener(
     "beforeunload",
     () => "Are you sure that you want to leave this page?"
   );
+
+  Swal.fire({
+    title: "Load App Project from token or Create New Project",
+    input: "text",
+    inputAttributes: {
+      autocapitalize: "off"
+    },
+    showCancelButton: true,
+    confirmButtonText: "Load Project",
+    cancelButtonText: "New Project",
+    showLoaderOnConfirm: true,
+    preConfirm: token => {
+      return fetch(
+        `//fastcast4u.com/app-creator/api/loadByToken.php?token=${token}`
+      )
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(response.statusText);
+          }
+          return response.json();
+        })
+        .catch(error => {
+          Swal.showValidationMessage(`Request failed: Enter valid token `);
+        });
+    },
+    allowOutsideClick: () => !Swal.isLoading()
+  }).then(result => {
+    if (result.value) {
+      loadConfig(result.value);
+    }
+  });
 };
 const zIndex = () => {
   const select = document.querySelectorAll(".icons-selector");
