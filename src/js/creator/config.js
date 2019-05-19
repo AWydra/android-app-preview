@@ -37,8 +37,6 @@ const loadConfig = config => {
     if (config.checkbox[key].includes("upload")) {
       const input = config.checkbox[key].replace("upload", "url");
       document.querySelector(`[value="${input}"]`).click();
-      console.log(input, "Ale faza");
-      console.log(config.checkbox[key]);
     } else {
       document.querySelector(`[value="${config.checkbox[key]}"]`).click();
     }
@@ -119,7 +117,7 @@ const loadConfig = config => {
         "row",
         "position-relative"
       );
-      //li.setAttribute("data-tabs", "#web");
+      li.setAttribute("data-tabs", el[3]);
       li.innerHTML = `<div class="form-group col-2 m-0">
                   <select class="iconpicker-select">
                     <option data-value="hidden" value="hidden">No icon</option>

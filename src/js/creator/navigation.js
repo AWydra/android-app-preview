@@ -50,7 +50,7 @@ const navOtter = () => {
 
       iconClass = iconClass.toLowerCase().replace(/-/g, "_");
 
-      itemStructure.push(iconClass.replace("-", "_"), name, url);
+      itemStructure.push(iconClass.replace("-", "_"), name, url, tabs);
       headingStructure.push(itemStructure);
     });
     navStructure.push(headingStructure);

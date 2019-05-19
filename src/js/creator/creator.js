@@ -107,6 +107,7 @@ const init = () => {
         })
         .catch(error => {
           Swal.showValidationMessage(`Request failed: Enter valid token `);
+          console.log(error)
         });
     },
     allowOutsideClick: () => !Swal.isLoading()
