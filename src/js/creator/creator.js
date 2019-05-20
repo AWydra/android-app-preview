@@ -107,7 +107,6 @@ const init = () => {
         })
         .catch(error => {
           Swal.showValidationMessage(`Request failed: Enter valid token `);
-          console.log(error)
         });
     },
     allowOutsideClick: () => !Swal.isLoading()
@@ -172,6 +171,8 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("#customerEmail").value = msg.email;
         document.querySelector("#forUsername").value = msg.givenUsername;
         document.querySelector("#forHost").value = msg.givenServer;
+
+        setCookie("customer_email", msg.email, 365, "/");
 
         //
         if (!msg.admob) {

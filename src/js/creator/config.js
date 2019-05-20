@@ -225,30 +225,57 @@ const sendConfig = ev => {
   const data = new FormData(form);
   data.append("saveOnly", "true");
 
-  jQuery
-    .ajax({
-      url: "server.php",
-      type: "POST",
-      data: data,
-      processData: false,
-      contentType: false,
-      beforeSend: function() {
-        $("#save-config").attr("disabled", true);
-        $("#save-config").css("background-color", "#6aa5cc");
-      },
-      success: function() {
-        $("#save-config").removeAttr("disabled", "");
-        $("#save-config").css("background-color", "#2e8ece");
+  $.ajax({
+    url: "server.php",
+    type: "POST",
+    data: data,
+    processData: false,
+    contentType: false,
+    beforeSend: function() {
+      $("#save-config").attr("disabled", true);
+      $("#save-config").css("background-color", "#6aa5cc");
+    },
+    success: function() {
+      $("#save-config").removeAttr("disabled", "");
+      $("#save-config").css("background-color", "#2e8ece");
+    }
+  }).done(function(res) {
+    const content = `<div class=\"alert alert-secondary mb-2\">${res.replace(
+      /['"]/g,
+      ""
+    )}</div>You may use the Token to load your App project after you leave the Creator`;
+
+    Swal.fire({
+      title: "Copy & Save your App Project Token",
+      html: content,
+      type: "info",
+      showCancelButton: true,
+      confirmButtonText: "Send token via mail",
+      cancelButtonText: "Close"
+    }).then(result => {
+      if (result.value) {
+        const email = showCookie("customer_email");
+        const token = showCookie("app_creator_token");
+
+        $.get("//fastcast4u.com/app-creator/api/sendTokenViaEmail.php", {
+          email: email,
+          token: token
+        })
+          .done(function() {
+            Swal.fire({
+              title: "Email Sent",
+              html: `Unique Token of your App Creator Project has been sent to: <b>${email}</b>. <br> You will be able to load your App Project using the token from the email`,
+              type: "success"
+            });
+          })
+          .fail(function(error) {
+            Swal.fire({
+              title: "Email has not been sent",
+              type: "error"
+            });
+            Swal.showValidationMessage(`Request failed: ${error.responseText}`);
+          });
       }
-    })
-    .done(function(res) {
-      Swal.fire({
-        type: "info",
-        title: "Copy & Save your App Project Token",
-        html: `<div class=\"alert alert-secondary mb-2\">${res.replace(
-          /['"]/g,
-          ""
-        )}</div>You may use the Token to load your App project after you leave the Creator`
-      });
     });
+  });
 };
