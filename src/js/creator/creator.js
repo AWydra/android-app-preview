@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   customForm.addEventListener("click", ev => {
-    const select = document.querySelector("#username-form").value;
+    const select = document.querySelector("#username-form").value.trim();
 
     ev.preventDefault();
 
