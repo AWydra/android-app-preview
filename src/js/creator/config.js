@@ -279,3 +279,38 @@ const sendConfig = ev => {
     });
   });
 };
+
+const useConfig = ev => {
+  ev.preventDefault();
+
+  Swal.fire({
+    title: "Load App Project from token",
+    input: "text",
+    inputAttributes: {
+      autocapitalize: "off"
+    },
+    showCancelButton: false,
+    showCloseButton: true,
+    confirmButtonText: "Load Project",
+    showLoaderOnConfirm: true,
+    preConfirm: token => {
+      return fetch(
+        `//fastcast4u.com/app-creator/api/loadByToken.php?token=${token}`
+      )
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(response.statusText);
+          }
+          return response.json();
+        })
+        .catch(error => {
+          Swal.showValidationMessage(`Request failed: Enter valid token `);
+        });
+    },
+    allowOutsideClick: () => !Swal.isLoading()
+  }).then(result => {
+    if (result.value) {
+      loadConfig(result.value);
+    }
+  });
+};
