@@ -7,7 +7,7 @@ const init = () => {
 
   // File input
   $(".image-input").fileinput({
-    allowedFileTypes: ["image"],
+    allowedFileExtensions: ["jpg", "jpeg", "png", "bmp"],
     mainClass: "input-group-md",
     showUpload: false,
     previewFileType: "image",
@@ -60,6 +60,8 @@ const init = () => {
   launchScreenLogo();
   menuLogoUrl();
   coverDisplayUrl();
+  appLogoUrl();
+  launchScreenUrl();
   document.querySelector(".section-add").addEventListener("click", addSection);
   document.querySelectorAll(".remove").forEach(el => {
     el.addEventListener("click", removeSection);

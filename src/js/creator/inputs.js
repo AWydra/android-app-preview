@@ -1,3 +1,10 @@
+const isGif = url => {
+  if (url.includes(".gif")) {
+    Swal.fire("Gif images are not supported", "", "error");
+    return true;
+  }
+};
+
 const appName = () => {
   const appName = document.querySelector("#appName");
   appName.addEventListener("input", () => {
@@ -93,6 +100,11 @@ const menuLogoUrl = () => {
 
   input.addEventListener("input", ev => {
     const url = ev.target.value;
+
+    if (isGif(url)) {
+      ev.target.value = "";
+      return;
+    }
     iframe.querySelector(".navigation__img img").src = url;
   });
 
@@ -107,6 +119,11 @@ const coverDisplayUrl = () => {
   );
   input.addEventListener("input", ev => {
     const url = ev.target.value;
+
+    if (isGif(url)) {
+      ev.target.value = "";
+      return;
+    }
     iframe.querySelector(".radio").style.backgroundImage = `url(${url})`;
   });
 
@@ -115,4 +132,30 @@ const coverDisplayUrl = () => {
       input.value
     })`;
   }
+};
+
+const appLogoUrl = () => {
+  const input = document.querySelector('input[type="url"][name="appLogoFile"]');
+  input.addEventListener("input", ev => {
+    const url = ev.target.value;
+
+    if (isGif(url)) {
+      ev.target.value = "";
+      return;
+    }
+  });
+};
+
+const launchScreenUrl = () => {
+  const input = document.querySelector(
+    'input[type="url"][name="launchScreenLogoFile"]'
+  );
+  input.addEventListener("input", ev => {
+    const url = ev.target.value;
+
+    if (isGif(url)) {
+      ev.target.value = "";
+      return;
+    }
+  });
 };
