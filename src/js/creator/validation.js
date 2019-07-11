@@ -16,7 +16,7 @@ const validation = () => {
     .forEach(el => el.classList.remove("bad-validation-img"));
 
   textInputs.forEach(el => {
-    if (!el.checkValidity() || el.value.length == 0) {
+    if (!el.checkValidity() || el.value.length == 0 || el.value.includes('example')) {
       el.classList.add("bad-validation");
     }
   });
@@ -43,7 +43,7 @@ const validation = () => {
 };
 
 const validationListeners = ev => {
-  if (!ev.target.checkValidity() || ev.target.value === 0) {
+  if (!ev.target.checkValidity() || ev.target.value === 0 || ev.target.value.includes('example')) {
     ev.target.classList.add("bad-validation");
   } else {
     ev.target.classList.remove("bad-validation");
