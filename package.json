@@ -23,9 +23,7 @@
     "gulp-clean-css": "^3.9.4",
     "gulp-connect-php": "^1.0.3",
     "gulp-sass": "^4.0.1",
-    "gulp-uglify": "^3.0.0"
-  },
-  "dependencies": {
+    "gulp-uglify": "^3.0.0",
     "gulp-concat": "^2.6.1"
   }
 }
