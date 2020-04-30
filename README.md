@@ -20,7 +20,7 @@ Advanced app creator for company customers. The application allows you to custom
 
 ## Support ⌛
 
-This project is no longer support. I'm going to rewrite it soon to react version.
+This project is no longer supported. I'm going to rewrite it soon to react version.
 
 ## Tech/framework used 🔧
 
@@ -66,7 +66,7 @@ This project is no longer support. I'm going to rewrite it soon to react version
 5. Start the project by running `yarn dev`
 
 ```bash
-git clone https://github.com/AWydra/react-fastcast4u.git
+git clone https://github.com/AWydra/android-app-preview.git
 yarn
 yarn global add gulp-cli
 yarn add gulp --dev
